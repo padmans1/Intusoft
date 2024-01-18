@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "1laEzlhRO7augxUiAc3Va5mvWRJ81dUZ5pJfWEFynv9MDHZE4BeoO0o3Qgh64dHtXpA2iMbQKVncr3uHey5KTQ==",
+  "success": true,
+  "projectFilePath": "D:\\Projects\\IntuSoft_V_4.1.0\\ClassLibrary1\\ClassLibrary1.csproj",
+  "expectedPackageFiles": [
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}

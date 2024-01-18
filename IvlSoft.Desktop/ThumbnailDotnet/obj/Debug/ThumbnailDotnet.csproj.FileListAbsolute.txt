@@ -1,0 +1,10 @@
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\bin\Debug\marlie.TumbnailDotnet.exe
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\bin\Debug\marlie.TumbnailDotnet.pdb
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\ThumbnailDotnet.csprojResolveAssemblyReference.cache
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\marlie.TumbnailDotnet.ImageDialog.resources
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\marlie.TumbnailDotnet.ImageViewer.resources
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\marlie.TumbnailDotnet.MainForm.resources
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\marlie.TumbnailDotnet.Properties.Resources.resources
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\ThumbnailDotnet.csproj.GenerateResource.Cache
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\marlie.TumbnailDotnet.exe
+G:\Downloads\ThumbnailDotnet_demo\ThumbnailDotnet\obj\Debug\marlie.TumbnailDotnet.pdb

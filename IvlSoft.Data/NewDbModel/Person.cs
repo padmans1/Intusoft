@@ -230,12 +230,12 @@ namespace INTUSOFT.Data.NewDbModel
             Spherical = "0";
             Cylindrical = "0";
             Axis = "0";
-            VisualAcuity = "0";
+            VisualAcuity = new VisualAcuityValue();
         }
         public string Spherical{ get; set; }
         public string Cylindrical{ get; set; }
         public string Axis{ get; set; }
-        public string VisualAcuity{ get; set; }
+        public VisualAcuityValue VisualAcuity { get; set; }
     }
     public class RefractionModel
     {

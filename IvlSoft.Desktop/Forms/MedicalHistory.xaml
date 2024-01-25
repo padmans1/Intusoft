@@ -72,32 +72,32 @@
             </TabItem>
             <TabItem Header="Medical History" FontSize="{Binding FontSize}">
                 <StackPanel Margin="-200 0 400 10">
-                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}"  BorderThickness="1" DockPanel.Dock="Left" Margin="0 0 10 10" Width="250">
+                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}"  BorderThickness="1" DockPanel.Dock="Left" Margin="40 0 10 10" Width="250">
                         <StackPanel Orientation="Horizontal" Margin="4">
-                            <CheckBox Content="DM" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.DM.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"  VerticalAlignment="Center" Margin="2 0 17 0"/>
-                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.DM.IsPresent}" Text="{Binding DiseaseHistory.DM.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  PreviewTextInput="NumericOnly" Width="40" Height="40" Padding="10"  Margin="35 0 17 0"/>
-                            <Label Content="Years"  VerticalAlignment="Center" />
+                            <CheckBox Content="DM" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.DM.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}"  VerticalAlignment="Center" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 17 0"/>
+                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.DM.IsPresent}" Text="{Binding MedicalHistory.DiseaseHistory.DM.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="3"  PreviewTextInput="NumericOnly" Width="65" Height="40" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="10 0 17 0"/>
+                            <Label Content="Years"  VerticalAlignment="Center" Margin="-14 0 10 10"/>
                         </StackPanel>
                     </Border>
 
-                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" DockPanel.Dock="Left" Margin="0 0 10 10" Width="250">
+                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" DockPanel.Dock="Left" Margin="40 0 10 10" Width="250">
                         <StackPanel Orientation="Horizontal" Margin="4">
-                            <CheckBox Content="HTN" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.HTN.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="10" Margin="2 0 14 0"/>
-                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.HTN.IsPresent}" Text="{Binding DiseaseHistory.HTN.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  PreviewTextInput="NumericOnly" Width="40" Height="40" Padding="10"  Margin="13 0 15 0"/>
-                            <Label Content="Years"  VerticalAlignment="Center" />
+                            <CheckBox Content="HTN" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.HTN.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="2 0 14 0"/>
+                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.HTN.IsPresent}" Text="{Binding MedicalHistory.DiseaseHistory.HTN.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="3" PreviewTextInput="NumericOnly" Width="70" Height="40" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="3 0 15 0"/>
+                            <Label Content="Years"  VerticalAlignment="Center" Margin="-12 0 10 10" />
                         </StackPanel>
                     </Border>
-                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" DockPanel.Dock="Left" Margin="0 0 10 10" Width="250">
+                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" DockPanel.Dock="Left" Margin="40 0 10 10" Width="250">
                         <StackPanel Orientation="Horizontal" Margin="4">
-                            <CheckBox Content="Astma" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.Asthma.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="10" Margin="4"/>
-                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.Asthma.IsPresent}" Text="{Binding DiseaseHistory.Asthma.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  PreviewTextInput="NumericOnly" Width="40" Height="40" Padding="10"  Margin="3 0 13 0"/>
-                            <Label Content="Years"  VerticalAlignment="Center" HorizontalAlignment="Center" />
+                            <CheckBox Content="Astma" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.Asthma.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="4"/>
+                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.Asthma.IsPresent}" Text="{Binding MedicalHistory.DiseaseHistory.Asthma.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" MaxLength="3"  PreviewTextInput="NumericOnly" Width="70" Height="40" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="-6 0 13 0"/>
+                            <Label Content="Years"  VerticalAlignment="Center" HorizontalAlignment="Center"  Margin="-12 0 10 10"/>
                         </StackPanel>
                     </Border>
-                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" DockPanel.Dock="Left" Margin="250 0 10 10" Width="500">
+                    <Border CornerRadius="3" BorderBrush="{StaticResource PrimaryHueMidBrush}" BorderThickness="1" DockPanel.Dock="Left" Margin="205 0 10 10" Width="410">
                         <StackPanel Orientation="Horizontal" Margin="4">
-                            <CheckBox Content="Others" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.Others.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="10" Margin="4"/>
-                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.Others.IsPresent}" Text="{Binding DiseaseHistory.Others.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Width="350" Height="58" Padding="10"  Margin="3"/>
+                            <CheckBox Content="Others" Style="{StaticResource MaterialDesignDataGridCheckBoxColumnEditingStyle}" IsChecked="{Binding MedicalHistory.DiseaseHistory.Others.IsPresent, UpdateSourceTrigger=PropertyChanged,Mode=TwoWay}" HorizontalAlignment="Center"  VerticalAlignment="Center" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="4"/>
+                            <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" IsEnabled="{Binding MedicalHistory.DiseaseHistory.Others.IsPresent}" Text="{Binding MedicalHistory.DiseaseHistory.Others.Years, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  Width="250" Height="40" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="-10 0 0 0"/>
                         </StackPanel>
                     </Border>
                 </StackPanel>
@@ -128,25 +128,67 @@
                         <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="0 20 0 0" Grid.Column="1"  Grid.Row="1" Style="{StaticResource MaterialDesignOutlinedTextBox}" PreviewTextInput="NumericOnly"  Text="{Binding MedicalHistory.Refraction.RightEye.Spherical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="0 20 0 0" Grid.Column="2"  Grid.Row="1" Style="{StaticResource MaterialDesignOutlinedTextBox}" PreviewTextInput="NumericOnly"  Text="{Binding MedicalHistory.Refraction.RightEye.Cylindrical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="0 20 0 0" Grid.Column="3"  Grid.Row="1" Style="{StaticResource MaterialDesignOutlinedTextBox}" PreviewTextInput="NumericOnly"  Text="{Binding MedicalHistory.Refraction.RightEye.Axis, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                        <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="0 20 0 0" Grid.Column="4"  Grid.Row="1" Style="{StaticResource MaterialDesignOutlinedTextBox}" PreviewTextInput="NumericOnly"  Text="{Binding MedicalHistory.Refraction.RightEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
+                        <!--<TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  Margin="0 20 0 0" Grid.Column="4"  Grid.Row="1" Style="{StaticResource MaterialDesignOutlinedTextBox}" PreviewTextInput="NumericOnly"  Text="{Binding MedicalHistory.Refraction.RightEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />-->
+                    <Grid  Grid.Column="4" Grid.Row="1"  Margin="30 15 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Column="0"  Width="60" Height="40" Margin="4" Text="{Binding MedicalHistory.Refraction.RightEye.VisualAcuity.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
+                        <Label Content=" / " FontSize="40" Padding="10 5 5 0" Margin="4" Grid.Column="1"/>
+                        <TextBox Grid.Column="2" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.Refraction.RightEye.VisualAcuity.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  PreviewTextInput="NumericOnly"/>
+
+                    </Grid>
 
                     <Label Content="Left Eye" HorizontalAlignment="Center"  Grid.Row="2" Grid.Column="0" Padding="10" Margin="0 20 0 0"/>
                         <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="1"  Grid.Row="2" PreviewTextInput="NumericOnly" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding MedicalHistory.Refraction.LeftEye.Spherical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="2"  Grid.Row="2" PreviewTextInput="NumericOnly" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding MedicalHistory.Refraction.LeftEye.Cylindrical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                         <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="3"  Grid.Row="2" PreviewTextInput="NumericOnly" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding MedicalHistory.Refraction.LeftEye.Axis, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
-                        <TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="4"  Grid.Row="2" PreviewTextInput="NumericOnly" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding MedicalHistory.Refraction.LeftEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        <!--<TextBox Height ="40" Width="60" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="4"  Grid.Row="2" PreviewTextInput="NumericOnly" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding MedicalHistory.Refraction.LeftEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
+                    <Grid  Grid.Column="4"  Grid.Row="2"  Margin="30 15 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Column="0"  Width="60" Height="40" Margin="4" Text="{Binding MedicalHistory.Refraction.LeftEye.VisualAcuity.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
+                        <Label Content=" / " FontSize="40" Padding="10 5 5 0" Margin="4" Grid.Column="1"/>
+                        <TextBox Grid.Column="2" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.Refraction.LeftEye.VisualAcuity.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  PreviewTextInput="NumericOnly"/>
 
+                    </Grid>
                     <Label Content="Add Right Eye" HorizontalAlignment="Center" Padding="10" Grid.Row="3" Margin="0 20 0 0"/>
                         <TextBox PreviewTextInput="NumericOnly"  Margin="0 20 0 0" Grid.Column="1"  Grid.Row="3" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddRightEye.Spherical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"/>
                         <TextBox PreviewTextInput="NumericOnly"  Margin="0 20 0 0" Grid.Column="2"  Grid.Row="3" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddRightEye.Cylindrical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"/>
                         <TextBox PreviewTextInput="NumericOnly"  Margin="0 20 0 0" Grid.Column="3"  Grid.Row="3" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddRightEye.Axis, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"/>
-                        <TextBox PreviewTextInput="NumericOnly"  Margin="0 20 0 0" Grid.Column="4"  Grid.Row="3" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddRightEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"/>
+                        <!--<TextBox PreviewTextInput="NumericOnly"  Margin="0 20 0 0" Grid.Column="4"  Grid.Row="3" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddRightEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"/>-->
+                    <Grid  Grid.Column="4"  Grid.Row="3"  Margin="30 15 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Column="0"  Width="60" Height="40" Margin="4" Text="{Binding MedicalHistory.Refraction.AddRightEye.VisualAcuity.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
+                        <Label Content=" / " FontSize="40" Padding="10 5 5 0" Margin="4" Grid.Column="1"/>
+                        <TextBox Grid.Column="2" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.Refraction.AddRightEye.VisualAcuity.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  PreviewTextInput="NumericOnly"/>
 
+                    </Grid>
                     <Label Content="Add Left Eye" HorizontalAlignment="Center" Padding="10" Grid.Row="4" Margin="0 20 0 0"/>
                         <TextBox PreviewTextInput="NumericOnly" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="1"  Grid.Row="4" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddLeftEye.Spherical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         <TextBox PreviewTextInput="NumericOnly" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="2"  Grid.Row="4" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddLeftEye.Cylindrical, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
                         <TextBox PreviewTextInput="NumericOnly" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="3"  Grid.Row="4" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddLeftEye.Axis, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
-                        <TextBox PreviewTextInput="NumericOnly" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="4"  Grid.Row="4" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddLeftEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>
+                        <!--<TextBox PreviewTextInput="NumericOnly" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" Margin="0 20 0 0" Grid.Column="4"  Grid.Row="4" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height ="40" Width="60" Text="{Binding MedicalHistory.Refraction.AddLeftEye.VisualAcuity, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"/>-->
+                    <Grid  Grid.Column="4"  Grid.Row="4"  Margin="30 15 0 0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Column="0"  Width="60" Height="40" Margin="4" Text="{Binding MedicalHistory.Refraction.AddLeftEye.VisualAcuity.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
+                        <Label Content=" / " FontSize="40" Padding="10 5 5 0" Margin="4" Grid.Column="1"/>
+                        <TextBox Grid.Column="2" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.Refraction.AddLeftEye.VisualAcuity.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  PreviewTextInput="NumericOnly"/>
+
+                    </Grid>
                 </Grid>
             </TabItem>
             <TabItem Header="Visual Acuity" FontSize="{Binding FontSize}">
@@ -172,8 +214,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Column="0"  Width="60" Height="40" Margin="4" Text="{Binding MedicalHistory.VisualAcuity.UnAided.RightEyeDetails.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
-                        <Label Content=" / " FontSize="20" Padding="10 5 5 0" Margin="4" Grid.Column="1"/>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Column="0"  Width="60" Height="40" Margin="2 0 0 0" Text="{Binding MedicalHistory.VisualAcuity.UnAided.RightEyeDetails.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
+                        <Label Content=" / " FontSize="40" Padding="10 5 5 0" Margin="4" Grid.Column="1"/>
                         <TextBox Grid.Column="2" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.VisualAcuity.UnAided.RightEyeDetails.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  PreviewTextInput="NumericOnly"/>
 
                     </Grid>
@@ -186,7 +228,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Grid.Column="0" Width="60" Height="40" Margin="4" Text="{Binding MedicalHistory.VisualAcuity.PinHole.RightEyeDetails.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}"  PreviewTextInput="NumericOnly"/>
-                        <Label Content=" / " FontSize="20" Padding="10 5 5 0" Margin="4" Grid.Column="1" />
+                        <Label Content=" / " FontSize="40" Padding="10 5 5 0" Margin="4" Grid.Column="1" />
                         <TextBox Grid.Column="2" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.VisualAcuity.PinHole.RightEyeDetails.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
                     </Grid>
                    
@@ -199,7 +241,7 @@
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
                         <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.VisualAcuity.UnAided.LeftEyeDetails.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
-                        <Label Grid.Column="1" Content=" / " FontSize="20" Padding="10 5 5 0"/>
+                        <Label Grid.Column="1" Content=" / " FontSize="40" Padding="10 5 5 0"/>
                         <TextBox  Grid.Column="2" Style="{StaticResource MaterialDesignOutlinedTextBox}" Width="60" Height="40" Text="{Binding MedicalHistory.VisualAcuity.UnAided.LeftEyeDetails.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
 
                     </Grid>
@@ -209,8 +251,8 @@
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
-                        <TextBox Width="60" Height="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="4" Text="{Binding MedicalHistory.VisualAcuity.PinHole.LeftEyeDetails.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
-                        <Label Grid.Column="1" Content=" / " FontSize="20" Padding="10 5 5 0"/>
+                        <TextBox Width="60" Height="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" Margin="2" Text="{Binding MedicalHistory.VisualAcuity.PinHole.LeftEyeDetails.Numerator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
+                        <Label Grid.Column="1" Content=" / " FontSize="40" Padding="10 5 5 0"/>
                         <TextBox Grid.Column="2" Width="60" Height="40" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding MedicalHistory.VisualAcuity.PinHole.LeftEyeDetails.Denominator, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" Padding="{Binding Margin, UpdateSourceTrigger=PropertyChanged}" PreviewTextInput="NumericOnly"/>
 
                     </Grid>
@@ -275,8 +317,8 @@
                 <StackPanel Orientation="Horizontal">
                     <StackPanel>
                         <Label Content="Right Eye" FontWeight="Bold" HorizontalAlignment="Center" VerticalContentAlignment ="Center"/>
-                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.RightEye.ASValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Center" TextWrapping="Wrap" Margin="4" Height="200" Width="400"/>
-                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.RightEye.PSValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Center" TextWrapping="Wrap" Margin="4" Height="200" Width="400"/>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" TextWrapping="Wrap" AcceptsReturn="True" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.RightEye.ASValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Center" Margin="4" Height="200" Width="400"/>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" TextWrapping="Wrap" AcceptsReturn="True" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.RightEye.PSValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"  HorizontalAlignment="Center" Margin="4" Height="200" Width="400"/>
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
                         <Label Content="Left Eye" FontWeight="Bold" HorizontalAlignment="Center" VerticalContentAlignment ="Center"/>

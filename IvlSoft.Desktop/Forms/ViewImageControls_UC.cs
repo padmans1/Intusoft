@@ -38,6 +38,9 @@ using System.Text.RegularExpressions;
 using NLog;
 using NLog.Config;
 using NLog.Targets;
+using Newtonsoft.Json;
+using ReportUtils;
+using RestSharp;
 
 namespace INTUSOFT.Desktop.Forms
 {
@@ -125,7 +128,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
 
             string zoomIncreaseLogoImage = IVLVariables.appDirPathName + @"ImageResources\ImageToolsResources\zoomIn.png";
             string zoomDecreaseLogoImage = IVLVariables.appDirPathName + @"ImageResources\ImageToolsResources\zoomOut.png";
-            string saveAsLogoPath = IVLVariables.appDirPathName + @"ImageResources\Edit_ImageResources\Save-As Icon.png";
+            string uploadLogoPath = IVLVariables.appDirPathName + @"ImageResources\CloudImageResources\Export2Cloud.png";
             string saveLogoPath = IVLVariables.appDirPathName + @"ImageResources\Edit_ImageResources\SaveIcon.png";
             string exportLogoPath = IVLVariables.appDirPathName + @"ImageResources\Edit_ImageResources\Export_Image_Square.png";
 
@@ -179,8 +182,8 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
                 increaseZoom_btn.Image = Image.FromFile(zoomIncreaseLogoImage);
             if (File.Exists(zoomDecreaseLogoImage))
                 decreseZoom_btn.Image = Image.FromFile(zoomDecreaseLogoImage);
-            if (File.Exists(saveAsLogoPath))
-                saveAs_btn.Image = Image.FromFile(saveAsLogoPath);
+            if (File.Exists(uploadLogoPath))
+                Upload_btn.Image = Image.FromFile(uploadLogoPath);
             if (File.Exists(saveLogoPath))
                 save_btn.Image = Image.FromFile(saveLogoPath);
             if (File.Exists(exportLogoPath))
@@ -217,10 +220,12 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             }
            // Reports_dgv.Enabled = !IVLVariables.isCommandLineAppLaunch;
            // file_lbl.Enabled = !IVLVariables.isCommandLineAppLaunch;
+           //Upload_btn.Text = (INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.AI_Vendor_Button_Text.val);
+
         }
 
 
-        
+
 
         #region public methods
 
@@ -291,7 +296,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             {
                 showRedChannel_btn.Size = showGreenChannel_btn.Size = showBlueChannel_btn.Size = new Size(90, 50);
                 newReport_btn.Size = newAnnotation_btn.Size = glaucomaTool_btn.Size = new Size(90, 70);
-                save_btn.Size = saveAs_btn.Size = exportImages_btn.Size = new Size(80, 80);
+                save_btn.Size = Upload_btn.Size = exportImages_btn.Size = new Size(80, 80);
                 decreaseBrightness_btn.Size = decreaseContrast_tbn.Size = decreseZoom_btn.Size = increaseBrightness_btn.Size = increaseContrast_btn.Size = increaseZoom_btn.Size = new Size(40, 40);
                 toolStrip3.ImageScalingSize = new Size(50, 50);
                 newReport_btn.Margin = newAnnotation_btn.Margin = new System.Windows.Forms.Padding(7, 1, 0, 2);
@@ -303,7 +308,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             else if (Screen.PrimaryScreen.Bounds.Width == 1366)
             {
                 showRedChannel_btn.Size = showGreenChannel_btn.Size = showBlueChannel_btn.Size = new Size(52, 47);
-                save_btn.Size = saveAs_btn.Size = exportImages_btn.Size = new Size(50,60);
+                save_btn.Size = Upload_btn.Size = exportImages_btn.Size = new Size(50,60);
                 decreaseBrightnessToolStrip.ImageScalingSize = new Size(24, 24);
                 decreaseContrastToolStrip.ImageScalingSize = new Size(24, 24);
                 decreaseZoomToolStrip.ImageScalingSize = new Size(24, 24);
@@ -316,7 +321,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             else if (Screen.PrimaryScreen.Bounds.Width == 1280)
             {
                 showRedChannel_btn.Size = showGreenChannel_btn.Size = showBlueChannel_btn.Size =
-                     save_btn.Size = saveAs_btn.Size = exportImages_btn.Size = new Size(32, 20);
+                     save_btn.Size = Upload_btn.Size = exportImages_btn.Size = new Size(32, 20);
             }
         }
 
@@ -986,7 +991,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             leftSide_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._RightLeftVisble.val);
             changeEyeSide_lbl.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._RightLeftVisble.val);
             save_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._SaveFunctionVisble.val);
-            saveAs_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._SaveAsFunctionVisble.val);
+            Upload_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._SaveAsFunctionVisble.val);
             exportImages_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._ExportFunctionVisble.val);
             brightness_lbl.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._BrightnessFunctionVisble.val);
             brightness_rb.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._BrightnessFunctionVisble.val);
@@ -1079,13 +1084,13 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
 
 
             save_btn.Text = IVLVariables.LangResourceManager.GetString("ImageViewer_Save_Button_Text", IVLVariables.LangResourceCultureInfo);
-            saveAs_btn.Text = IVLVariables.LangResourceManager.GetString("ImageViewer_SaveAs_Button_Text", IVLVariables.LangResourceCultureInfo);
+            Upload_btn.Text = IVLVariables.LangResourceManager.GetString("ImageViewer_Upload_Button_Text", IVLVariables.LangResourceCultureInfo);
             exportImages_btn.Text = IVLVariables.LangResourceManager.GetString("ImageViewer_ExportImages_Button_Text", IVLVariables.LangResourceCultureInfo);
 
 
 
             save_btn.ToolTipText = IVLVariables.LangResourceManager.GetString("ViewImageSave_Button_ToolTipText", IVLVariables.LangResourceCultureInfo);
-            saveAs_btn.ToolTipText = IVLVariables.LangResourceManager.GetString("ViewImageSaveAs_Button_ToolTipText", IVLVariables.LangResourceCultureInfo);
+            Upload_btn.ToolTipText = IVLVariables.LangResourceManager.GetString("ViewImageUpload_Button_ToolTipText", IVLVariables.LangResourceCultureInfo);
             exportImages_btn.ToolTipText = IVLVariables.LangResourceManager.GetString("ViewImageExportImages_Button_ToolTipText", IVLVariables.LangResourceCultureInfo);
             #endregion
 
@@ -2159,21 +2164,15 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void saveAs_btn_Click(object sender, EventArgs e)
+        private void Upload_btn_Click(object sender, EventArgs e)
         {
             {
                 IVLVariables.ivl_Camera.TriggerOff();
-                string path = string.Empty;
-                if (Convert.ToBoolean(IVLVariables.CurrentSettings.ImageStorageSettings.IsMrnFolder.val))
-                    path = IVLVariables.CurrentSettings.ImageStorageSettings._LocalProcessedImagePath.val.ToString() + Path.DirectorySeparatorChar + NewDataVariables.Active_PatientIdentifier.value + Path.DirectorySeparatorChar + NewDataVariables.Active_Visit.createdDate.Date.ToString("dd_MM_yyyy");
-                else
-                    path = IVLVariables.CurrentSettings.ImageStorageSettings._LocalProcessedImagePath.val.ToString();
-                if (!noImageSelected_lbl.Visible && File.Exists(path + Path.DirectorySeparatorChar + NewDataVariables.Active_Obs.value))
                 {
                     noofimages();
-                    if (images.Length > 1)
+                    if (images.Length >=1)
                     {
-                        CustomMessageBox.Show(IVLVariables.LangResourceManager.GetString("AnnotationNo_Images", IVLVariables.LangResourceCultureInfo), IVLVariables.LangResourceManager.GetString("SaveAs_Text", IVLVariables.LangResourceCultureInfo), CustomMessageBoxIcon.Warning);
+                        uploadReportRequest(createJsonFile());
                     }
                     else
                     {
@@ -3688,6 +3687,85 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             //SplitScreen ss = new SplitScreen();
             
             //ss.ShowDialog();
+        }
+
+
+        private void uploadReportRequest(string jsonData)
+        {
+            RestRequest request = new RestRequest(IVLVariables.CurrentSettings.ReportSettings.ApiRequestType.val , Method.Post);
+            request.AddBody(jsonData);
+            var restClient = new RestClient();
+            RestResponse response = restClient.ExecuteAsync(request).Result;
+            var result = JsonConvert.DeserializeObject<ResponseDTO>(response.Content);
+            //_EmailSent($"Upload {result.message}", new EventArgs());
+            CustomMessageBox.Show(result.message, "Information", CustomMessageBoxButtons.OK, CustomMessageBoxIcon.Information);
+            Console.WriteLine(response.Content);
+        }
+
+         
+        private string createJsonFile()
+        {
+            getReportDetails();
+
+            var names = reportDic["$ImageNames"] as string[];
+            var filepaths = reportDic["$CurrentImageFiles"] as string[];
+            for (int i = 0; i < images.Length; i++)
+            {
+                ImageInfo info = new ImageInfo();
+                info.Id = "image" + (i + 1);
+                FileInfo finf = new FileInfo(filepaths[i]);
+                info.ImageData = getBase64String(finf.FullName);
+
+                if (names[i].Contains("OS"))
+                    info.Metadata = "left image, png";
+                else
+                    info.Metadata = "right image, png";
+                Payload.Add(info);
+
+            }
+
+            var patientData = getPatientInfo();
+            patientData.Add("Payload", Payload);
+
+            return JsonConvert.SerializeObject(patientData, Newtonsoft.Json.Formatting.Indented);
+
+        }
+        public List<ImageInfo> Payload = new List<ImageInfo>();
+
+        private Dictionary<string, object> getPatientInfo()
+        {
+            Dictionary<string, object> jDict = new Dictionary<string, object>();
+            jDict.Add("OrganaizationId", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.ImagingCenterId.val);//from settings
+            jDict.Add("OperatorId", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.UserName.val);//from settings
+            jDict.Add("PatientId",(string) reportDic["$MRN"]);
+            jDict.Add("VisitId", (NewDataVariables.GetCurrentPat().visits.ToList().IndexOf(NewDataVariables.Active_Visit) + 1).ToString());
+            jDict.Add("VisitDate", NewDataVariables.Active_Visit.createdDate.ToString("dd-MM-yyyy HH:mm:ss"));
+            jDict.Add("Address1", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.Address1.val);
+            jDict.Add("Address2", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.Address2.val);
+            jDict.Add("PatientName", (string)reportDic["$Name"]);
+            jDict.Add("Age", Convert.ToInt32(reportDic["$Age"]));
+            jDict.Add("Gender", (string)reportDic["$Gender"]);
+            jDict.Add("Phone", Convert.ToInt32(string.IsNullOrEmpty((string)reportDic["$PhoneNumber"])?"0" : reportDic["$PhoneNumber"]));
+            jDict.Add("ClinicalHistory", NewDataVariables.Active_Visit.medicalHistory.GetMedicalHistory());
+            jDict.Add("DoctorName", (string)reportDic["$Doctor"]);
+            jDict.Add("ReportTitle", (string)reportDic["$NameOfTheReport"]);
+            jDict.Add("HospitalName", (string)reportDic["$HospitalName"]);
+            jDict.Add("ScreeningCenter", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.ImagingCenter.val);//from settings
+
+            //more fields can be added if required
+
+            return jDict;
+        }
+        private string getBase64String(string imageFile)
+        {
+            Bitmap bmp = new Bitmap(imageFile);
+            MemoryStream ms = new MemoryStream();
+            bmp.Save(ms, ImageFormat.Jpeg);
+            byte[] byteImage = ms.ToArray();
+            var base64Str = Convert.ToBase64String(byteImage);
+            ms.Dispose();
+            bmp.Dispose();
+            return base64Str;
         }
     }
 }

@@ -79,7 +79,7 @@
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.save_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.saveAs_btn = new System.Windows.Forms.ToolStripButton();
+            this.Upload_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.exportImages_btn = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
@@ -765,7 +765,7 @@
             this.toolStripSeparator6,
             this.save_btn,
             this.toolStripSeparator7,
-            this.saveAs_btn,
+            this.Upload_btn,
             this.toolStripSeparator8,
             this.exportImages_btn,
             this.toolStripSeparator9});
@@ -798,18 +798,18 @@
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 81);
             // 
-            // saveAs_btn
+            // Upload_btn
             // 
-            this.saveAs_btn.AutoSize = false;
-            this.saveAs_btn.Image = ((System.Drawing.Image)(resources.GetObject("saveAs_btn.Image")));
-            this.saveAs_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveAs_btn.Margin = new System.Windows.Forms.Padding(10, 1, 0, 2);
-            this.saveAs_btn.Name = "saveAs_btn";
-            this.saveAs_btn.Size = new System.Drawing.Size(50, 50);
-            this.saveAs_btn.Text = "SaveAs";
-            this.saveAs_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.saveAs_btn.ToolTipText = "Save Image As";
-            this.saveAs_btn.Click += new System.EventHandler(this.saveAs_btn_Click);
+            this.Upload_btn.AutoSize = false;
+            this.Upload_btn.Image = ((System.Drawing.Image)(resources.GetObject("Upload_btn.Image")));
+            this.Upload_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.Upload_btn.Margin = new System.Windows.Forms.Padding(10, 5, 0, 8);
+            this.Upload_btn.Name = "Upload_btn";
+            this.Upload_btn.Size = new System.Drawing.Size(50, 50);
+            this.Upload_btn.Text = "Upload";
+            this.Upload_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Upload_btn.ToolTipText = " Upload";
+            this.Upload_btn.Click += new System.EventHandler(this.Upload_btn_Click);
             // 
             // toolStripSeparator8
             // 
@@ -1149,7 +1149,7 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton save_btn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton saveAs_btn;
+        private System.Windows.Forms.ToolStripButton Upload_btn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripButton exportImages_btn;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;

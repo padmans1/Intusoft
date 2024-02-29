@@ -137,17 +137,19 @@
             // 
             this.PatientDetails_panel.Controls.Add(this.PatientsGroupBox_p);
             this.PatientDetails_panel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PatientDetails_panel.Location = new System.Drawing.Point(0, 207);
+            this.PatientDetails_panel.Location = new System.Drawing.Point(0, 255);
+            this.PatientDetails_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatientDetails_panel.Name = "PatientDetails_panel";
-            this.PatientDetails_panel.Size = new System.Drawing.Size(564, 511);
+            this.PatientDetails_panel.Size = new System.Drawing.Size(751, 628);
             this.PatientDetails_panel.TabIndex = 2009;
             // 
             // PatientsGroupBox_p
             // 
             this.PatientsGroupBox_p.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientsGroupBox_p.Location = new System.Drawing.Point(0, 0);
+            this.PatientsGroupBox_p.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatientsGroupBox_p.Name = "PatientsGroupBox_p";
-            this.PatientsGroupBox_p.Size = new System.Drawing.Size(564, 511);
+            this.PatientsGroupBox_p.Size = new System.Drawing.Size(751, 628);
             this.PatientsGroupBox_p.TabIndex = 28;
             this.PatientsGroupBox_p.Paint += new System.Windows.Forms.PaintEventHandler(this.PatientsGroupBox_p_Paint);
             // 
@@ -159,8 +161,10 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(564, 207);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(751, 255);
             this.groupBox1.TabIndex = 2008;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search";
@@ -185,7 +189,8 @@
             this.tableLayoutPanel3.Controls.Add(this.panel3, 1, 4);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.ForeColor = System.Drawing.Color.Khaki;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 25);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 31);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -194,16 +199,17 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(558, 179);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(743, 220);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // panel11
             // 
             this.panel11.Controls.Add(this.PatEditGender_cmbx);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel11.Location = new System.Drawing.Point(196, 90);
+            this.panel11.Location = new System.Drawing.Point(262, 112);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(359, 23);
+            this.panel11.Size = new System.Drawing.Size(477, 28);
             this.panel11.TabIndex = 4;
             // 
             // PatEditGender_cmbx
@@ -213,8 +219,9 @@
             this.PatEditGender_cmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatEditGender_cmbx.FormattingEnabled = true;
             this.PatEditGender_cmbx.Location = new System.Drawing.Point(0, 0);
+            this.PatEditGender_cmbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatEditGender_cmbx.Name = "PatEditGender_cmbx";
-            this.PatEditGender_cmbx.Size = new System.Drawing.Size(257, 26);
+            this.PatEditGender_cmbx.Size = new System.Drawing.Size(341, 32);
             this.PatEditGender_cmbx.TabIndex = 4;
             this.PatEditGender_cmbx.SelectedIndexChanged += new System.EventHandler(this.PatEditGender_cmbx_SelectedIndexChanged);
             // 
@@ -223,15 +230,16 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.0297F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.970297F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 182F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel4.Controls.Add(this.ResetSearch_linklbl, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(196, 148);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(262, 184);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(359, 28);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(477, 32);
             this.tableLayoutPanel4.TabIndex = 2013;
             // 
             // ResetSearch_linklbl
@@ -240,9 +248,10 @@
             this.ResetSearch_linklbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ResetSearch_linklbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetSearch_linklbl.LinkColor = System.Drawing.Color.Aqua;
-            this.ResetSearch_linklbl.Location = new System.Drawing.Point(3, 0);
+            this.ResetSearch_linklbl.Location = new System.Drawing.Point(4, 0);
+            this.ResetSearch_linklbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ResetSearch_linklbl.Name = "ResetSearch_linklbl";
-            this.ResetSearch_linklbl.Size = new System.Drawing.Size(165, 28);
+            this.ResetSearch_linklbl.Size = new System.Drawing.Size(218, 32);
             this.ResetSearch_linklbl.TabIndex = 1;
             this.ResetSearch_linklbl.TabStop = true;
             this.ResetSearch_linklbl.Text = "linkLabel1";
@@ -252,9 +261,10 @@
             // 
             this.panel10.Controls.Add(this.gender_lbl);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel10.Location = new System.Drawing.Point(3, 90);
+            this.panel10.Location = new System.Drawing.Point(4, 112);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(187, 23);
+            this.panel10.Size = new System.Drawing.Size(250, 28);
             this.panel10.TabIndex = 2011;
             // 
             // gender_lbl
@@ -264,8 +274,9 @@
             this.gender_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.gender_lbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.gender_lbl.Location = new System.Drawing.Point(0, 0);
+            this.gender_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.gender_lbl.Name = "gender_lbl";
-            this.gender_lbl.Size = new System.Drawing.Size(63, 18);
+            this.gender_lbl.Size = new System.Drawing.Size(80, 24);
             this.gender_lbl.TabIndex = 2006;
             this.gender_lbl.Text = "Gender";
             // 
@@ -273,9 +284,10 @@
             // 
             this.panel9.Controls.Add(this.PatSearchLastName_tbx);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel9.Location = new System.Drawing.Point(196, 61);
+            this.panel9.Location = new System.Drawing.Point(262, 76);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(359, 23);
+            this.panel9.Size = new System.Drawing.Size(477, 28);
             this.panel9.TabIndex = 3;
             // 
             // PatSearchLastName_tbx
@@ -285,8 +297,9 @@
             this.PatSearchLastName_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.PatSearchLastName_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatSearchLastName_tbx.Location = new System.Drawing.Point(0, 0);
+            this.PatSearchLastName_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatSearchLastName_tbx.Name = "PatSearchLastName_tbx";
-            this.PatSearchLastName_tbx.Size = new System.Drawing.Size(257, 24);
+            this.PatSearchLastName_tbx.Size = new System.Drawing.Size(342, 29);
             this.PatSearchLastName_tbx.TabIndex = 3;
             this.PatSearchLastName_tbx.TextChanged += new System.EventHandler(this.PatEditLastName_tbx_TextChanged);
             this.PatSearchLastName_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PatEditLastName_tbx_keyPress);
@@ -295,9 +308,10 @@
             // 
             this.panel8.Controls.Add(this.lastName_lbl);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel8.Location = new System.Drawing.Point(3, 61);
+            this.panel8.Location = new System.Drawing.Point(4, 76);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(187, 23);
+            this.panel8.Size = new System.Drawing.Size(250, 28);
             this.panel8.TabIndex = 2012;
             // 
             // lastName_lbl
@@ -307,8 +321,9 @@
             this.lastName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.lastName_lbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.lastName_lbl.Location = new System.Drawing.Point(0, 0);
+            this.lastName_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lastName_lbl.Name = "lastName_lbl";
-            this.lastName_lbl.Size = new System.Drawing.Size(89, 18);
+            this.lastName_lbl.Size = new System.Drawing.Size(108, 24);
             this.lastName_lbl.TabIndex = 2004;
             this.lastName_lbl.Text = "Last Name";
             // 
@@ -316,9 +331,10 @@
             // 
             this.panel7.Controls.Add(this.PatSearchFirstName_tbx);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(196, 32);
+            this.panel7.Location = new System.Drawing.Point(262, 40);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(359, 23);
+            this.panel7.Size = new System.Drawing.Size(477, 28);
             this.panel7.TabIndex = 2;
             // 
             // PatSearchFirstName_tbx
@@ -329,8 +345,9 @@
             this.PatSearchFirstName_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.PatSearchFirstName_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatSearchFirstName_tbx.Location = new System.Drawing.Point(0, 0);
+            this.PatSearchFirstName_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatSearchFirstName_tbx.Name = "PatSearchFirstName_tbx";
-            this.PatSearchFirstName_tbx.Size = new System.Drawing.Size(257, 24);
+            this.PatSearchFirstName_tbx.Size = new System.Drawing.Size(342, 29);
             this.PatSearchFirstName_tbx.TabIndex = 2;
             this.PatSearchFirstName_tbx.TextChanged += new System.EventHandler(this.PatEditFirstName_tbx_TextChanged);
             this.PatSearchFirstName_tbx.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PatEditFirstName_tbx_KeyPress);
@@ -339,9 +356,10 @@
             // 
             this.panel6.Controls.Add(this.firstName_lbl);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(3, 32);
+            this.panel6.Location = new System.Drawing.Point(4, 40);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(187, 23);
+            this.panel6.Size = new System.Drawing.Size(250, 28);
             this.panel6.TabIndex = 2010;
             // 
             // firstName_lbl
@@ -351,8 +369,9 @@
             this.firstName_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.firstName_lbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.firstName_lbl.Location = new System.Drawing.Point(0, 0);
+            this.firstName_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.firstName_lbl.Name = "firstName_lbl";
-            this.firstName_lbl.Size = new System.Drawing.Size(91, 18);
+            this.firstName_lbl.Size = new System.Drawing.Size(111, 24);
             this.firstName_lbl.TabIndex = 2002;
             this.firstName_lbl.Text = "First Name";
             // 
@@ -360,9 +379,10 @@
             // 
             this.panel5.Controls.Add(this.PatSearchMrn_tbx);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(196, 3);
+            this.panel5.Location = new System.Drawing.Point(262, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(359, 23);
+            this.panel5.Size = new System.Drawing.Size(477, 28);
             this.panel5.TabIndex = 1;
             // 
             // PatSearchMrn_tbx
@@ -372,9 +392,10 @@
             this.PatSearchMrn_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.PatSearchMrn_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatSearchMrn_tbx.Location = new System.Drawing.Point(0, 0);
+            this.PatSearchMrn_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatSearchMrn_tbx.MaxLength = 25;
             this.PatSearchMrn_tbx.Name = "PatSearchMrn_tbx";
-            this.PatSearchMrn_tbx.Size = new System.Drawing.Size(257, 24);
+            this.PatSearchMrn_tbx.Size = new System.Drawing.Size(342, 29);
             this.PatSearchMrn_tbx.TabIndex = 1;
             this.PatSearchMrn_tbx.TextChanged += new System.EventHandler(this.PatEditMrn_tbx_TextChanged);
             // 
@@ -382,9 +403,10 @@
             // 
             this.panel4.Controls.Add(this.mrn_lbl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 3);
+            this.panel4.Location = new System.Drawing.Point(4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(187, 23);
+            this.panel4.Size = new System.Drawing.Size(250, 28);
             this.panel4.TabIndex = 2001;
             // 
             // mrn_lbl
@@ -394,8 +416,9 @@
             this.mrn_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.mrn_lbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.mrn_lbl.Location = new System.Drawing.Point(0, 0);
+            this.mrn_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.mrn_lbl.Name = "mrn_lbl";
-            this.mrn_lbl.Size = new System.Drawing.Size(46, 18);
+            this.mrn_lbl.Size = new System.Drawing.Size(56, 24);
             this.mrn_lbl.TabIndex = 2000;
             this.mrn_lbl.Text = "MRN";
             this.mrn_lbl.MouseHover += new System.EventHandler(this.mrn_lbl_MouseHover);
@@ -404,9 +427,10 @@
             // 
             this.panel12.Controls.Add(this.AdvanceSearch_linklbl);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel12.Location = new System.Drawing.Point(3, 148);
+            this.panel12.Location = new System.Drawing.Point(4, 184);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(187, 28);
+            this.panel12.Size = new System.Drawing.Size(250, 32);
             this.panel12.TabIndex = 2014;
             // 
             // AdvanceSearch_linklbl
@@ -416,8 +440,9 @@
             this.AdvanceSearch_linklbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AdvanceSearch_linklbl.LinkColor = System.Drawing.Color.Aqua;
             this.AdvanceSearch_linklbl.Location = new System.Drawing.Point(0, 0);
+            this.AdvanceSearch_linklbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.AdvanceSearch_linklbl.Name = "AdvanceSearch_linklbl";
-            this.AdvanceSearch_linklbl.Size = new System.Drawing.Size(72, 17);
+            this.AdvanceSearch_linklbl.Size = new System.Drawing.Size(91, 22);
             this.AdvanceSearch_linklbl.TabIndex = 0;
             this.AdvanceSearch_linklbl.TabStop = true;
             this.AdvanceSearch_linklbl.Text = "linkLabel1";
@@ -427,9 +452,10 @@
             // 
             this.panel2.Controls.Add(this.diagnosis_lbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(3, 119);
+            this.panel2.Location = new System.Drawing.Point(4, 148);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(187, 23);
+            this.panel2.Size = new System.Drawing.Size(250, 28);
             this.panel2.TabIndex = 2015;
             // 
             // diagnosis_lbl
@@ -439,8 +465,9 @@
             this.diagnosis_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold);
             this.diagnosis_lbl.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.diagnosis_lbl.Location = new System.Drawing.Point(0, 0);
+            this.diagnosis_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.diagnosis_lbl.Name = "diagnosis_lbl";
-            this.diagnosis_lbl.Size = new System.Drawing.Size(52, 18);
+            this.diagnosis_lbl.Size = new System.Drawing.Size(66, 24);
             this.diagnosis_lbl.TabIndex = 0;
             this.diagnosis_lbl.Text = "label1";
             // 
@@ -448,9 +475,10 @@
             // 
             this.panel3.Controls.Add(this.diagnosis_tbx);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(196, 119);
+            this.panel3.Location = new System.Drawing.Point(262, 148);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(359, 23);
+            this.panel3.Size = new System.Drawing.Size(477, 28);
             this.panel3.TabIndex = 2016;
             // 
             // diagnosis_tbx
@@ -458,8 +486,9 @@
             this.diagnosis_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.diagnosis_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.diagnosis_tbx.Location = new System.Drawing.Point(0, 0);
+            this.diagnosis_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.diagnosis_tbx.Name = "diagnosis_tbx";
-            this.diagnosis_tbx.Size = new System.Drawing.Size(257, 24);
+            this.diagnosis_tbx.Size = new System.Drawing.Size(341, 29);
             this.diagnosis_tbx.TabIndex = 0;
             this.diagnosis_tbx.TextChanged += new System.EventHandler(this.diagnosis_tbx_TextChanged);
             // 
@@ -473,19 +502,20 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 724F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1180, 724);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 891F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1573, 891);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // panel1
@@ -493,9 +523,10 @@
             this.panel1.Controls.Add(this.PatientDetails_panel);
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(613, 3);
+            this.panel1.Location = new System.Drawing.Point(818, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(564, 718);
+            this.panel1.Size = new System.Drawing.Size(751, 883);
             this.panel1.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -507,7 +538,8 @@
             this.tableLayoutPanel2.Controls.Add(this.visitsView_dgv, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.02785F));
@@ -515,7 +547,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.331476F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 23.39833F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 9.331476F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(604, 718);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(806, 883);
             this.tableLayoutPanel2.TabIndex = 5;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
             // 
@@ -526,9 +558,10 @@
             this.PatientControls_p.Controls.Add(this.PatientCRUD_ts);
             this.PatientControls_p.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientControls_p.ForeColor = System.Drawing.Color.White;
-            this.PatientControls_p.Location = new System.Drawing.Point(3, 3);
+            this.PatientControls_p.Location = new System.Drawing.Point(4, 4);
+            this.PatientControls_p.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PatientControls_p.Name = "PatientControls_p";
-            this.PatientControls_p.Size = new System.Drawing.Size(598, 65);
+            this.PatientControls_p.Size = new System.Drawing.Size(798, 80);
             this.PatientControls_p.TabIndex = 153;
             this.PatientControls_p.Resize += new System.EventHandler(this.PatientControls_p_Resize);
             // 
@@ -545,7 +578,7 @@
             this.AllPatients_ts.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.AllPatients_ts.Location = new System.Drawing.Point(0, 0);
             this.AllPatients_ts.Name = "AllPatients_ts";
-            this.AllPatients_ts.Size = new System.Drawing.Size(241, 65);
+            this.AllPatients_ts.Size = new System.Drawing.Size(321, 80);
             this.AllPatients_ts.TabIndex = 155;
             this.AllPatients_ts.Text = "toolStrip1";
             // 
@@ -565,7 +598,7 @@
             this.allPatient_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F, System.Drawing.FontStyle.Bold);
             this.allPatient_lbl.ForeColor = System.Drawing.Color.Black;
             this.allPatient_lbl.Name = "allPatient_lbl";
-            this.allPatient_lbl.Size = new System.Drawing.Size(83, 62);
+            this.allPatient_lbl.Size = new System.Drawing.Size(99, 77);
             this.allPatient_lbl.Text = "Patients";
             // 
             // PatientCRUD_ts
@@ -578,13 +611,12 @@
             this.PatientCRUD_ts.ImageScalingSize = new System.Drawing.Size(40, 40);
             this.PatientCRUD_ts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.CreatePatient_btn,
-            this.Update_btn,
-            this.DeletePat_btn});
+            this.Update_btn});
             this.PatientCRUD_ts.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.PatientCRUD_ts.Location = new System.Drawing.Point(350, 0);
+            this.PatientCRUD_ts.Location = new System.Drawing.Point(467, 0);
             this.PatientCRUD_ts.Name = "PatientCRUD_ts";
             this.PatientCRUD_ts.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.PatientCRUD_ts.Size = new System.Drawing.Size(248, 65);
+            this.PatientCRUD_ts.Size = new System.Drawing.Size(331, 80);
             this.PatientCRUD_ts.TabIndex = 154;
             this.PatientCRUD_ts.Text = "toolStrip1";
             // 
@@ -612,27 +644,16 @@
             this.Update_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Update_btn.Click += new System.EventHandler(this.Update_btn_Click);
             // 
-            // DeletePat_btn
-            // 
-            this.DeletePat_btn.AutoSize = false;
-            this.DeletePat_btn.ForeColor = System.Drawing.Color.Black;
-            this.DeletePat_btn.Image = ((System.Drawing.Image)(resources.GetObject("DeletePat_btn.Image")));
-            this.DeletePat_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.DeletePat_btn.Name = "DeletePat_btn";
-            this.DeletePat_btn.Size = new System.Drawing.Size(70, 58);
-            this.DeletePat_btn.Text = "Delete";
-            this.DeletePat_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.DeletePat_btn.Click += new System.EventHandler(this.DeletePat_btn_Click);
-            // 
             // Consultation_p
             // 
             this.Consultation_p.BackColor = System.Drawing.Color.Transparent;
             this.Consultation_p.Controls.Add(this.tableLayoutPanel7);
             this.Consultation_p.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Consultation_p.ForeColor = System.Drawing.Color.White;
-            this.Consultation_p.Location = new System.Drawing.Point(3, 420);
+            this.Consultation_p.Location = new System.Drawing.Point(4, 517);
+            this.Consultation_p.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Consultation_p.Name = "Consultation_p";
-            this.Consultation_p.Size = new System.Drawing.Size(598, 60);
+            this.Consultation_p.Size = new System.Drawing.Size(798, 73);
             this.Consultation_p.TabIndex = 152;
             this.Consultation_p.Resize += new System.EventHandler(this.Consultation_p_Resize);
             // 
@@ -645,10 +666,11 @@
             this.tableLayoutPanel7.Controls.Add(this.Visits_ts, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(598, 60);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(798, 73);
             this.tableLayoutPanel7.TabIndex = 0;
             // 
             // Consultation_ts
@@ -664,9 +686,9 @@
             this.ViewImages_btn,
             this.DeleteConsultation_btn});
             this.Consultation_ts.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.Consultation_ts.Location = new System.Drawing.Point(239, 0);
+            this.Consultation_ts.Location = new System.Drawing.Point(319, 0);
             this.Consultation_ts.Name = "Consultation_ts";
-            this.Consultation_ts.Size = new System.Drawing.Size(359, 60);
+            this.Consultation_ts.Size = new System.Drawing.Size(479, 73);
             this.Consultation_ts.TabIndex = 153;
             this.Consultation_ts.Text = "toolStrip1";
             // 
@@ -726,12 +748,13 @@
             this.Visits_ts.BackColor = System.Drawing.Color.Transparent;
             this.Visits_ts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Visits_ts.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.Visits_ts.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.Visits_ts.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.Visits_lbl});
             this.Visits_ts.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.Visits_ts.Location = new System.Drawing.Point(0, 0);
             this.Visits_ts.Name = "Visits_ts";
-            this.Visits_ts.Size = new System.Drawing.Size(239, 60);
+            this.Visits_ts.Size = new System.Drawing.Size(319, 73);
             this.Visits_ts.TabIndex = 154;
             this.Visits_ts.Text = "toolStrip1";
             // 
@@ -762,13 +785,15 @@
             this.visitsView_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.visitsView_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.visitsView_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.visitsView_dgv.Location = new System.Drawing.Point(3, 486);
+            this.visitsView_dgv.Location = new System.Drawing.Point(4, 598);
+            this.visitsView_dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.visitsView_dgv.MultiSelect = false;
             this.visitsView_dgv.Name = "visitsView_dgv";
             this.visitsView_dgv.ReadOnly = true;
             this.visitsView_dgv.RowHeadersVisible = false;
+            this.visitsView_dgv.RowHeadersWidth = 51;
             this.visitsView_dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.visitsView_dgv.Size = new System.Drawing.Size(598, 161);
+            this.visitsView_dgv.Size = new System.Drawing.Size(798, 197);
             this.visitsView_dgv.TabIndex = 156;
             this.visitsView_dgv.TabStop = false;
             this.visitsView_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.visitsView_dgv_CellClick);
@@ -784,13 +809,14 @@
             this.tableLayoutPanel5.Controls.Add(this.patGridView_dgv, 0, 0);
             this.tableLayoutPanel5.Controls.Add(this.PageNumber_Tlp, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 74);
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(4, 92);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.47059F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.52941F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(598, 340);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(798, 417);
             this.tableLayoutPanel5.TabIndex = 157;
             // 
             // patGridView_dgv
@@ -811,14 +837,16 @@
             this.patGridView_dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.patGridView_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patGridView_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.patGridView_dgv.Location = new System.Drawing.Point(3, 3);
+            this.patGridView_dgv.Location = new System.Drawing.Point(4, 4);
+            this.patGridView_dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.patGridView_dgv.MultiSelect = false;
             this.patGridView_dgv.Name = "patGridView_dgv";
             this.patGridView_dgv.ReadOnly = true;
             this.patGridView_dgv.RowHeadersVisible = false;
+            this.patGridView_dgv.RowHeadersWidth = 51;
             this.patGridView_dgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.patGridView_dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.patGridView_dgv.Size = new System.Drawing.Size(592, 288);
+            this.patGridView_dgv.Size = new System.Drawing.Size(790, 352);
             this.patGridView_dgv.TabIndex = 154;
             this.patGridView_dgv.TabStop = false;
             this.patGridView_dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.patGridView_dgv_CellClick);
@@ -841,11 +869,12 @@
             this.PageNumber_Tlp.Controls.Add(this.toolStripPaging, 1, 0);
             this.PageNumber_Tlp.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.PageNumber_Tlp.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PageNumber_Tlp.Location = new System.Drawing.Point(3, 297);
+            this.PageNumber_Tlp.Location = new System.Drawing.Point(4, 364);
+            this.PageNumber_Tlp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PageNumber_Tlp.Name = "PageNumber_Tlp";
             this.PageNumber_Tlp.RowCount = 1;
             this.PageNumber_Tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PageNumber_Tlp.Size = new System.Drawing.Size(592, 40);
+            this.PageNumber_Tlp.Size = new System.Drawing.Size(790, 49);
             this.PageNumber_Tlp.TabIndex = 155;
             // 
             // toolStripPaging
@@ -856,6 +885,7 @@
             this.toolStripPaging.Dock = System.Windows.Forms.DockStyle.Fill;
             this.toolStripPaging.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toolStripPaging.GripStyle = System.Windows.Forms.ToolStripGripStyle.Hidden;
+            this.toolStripPaging.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.toolStripPaging.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnFirst,
             this.btnBackward,
@@ -867,9 +897,9 @@
             this.btnForward,
             this.btnLast});
             this.toolStripPaging.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
-            this.toolStripPaging.Location = new System.Drawing.Point(197, 0);
+            this.toolStripPaging.Location = new System.Drawing.Point(263, 0);
             this.toolStripPaging.Name = "toolStripPaging";
-            this.toolStripPaging.Size = new System.Drawing.Size(160, 40);
+            this.toolStripPaging.Size = new System.Drawing.Size(214, 49);
             this.toolStripPaging.TabIndex = 0;
             this.toolStripPaging.Text = "toolStrip1";
             // 
@@ -1000,20 +1030,22 @@
             this.tableLayoutPanel6.Controls.Add(this.pageNum_nud, 1, 0);
             this.tableLayoutPanel6.Controls.Add(this.totlPages_lbl, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(360, 3);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(481, 4);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(229, 34);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(305, 41);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // pageNum_lbl
             // 
             this.pageNum_lbl.AutoSize = true;
             this.pageNum_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pageNum_lbl.Location = new System.Drawing.Point(3, 0);
+            this.pageNum_lbl.Location = new System.Drawing.Point(4, 0);
+            this.pageNum_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.pageNum_lbl.Name = "pageNum_lbl";
-            this.pageNum_lbl.Size = new System.Drawing.Size(62, 34);
+            this.pageNum_lbl.Size = new System.Drawing.Size(83, 41);
             this.pageNum_lbl.TabIndex = 0;
             this.pageNum_lbl.Text = "label1";
             this.pageNum_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1021,15 +1053,15 @@
             // pageNum_nud
             // 
             this.pageNum_nud.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pageNum_nud.Location = new System.Drawing.Point(71, 9);
-            this.pageNum_nud.Margin = new System.Windows.Forms.Padding(3, 7, 3, 3);
+            this.pageNum_nud.Location = new System.Drawing.Point(95, 12);
+            this.pageNum_nud.Margin = new System.Windows.Forms.Padding(4, 9, 4, 4);
             this.pageNum_nud.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
             this.pageNum_nud.Name = "pageNum_nud";
-            this.pageNum_nud.Size = new System.Drawing.Size(67, 20);
+            this.pageNum_nud.Size = new System.Drawing.Size(89, 22);
             this.pageNum_nud.TabIndex = 1;
             this.pageNum_nud.Value = new decimal(new int[] {
             1,
@@ -1043,21 +1075,23 @@
             // 
             this.totlPages_lbl.AutoSize = true;
             this.totlPages_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.totlPages_lbl.Location = new System.Drawing.Point(144, 0);
+            this.totlPages_lbl.Location = new System.Drawing.Point(192, 0);
+            this.totlPages_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.totlPages_lbl.Name = "totlPages_lbl";
-            this.totlPages_lbl.Size = new System.Drawing.Size(82, 34);
+            this.totlPages_lbl.Size = new System.Drawing.Size(109, 41);
             this.totlPages_lbl.TabIndex = 2;
             this.totlPages_lbl.Text = "label1";
             this.totlPages_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // EmrManage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EmrManage";
-            this.Size = new System.Drawing.Size(1180, 724);
+            this.Size = new System.Drawing.Size(1573, 891);
             this.Load += new System.EventHandler(this.EmrManage_Load);
             this.PatientDetails_panel.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

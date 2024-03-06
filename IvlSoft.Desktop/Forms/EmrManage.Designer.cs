@@ -70,7 +70,6 @@
             this.PatientCRUD_ts = new System.Windows.Forms.ToolStrip();
             this.CreatePatient_btn = new System.Windows.Forms.ToolStripButton();
             this.Update_btn = new System.Windows.Forms.ToolStripButton();
-            this.DeletePat_btn = new System.Windows.Forms.ToolStripButton();
             this.Consultation_p = new System.Windows.Forms.Panel();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.Consultation_ts = new System.Windows.Forms.ToolStrip();
@@ -98,6 +97,7 @@
             this.pageNum_lbl = new System.Windows.Forms.Label();
             this.pageNum_nud = new System.Windows.Forms.NumericUpDown();
             this.totlPages_lbl = new System.Windows.Forms.Label();
+            this.DeletePat_btn = new System.Windows.Forms.ToolStripButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.PatientDetails_panel.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -138,7 +138,7 @@
             this.PatientDetails_panel.Controls.Add(this.PatientsGroupBox_p);
             this.PatientDetails_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientDetails_panel.Location = new System.Drawing.Point(0, 255);
-            this.PatientDetails_panel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatientDetails_panel.Margin = new System.Windows.Forms.Padding(4);
             this.PatientDetails_panel.Name = "PatientDetails_panel";
             this.PatientDetails_panel.Size = new System.Drawing.Size(751, 628);
             this.PatientDetails_panel.TabIndex = 2009;
@@ -147,7 +147,7 @@
             // 
             this.PatientsGroupBox_p.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientsGroupBox_p.Location = new System.Drawing.Point(0, 0);
-            this.PatientsGroupBox_p.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatientsGroupBox_p.Margin = new System.Windows.Forms.Padding(4);
             this.PatientsGroupBox_p.Name = "PatientsGroupBox_p";
             this.PatientsGroupBox_p.Size = new System.Drawing.Size(751, 628);
             this.PatientsGroupBox_p.TabIndex = 28;
@@ -161,9 +161,9 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox1.Size = new System.Drawing.Size(751, 255);
             this.groupBox1.TabIndex = 2008;
             this.groupBox1.TabStop = false;
@@ -190,7 +190,7 @@
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel3.ForeColor = System.Drawing.Color.Khaki;
             this.tableLayoutPanel3.Location = new System.Drawing.Point(4, 31);
-            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 6;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 16.66667F));
@@ -207,7 +207,7 @@
             this.panel11.Controls.Add(this.PatEditGender_cmbx);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(262, 112);
-            this.panel11.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel11.Margin = new System.Windows.Forms.Padding(4);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(477, 28);
             this.panel11.TabIndex = 4;
@@ -219,7 +219,7 @@
             this.PatEditGender_cmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatEditGender_cmbx.FormattingEnabled = true;
             this.PatEditGender_cmbx.Location = new System.Drawing.Point(0, 0);
-            this.PatEditGender_cmbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatEditGender_cmbx.Margin = new System.Windows.Forms.Padding(4);
             this.PatEditGender_cmbx.Name = "PatEditGender_cmbx";
             this.PatEditGender_cmbx.Size = new System.Drawing.Size(341, 32);
             this.PatEditGender_cmbx.TabIndex = 4;
@@ -230,12 +230,12 @@
             this.tableLayoutPanel4.ColumnCount = 3;
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 97.0297F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 2.970297F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 244F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 245F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 39F));
             this.tableLayoutPanel4.Controls.Add(this.ResetSearch_linklbl, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(262, 184);
-            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -251,7 +251,7 @@
             this.ResetSearch_linklbl.Location = new System.Drawing.Point(4, 0);
             this.ResetSearch_linklbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ResetSearch_linklbl.Name = "ResetSearch_linklbl";
-            this.ResetSearch_linklbl.Size = new System.Drawing.Size(218, 32);
+            this.ResetSearch_linklbl.Size = new System.Drawing.Size(217, 32);
             this.ResetSearch_linklbl.TabIndex = 1;
             this.ResetSearch_linklbl.TabStop = true;
             this.ResetSearch_linklbl.Text = "linkLabel1";
@@ -262,7 +262,7 @@
             this.panel10.Controls.Add(this.gender_lbl);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel10.Location = new System.Drawing.Point(4, 112);
-            this.panel10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel10.Margin = new System.Windows.Forms.Padding(4);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(250, 28);
             this.panel10.TabIndex = 2011;
@@ -285,7 +285,7 @@
             this.panel9.Controls.Add(this.PatSearchLastName_tbx);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel9.Location = new System.Drawing.Point(262, 76);
-            this.panel9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel9.Margin = new System.Windows.Forms.Padding(4);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(477, 28);
             this.panel9.TabIndex = 3;
@@ -297,7 +297,7 @@
             this.PatSearchLastName_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.PatSearchLastName_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatSearchLastName_tbx.Location = new System.Drawing.Point(0, 0);
-            this.PatSearchLastName_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatSearchLastName_tbx.Margin = new System.Windows.Forms.Padding(4);
             this.PatSearchLastName_tbx.Name = "PatSearchLastName_tbx";
             this.PatSearchLastName_tbx.Size = new System.Drawing.Size(342, 29);
             this.PatSearchLastName_tbx.TabIndex = 3;
@@ -309,7 +309,7 @@
             this.panel8.Controls.Add(this.lastName_lbl);
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(4, 76);
-            this.panel8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel8.Margin = new System.Windows.Forms.Padding(4);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(250, 28);
             this.panel8.TabIndex = 2012;
@@ -332,7 +332,7 @@
             this.panel7.Controls.Add(this.PatSearchFirstName_tbx);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(262, 40);
-            this.panel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel7.Margin = new System.Windows.Forms.Padding(4);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(477, 28);
             this.panel7.TabIndex = 2;
@@ -345,7 +345,7 @@
             this.PatSearchFirstName_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.PatSearchFirstName_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatSearchFirstName_tbx.Location = new System.Drawing.Point(0, 0);
-            this.PatSearchFirstName_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatSearchFirstName_tbx.Margin = new System.Windows.Forms.Padding(4);
             this.PatSearchFirstName_tbx.Name = "PatSearchFirstName_tbx";
             this.PatSearchFirstName_tbx.Size = new System.Drawing.Size(342, 29);
             this.PatSearchFirstName_tbx.TabIndex = 2;
@@ -357,7 +357,7 @@
             this.panel6.Controls.Add(this.firstName_lbl);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(4, 40);
-            this.panel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel6.Margin = new System.Windows.Forms.Padding(4);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(250, 28);
             this.panel6.TabIndex = 2010;
@@ -380,7 +380,7 @@
             this.panel5.Controls.Add(this.PatSearchMrn_tbx);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(262, 4);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(477, 28);
             this.panel5.TabIndex = 1;
@@ -392,7 +392,7 @@
             this.PatSearchMrn_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.PatSearchMrn_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PatSearchMrn_tbx.Location = new System.Drawing.Point(0, 0);
-            this.PatSearchMrn_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatSearchMrn_tbx.Margin = new System.Windows.Forms.Padding(4);
             this.PatSearchMrn_tbx.MaxLength = 25;
             this.PatSearchMrn_tbx.Name = "PatSearchMrn_tbx";
             this.PatSearchMrn_tbx.Size = new System.Drawing.Size(342, 29);
@@ -404,7 +404,7 @@
             this.panel4.Controls.Add(this.mrn_lbl);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(4, 4);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Margin = new System.Windows.Forms.Padding(4);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(250, 28);
             this.panel4.TabIndex = 2001;
@@ -428,7 +428,7 @@
             this.panel12.Controls.Add(this.AdvanceSearch_linklbl);
             this.panel12.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel12.Location = new System.Drawing.Point(4, 184);
-            this.panel12.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel12.Margin = new System.Windows.Forms.Padding(4);
             this.panel12.Name = "panel12";
             this.panel12.Size = new System.Drawing.Size(250, 32);
             this.panel12.TabIndex = 2014;
@@ -453,7 +453,7 @@
             this.panel2.Controls.Add(this.diagnosis_lbl);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 148);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(4);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(250, 28);
             this.panel2.TabIndex = 2015;
@@ -476,7 +476,7 @@
             this.panel3.Controls.Add(this.diagnosis_tbx);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(262, 148);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Margin = new System.Windows.Forms.Padding(4);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(477, 28);
             this.panel3.TabIndex = 2016;
@@ -486,7 +486,7 @@
             this.diagnosis_tbx.Dock = System.Windows.Forms.DockStyle.Left;
             this.diagnosis_tbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.diagnosis_tbx.Location = new System.Drawing.Point(0, 0);
-            this.diagnosis_tbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.diagnosis_tbx.Margin = new System.Windows.Forms.Padding(4);
             this.diagnosis_tbx.Name = "diagnosis_tbx";
             this.diagnosis_tbx.Size = new System.Drawing.Size(341, 29);
             this.diagnosis_tbx.TabIndex = 0;
@@ -502,7 +502,7 @@
             this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -524,7 +524,7 @@
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(818, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(751, 883);
             this.panel1.TabIndex = 1;
@@ -539,7 +539,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 4);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.02785F));
@@ -559,7 +559,7 @@
             this.PatientControls_p.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PatientControls_p.ForeColor = System.Drawing.Color.White;
             this.PatientControls_p.Location = new System.Drawing.Point(4, 4);
-            this.PatientControls_p.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PatientControls_p.Margin = new System.Windows.Forms.Padding(4);
             this.PatientControls_p.Name = "PatientControls_p";
             this.PatientControls_p.Size = new System.Drawing.Size(798, 80);
             this.PatientControls_p.TabIndex = 153;
@@ -651,7 +651,7 @@
             this.Consultation_p.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Consultation_p.ForeColor = System.Drawing.Color.White;
             this.Consultation_p.Location = new System.Drawing.Point(4, 517);
-            this.Consultation_p.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Consultation_p.Margin = new System.Windows.Forms.Padding(4);
             this.Consultation_p.Name = "Consultation_p";
             this.Consultation_p.Size = new System.Drawing.Size(798, 73);
             this.Consultation_p.TabIndex = 152;
@@ -666,7 +666,7 @@
             this.tableLayoutPanel7.Controls.Add(this.Visits_ts, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -786,7 +786,7 @@
             this.visitsView_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.visitsView_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.visitsView_dgv.Location = new System.Drawing.Point(4, 598);
-            this.visitsView_dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.visitsView_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.visitsView_dgv.MultiSelect = false;
             this.visitsView_dgv.Name = "visitsView_dgv";
             this.visitsView_dgv.ReadOnly = true;
@@ -810,7 +810,7 @@
             this.tableLayoutPanel5.Controls.Add(this.PageNumber_Tlp, 0, 1);
             this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel5.Location = new System.Drawing.Point(4, 92);
-            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 86.47059F));
@@ -838,7 +838,7 @@
             this.patGridView_dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.patGridView_dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.patGridView_dgv.Location = new System.Drawing.Point(4, 4);
-            this.patGridView_dgv.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.patGridView_dgv.Margin = new System.Windows.Forms.Padding(4);
             this.patGridView_dgv.MultiSelect = false;
             this.patGridView_dgv.Name = "patGridView_dgv";
             this.patGridView_dgv.ReadOnly = true;
@@ -870,7 +870,7 @@
             this.PageNumber_Tlp.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.PageNumber_Tlp.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PageNumber_Tlp.Location = new System.Drawing.Point(4, 364);
-            this.PageNumber_Tlp.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PageNumber_Tlp.Margin = new System.Windows.Forms.Padding(4);
             this.PageNumber_Tlp.Name = "PageNumber_Tlp";
             this.PageNumber_Tlp.RowCount = 1;
             this.PageNumber_Tlp.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1031,7 +1031,7 @@
             this.tableLayoutPanel6.Controls.Add(this.totlPages_lbl, 2, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(481, 4);
-            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1083,13 +1083,18 @@
             this.totlPages_lbl.Text = "label1";
             this.totlPages_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
+            // DeletePat_btn
+            // 
+            this.DeletePat_btn.Name = "DeletePat_btn";
+            this.DeletePat_btn.Size = new System.Drawing.Size(23, 23);
+            // 
             // EmrManage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Transparent;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EmrManage";
             this.Size = new System.Drawing.Size(1573, 891);
             this.Load += new System.EventHandler(this.EmrManage_Load);

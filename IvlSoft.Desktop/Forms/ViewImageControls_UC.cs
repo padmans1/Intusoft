@@ -42,6 +42,7 @@ using Newtonsoft.Json;
 using ReportUtils;
 using RestSharp;
 
+
 namespace INTUSOFT.Desktop.Forms
 {
     public partial class ViewImageControls_UC : UserControl
@@ -218,10 +219,9 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
                 this.tableLayoutPanel8.RowStyles[9] = new RowStyle(SizeType.Percent, 0f);
                 this.tableLayoutPanel8.RowStyles[10] = new RowStyle(SizeType.Percent, 0f);
             }
-           // Reports_dgv.Enabled = !IVLVariables.isCommandLineAppLaunch;
-           // file_lbl.Enabled = !IVLVariables.isCommandLineAppLaunch;
-           //Upload_btn.Text = (INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.AI_Vendor_Button_Text.val);
-
+            // Reports_dgv.Enabled = !IVLVariables.isCommandLineAppLaunch;
+            // file_lbl.Enabled = !IVLVariables.isCommandLineAppLaunch;
+            //Upload_btn.Text = (INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.AI_Vendor_Button_Text.val);
         }
 
 
@@ -991,7 +991,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             leftSide_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._RightLeftVisble.val);
             changeEyeSide_lbl.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._RightLeftVisble.val);
             save_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._SaveFunctionVisble.val);
-            Upload_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._SaveAsFunctionVisble.val);
+            Upload_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._UploadFunctionVisble.val);
             exportImages_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._ExportFunctionVisble.val);
             brightness_lbl.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._BrightnessFunctionVisble.val);
             brightness_rb.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._BrightnessFunctionVisble.val);
@@ -2168,11 +2168,18 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
         {
             {
                 IVLVariables.ivl_Camera.TriggerOff();
+                string path = string.Empty;
+                if (Convert.ToBoolean(IVLVariables.CurrentSettings.ImageStorageSettings.IsMrnFolder.val))
+                    path = IVLVariables.CurrentSettings.ImageStorageSettings._LocalProcessedImagePath.val.ToString() + Path.DirectorySeparatorChar + NewDataVariables.Active_PatientIdentifier.value + Path.DirectorySeparatorChar + NewDataVariables.Active_Visit.createdDate.Date.ToString("dd_MM_yyyy");
+                else
+                    path = IVLVariables.CurrentSettings.ImageStorageSettings._LocalProcessedImagePath.val.ToString();
+                if (!noImageSelected_lbl.Visible && File.Exists(path + Path.DirectorySeparatorChar + NewDataVariables.Active_Obs.value))
                 {
                     noofimages();
-                    if (images.Length >=1)
+                    if (images.Length >= 1)
                     {
                         uploadReportRequest(createJsonFile());
+                        CustomMessageBox.Show(IVLVariables.LangResourceManager.GetString("AnnotationNo_Images", IVLVariables.LangResourceCultureInfo), IVLVariables.LangResourceManager.GetString("SaveAs_Text", IVLVariables.LangResourceCultureInfo), CustomMessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -3685,51 +3692,49 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
         private void formButtons1_Click(object sender, EventArgs e)
         {
             //SplitScreen ss = new SplitScreen();
-            
+
             //ss.ShowDialog();
         }
-
-
-        private void uploadReportRequest(string jsonData)
-        {
-            RestRequest request = new RestRequest(IVLVariables.CurrentSettings.ReportSettings.ApiRequestType.val , Method.Post);
-            request.AddBody(jsonData);
-            var restClient = new RestClient();
-            RestResponse response = restClient.ExecuteAsync(request).Result;
-            var result = JsonConvert.DeserializeObject<ResponseDTO>(response.Content);
-            //_EmailSent($"Upload {result.message}", new EventArgs());
-            CustomMessageBox.Show(result.message, "Information", CustomMessageBoxButtons.OK, CustomMessageBoxIcon.Information);
-            Console.WriteLine(response.Content);
-        }
-
-         
-        private string createJsonFile()
-        {
-            getReportDetails();
-
-            var names = reportDic["$ImageNames"] as string[];
-            var filepaths = reportDic["$CurrentImageFiles"] as string[];
-            for (int i = 0; i < images.Length; i++)
+            private void uploadReportRequest(string jsonData)
             {
-                ImageInfo info = new ImageInfo();
-                info.Id = "image" + (i + 1);
-                FileInfo finf = new FileInfo(filepaths[i]);
-                info.ImageData = getBase64String(finf.FullName);
-
-                if (names[i].Contains("OS"))
-                    info.Metadata = "left image, png";
-                else
-                    info.Metadata = "right image, png";
-                Payload.Add(info);
-
+                RestRequest request = new RestRequest(IVLVariables.CurrentSettings.ReportSettings.ApiRequestType.val, Method.Post);
+                request.AddBody(jsonData);
+                var restClient = new RestClient();
+                RestResponse response = restClient.ExecuteAsync(request).Result;
+                var result = JsonConvert.DeserializeObject<ResponseDTO>(response.Content);
+                //_EmailSent($"Upload {result.message}", new EventArgs());
+                CustomMessageBox.Show(result.message, "Information", CustomMessageBoxButtons.OK, CustomMessageBoxIcon.Information);
+                Console.WriteLine(response.Content);
             }
 
-            var patientData = getPatientInfo();
-            patientData.Add("Payload", Payload);
 
-            return JsonConvert.SerializeObject(patientData, Newtonsoft.Json.Formatting.Indented);
+            private string createJsonFile()
+            {
+                getReportDetails();
 
-        }
+                var names = reportDic["$ImageNames"] as string[];
+                var filepaths = reportDic["$CurrentImageFiles"] as string[];
+                for (int i = 0; i < images.Length; i++)
+                {
+                    ImageInfo info = new ImageInfo();
+                    info.Id = "image" + (i + 1);
+                    FileInfo finf = new FileInfo(filepaths[i]);
+                    info.ImageData = getBase64String(finf.FullName);
+
+                    if (names[i].Contains("OS"))
+                        info.Metadata = "left image, png";
+                    else
+                        info.Metadata = "right image, png";
+                    Payload.Add(info);
+
+                }
+
+                var patientData = getPatientInfo();
+                patientData.Add("Payload", Payload);
+
+                return JsonConvert.SerializeObject(patientData, Newtonsoft.Json.Formatting.Indented);
+
+            }
         public List<ImageInfo> Payload = new List<ImageInfo>();
 
         private Dictionary<string, object> getPatientInfo()
@@ -3737,7 +3742,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             Dictionary<string, object> jDict = new Dictionary<string, object>();
             jDict.Add("OrganaizationId", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.ImagingCenterId.val);//from settings
             jDict.Add("OperatorId", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.UserName.val);//from settings
-            jDict.Add("PatientId",(string) reportDic["$MRN"]);
+            jDict.Add("PatientId", (string)reportDic["$MRN"]);
             jDict.Add("VisitId", (NewDataVariables.GetCurrentPat().visits.ToList().IndexOf(NewDataVariables.Active_Visit) + 1).ToString());
             jDict.Add("VisitDate", NewDataVariables.Active_Visit.createdDate.ToString("dd-MM-yyyy HH:mm:ss"));
             jDict.Add("Address1", INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.Address1.val);
@@ -3745,7 +3750,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             jDict.Add("PatientName", (string)reportDic["$Name"]);
             jDict.Add("Age", Convert.ToInt32(reportDic["$Age"]));
             jDict.Add("Gender", (string)reportDic["$Gender"]);
-            jDict.Add("Phone", Convert.ToInt32(string.IsNullOrEmpty((string)reportDic["$PhoneNumber"])?"0" : reportDic["$PhoneNumber"]));
+            jDict.Add("Phone", Convert.ToInt32(string.IsNullOrEmpty((string)reportDic["$PhoneNumber"]) ? "0" : reportDic["$PhoneNumber"]));
             jDict.Add("ClinicalHistory", NewDataVariables.Active_Visit.medicalHistory.GetMedicalHistory());
             jDict.Add("DoctorName", (string)reportDic["$Doctor"]);
             jDict.Add("ReportTitle", (string)reportDic["$NameOfTheReport"]);
@@ -3768,5 +3773,6 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             return base64Str;
         }
     }
-}
+ }
+
         #endregion

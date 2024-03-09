@@ -1537,23 +1537,23 @@ namespace INTUSOFT.Desktop.Forms
                         NewIVLDataMethods.AddPatient(currentPat);
                         NewIVLDataMethods.UpdatePatient();
                         NewDataVariables.Identifier.Add(currentIdentifier);
-                        CloudPatientInfo cloudPatientInfo = new CloudPatientInfo()
-                        {
-                            Age = (DateTime.Now.Year - currentPat.birthdate.Year),
-                            PatientName = $"{currentPat.firstName} {currentPat.lastName}",
-                            OrganaizationName = IVLVariables.CurrentSettings.UserSettings._HeaderText.val,
-                            OrganaizationId = IVLVariables.CurrentSettings.ReportSettings.ImagingCenterId.val,
-                            ScreeningCenter = IVLVariables.CurrentSettings.ReportSettings.ImagingCenter.val,
-                            OperatorId = IVLVariables.CurrentSettings.ReportSettings.UserName.val,
-                            ClinicalHistory = string.Empty,
-                            Gender = currentPat.gender == 'M' ? "Male" : "Female",
-                            PatientId = currentIdentifier.value,
-                            Phone = currentPat.primaryPhoneNumber,
-                            TestDoneBy = IVLVariables.CurrentSettings.ReportSettings.UserName.val,
-                            VisitDate = currentPat.patientLastModifiedDate,
-                            VisitId = currentPat.visits.Count.ToString()
-                        };
-                        UpsertPatientInfo(cloudPatientInfo);
+                        //CloudPatientInfo cloudPatientInfo = new CloudPatientInfo()
+                        //{
+                        //    Age = (DateTime.Now.Year - currentPat.birthdate.Year),
+                        //    PatientName = $"{currentPat.firstName} {currentPat.lastName}",
+                        //    OrganaizationName = IVLVariables.CurrentSettings.UserSettings._HeaderText.val,
+                        //    OrganaizationId = IVLVariables.CurrentSettings.ReportSettings.ImagingCenterId.val,
+                        //    ScreeningCenter = IVLVariables.CurrentSettings.ReportSettings.ImagingCenter.val,
+                        //    OperatorId = IVLVariables.CurrentSettings.ReportSettings.UserName.val,
+                        //    ClinicalHistory = string.Empty,
+                        //    Gender = currentPat.gender == 'M' ? "Male" : "Female",
+                        //    PatientId = currentIdentifier.value,
+                        //    Phone = currentPat.primaryPhoneNumber,
+                        //    TestDoneBy = IVLVariables.CurrentSettings.ReportSettings.UserName.val,
+                        //    VisitDate = currentPat.patientLastModifiedDate,
+                        //    VisitId = currentPat.visits.Count.ToString()
+                        //};
+                        //UpsertPatientInfo(cloudPatientInfo);
                         //NewDataVariables.Patients = null;
                         //NewDataVariables.Patients = NewDataVariables._Repo.GetPageData<Patient>(10, 0).ToList();
                         IVLVariables.mrnCnt = mrnCnt;

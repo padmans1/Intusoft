@@ -283,7 +283,7 @@
             this.uploadImagesTelemed_btn.Image = ((System.Drawing.Image)(resources.GetObject("uploadImagesTelemed_btn.Image")));
             this.uploadImagesTelemed_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.uploadImagesTelemed_btn.Name = "uploadImagesTelemed_btn";
-            this.uploadImagesTelemed_btn.Size = new System.Drawing.Size(185, 67);
+            this.uploadImagesTelemed_btn.Size = new System.Drawing.Size(96, 67);
             this.uploadImagesTelemed_btn.Text = "Telemed Upload";
             this.uploadImagesTelemed_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.uploadImagesTelemed_btn.ToolTipText = "Telemed Upload";

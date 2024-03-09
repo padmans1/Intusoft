@@ -81,3 +81,5 @@
 /libs/x64
 /CopyAppData/bin/
 /CopyAppData/obj/
+/EventHandlerTest/obj/
+/ClassLibrary1/obj/

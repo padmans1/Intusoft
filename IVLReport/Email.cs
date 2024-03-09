@@ -677,6 +677,7 @@ namespace IVLReport
                     }
                     else if(vendorVal == "Vendor5")
                     {
+                       // File.WriteAllText(@"test.json", createJsonFile());
                         uploadReportRequest(createJsonFile());
                     }
                 }
@@ -1512,7 +1513,7 @@ namespace IVLReport
             jDict.Add("Age", $"{_dataModel.ReportData["$Age"]}");
             jDict.Add("Gender", $"{_dataModel.ReportData["$Gender"]}");
             jDict.Add("Phone", $"{_dataModel.ReportData["$PhoneNumber"]}");
-            jDict.Add("ClinicalHistory", NewDataVariables.Active_Visit.medicalHistory.GetMedicalHistory());
+            jDict.Add("ClinicalHistory", string.Empty);// NewDataVariables.Active_Visit.medicalHistory.GetMedicalHistory());
             jDict.Add("DoctorName", $"{_dataModel.ReportData["$Doctor"]}");
             jDict.Add("ReportTitle", $"{_dataModel.ReportData["$NameOfTheReport"]}");
             jDict.Add("HospitalName", $"{_dataModel.ReportData["$HospitalName"]}");

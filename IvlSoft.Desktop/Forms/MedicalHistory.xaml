@@ -322,8 +322,8 @@
                     </StackPanel>
                     <StackPanel Orientation="Vertical">
                         <Label Content="Left Eye" FontWeight="Bold" HorizontalAlignment="Center" VerticalContentAlignment ="Center"/>
-                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.LeftEye.ASValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="4"  Height="200" Width="400"/>
-                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.LeftEye.PSValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" TextWrapping="Wrap" Margin="4" Height="200" Width="400"/>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.LeftEye.ASValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" TextWrapping="Wrap" AcceptsReturn="True" Margin="4"  Height="200" Width="400"/>
+                        <TextBox Style="{StaticResource MaterialDesignOutlinedTextBox}" FontSize="{Binding FontSize}" Text="{Binding MedicalHistory.Findings.LeftEye.PSValue, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" HorizontalAlignment="Center" TextWrapping="Wrap" AcceptsReturn="True" Margin="4" Height="200" Width="400"/>
                     </StackPanel>
 
                 </StackPanel>

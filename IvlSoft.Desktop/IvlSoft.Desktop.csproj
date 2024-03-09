@@ -204,9 +204,7 @@
     <Compile Include="Forms\ConfigSettings_UCL.Designer.cs">
       <DependentUpon>ConfigSettings_UCL.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\DiagnosisForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\DiagnosisForm.cs" />
     <Compile Include="Forms\DiagnosisForm.designer.cs">
       <DependentUpon>DiagnosisForm.cs</DependentUpon>
     </Compile>
@@ -222,15 +220,11 @@
     <Compile Include="Forms\EEPROM_Window.Designer.cs">
       <DependentUpon>EEPROM_Window.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GradientForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\GradientForm.cs" />
     <Compile Include="Forms\GradientForm.designer.cs">
       <DependentUpon>GradientForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\GradientFormControl.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\GradientFormControl.cs" />
     <Compile Include="Forms\GradientFormControl.Designer.cs" />
     <Compile Include="Forms\LiveGainExposureCalculation.cs" />
     <Compile Include="Forms\LiveImageControls45_UC.cs">
@@ -266,9 +260,7 @@
     <Compile Include="Forms\CreateModifyPatient_UC.Designer.cs">
       <DependentUpon>CreateModifyPatient_UC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\CreatePatientDetails_form.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\CreatePatientDetails_form.cs" />
     <Compile Include="Forms\CreatePatientDetails_form.Designer.cs">
       <DependentUpon>CreatePatientDetails_form.cs</DependentUpon>
     </Compile>
@@ -284,9 +276,7 @@
     <Compile Include="Forms\Imaging_UC.Designer.cs">
       <DependentUpon>Imaging_UC.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\IvlMainWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\IvlMainWindow.cs" />
     <Compile Include="Forms\IvlMainWindow.Designer.cs">
       <DependentUpon>IvlMainWindow.cs</DependentUpon>
     </Compile>
@@ -308,15 +298,11 @@
     <Compile Include="Forms\SettingsWindow.Designer.cs">
       <DependentUpon>SettingsWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SplitScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\SplitScreen.cs" />
     <Compile Include="Forms\SplitScreen.Designer.cs">
       <DependentUpon>SplitScreen.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SplashScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Forms\SplashScreen.cs" />
     <Compile Include="Forms\SplashScreen.Designer.cs">
       <DependentUpon>SplashScreen.cs</DependentUpon>
     </Compile>

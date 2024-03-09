@@ -541,8 +541,8 @@
   <data name="ImageViewer_rightSide_Button_Text" xml:space="preserve">
     <value>OD</value>
   </data>
-  <data name="ImageViewer_SaveAs_Button_Text" xml:space="preserve">
-    <value>Save As</value>
+  <data name="ImageViewer_Upload_Button_Text" xml:space="preserve">
+    <value>Upload</value>
   </data>
   <data name="ImageViewer_Save_Button_Text" xml:space="preserve">
     <value>Save</value>
@@ -1510,8 +1510,8 @@
   <data name="ViewImageExportImages_Button_ToolTipText" xml:space="preserve">
     <value>Export Image/s</value>
   </data>
-  <data name="ViewImageSaveAs_Button_ToolTipText" xml:space="preserve">
-    <value>Save Image As</value>
+  <data name="ViewImageUpload_Button_ToolTipText" xml:space="preserve">
+    <value>Upload</value>
   </data>
   <data name="ViewImageSave_Button_ToolTipText" xml:space="preserve">
     <value>Save Image</value>
@@ -2025,5 +2025,11 @@
   </data>
   <data name="Add_Medical_History_Text" xml:space="preserve">
     <value>Add Consultation History</value>
+  </data>
+  <data name="ImageViewer_Upload_Button_Text" xml:space="preserve">
+    <value>Upload</value>
+  </data>
+	<data name="ViewImageUpload_Button_ToolTipText" xml:space="preserve">
+    <value>Upload to telemed</value>
   </data>
 </root>

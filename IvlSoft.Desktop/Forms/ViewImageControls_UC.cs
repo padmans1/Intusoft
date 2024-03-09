@@ -41,6 +41,7 @@ using NLog.Targets;
 using Newtonsoft.Json;
 using ReportUtils;
 using RestSharp;
+using System.Windows.Markup;
 
 
 namespace INTUSOFT.Desktop.Forms
@@ -2179,7 +2180,6 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
                     if (images.Length >= 1)
                     {
                         uploadReportRequest(createJsonFile());
-                        CustomMessageBox.Show(IVLVariables.LangResourceManager.GetString("AnnotationNo_Images", IVLVariables.LangResourceCultureInfo), IVLVariables.LangResourceManager.GetString("SaveAs_Text", IVLVariables.LangResourceCultureInfo), CustomMessageBoxIcon.Warning);
                     }
                     else
                     {
@@ -3713,28 +3713,75 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
                 getReportDetails();
 
                 var names = reportDic["$ImageNames"] as string[];
+                var maskSettings = reportDic["$MaskSettings"] as string[];
                 var filepaths = reportDic["$CurrentImageFiles"] as string[];
+            MaskSettings data = null;
                 for (int i = 0; i < images.Length; i++)
                 {
                     ImageInfo info = new ImageInfo();
                     info.Id = "image" + (i + 1);
                     FileInfo finf = new FileInfo(filepaths[i]);
-                    info.ImageData = getBase64String(finf.FullName);
+                Bitmap bm = null; 
+                LoadSaveImage.LoadImage(finf.FullName, ref bm);
 
-                    if (names[i].Contains("OS"))
-                        info.Metadata = "left image, png";
-                    else
-                        info.Metadata = "right image, png";
-                    Payload.Add(info);
+                Bitmap tempBm = new Bitmap(bm.Width, bm.Height, bm.PixelFormat);
+                Bitmap maskbm = new Bitmap(bm.Width, bm.Height, bm.PixelFormat);//maskbm object of type bitmap.By Ashutosh 22-08-2017
+                
+                try
+                {
+                    data = (MaskSettings)Newtonsoft.Json.JsonConvert.DeserializeObject(maskSettings[i], typeof(MaskSettings));
 
                 }
+                catch (Exception)
+                {
 
-                var patientData = getPatientInfo();
-                patientData.Add("Payload", Payload);
+                    using (StringReader sr = new StringReader(maskSettings[i]))//StringReader-Initializes a new instance of the System.IO.StringReader class that reads from the specified string(maskSettings).
+                    {
+                        XmlReaderSettings settings = new XmlReaderSettings();
+                        using (XmlReader xmlReader = XmlReader.Create(sr, settings))//sr-from which XML data is read.settings- object used to configure.
+                        {
+                            XmlSerializer xmlSer = new XmlSerializer(typeof(INTUSOFT.Imaging.MaskSettings));
+                            var data1 = (INTUSOFT.Imaging.MaskSettings)xmlSer.Deserialize(xmlReader);
+                            data = new MaskSettings { ImageCenterX = data1.maskCentreX, ImageCenterY = data1.maskCentreY, MaskHeight = data1.maskHeight, MaskWidth = data1.maskWidth };
+                        }
+                    }
+                }
+                Color maskBgColor = Color.FromKnownColor((KnownColor)Enum.Parse(typeof(KnownColor), INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.ChangeMaskColour.val));//colour chosen by user in string form converted to enum object and given to maskBgColor.By Ashutosh 22-08-2017
+                tempBm = new Bitmap(bm.Width, bm.Height, bm.PixelFormat);//tempBm object of type bitmap.By Ashutosh 22-08-2017
+                 maskbm = new Bitmap(bm.Width, bm.Height, bm.PixelFormat);//maskbm object of type bitmap.By Ashutosh 22-08-2017
+                Graphics g = Graphics.FromImage(tempBm);//Creates a new System.Drawing.Graphics(g) from the specified System.Drawing.Image(tempBm).By Ashutosh 22-08-2017.
+                Graphics g1 = Graphics.FromImage(maskbm);//Creates a new System.Drawing.Graphics(g1) from the specified System.Drawing.Image(maskbm).By Ashutosh 22-08-2017
+               
+                SolidBrush s = new SolidBrush(maskBgColor);//s object of type Solidbrush , color of the brush is users choice.By Ashutosh 22-08-2017
 
-                return JsonConvert.SerializeObject(patientData, Newtonsoft.Json.Formatting.Indented);
+                g.FillRectangle(s, new Rectangle(0, 0, bm.Width, bm.Height));// Fill the output image with the color chosen in the report settings for background.By Ashutosh 22-08-2017
+                g1.FillEllipse(Brushes.White, new Rectangle(data.ImageCenterX - data.MaskWidth / 2, data.ImageCenterY - data.MaskHeight / 2, data.MaskWidth, data.MaskHeight));//Fills the interior of an ellipse (white colour) defined by a bounding rectangle.By Ashutosh 22-08-2017
 
+                //IVLVariables.ivl_Camera.camPropsHelper.PostProcessing.ApplyLogo(ref OriginalBm);
+
+                Image<Gray, byte> maskImg = new Image<Gray, byte>(maskbm);//maskImg object to which maskbm is given.By Ashutosh 22-08-2017
+                Image<Bgr, byte> returnImg = new Image<Bgr, byte>(tempBm);//returnImg object to which tempBm is given. tempBm.By Ashutosh 22-08-2017
+                Image<Bgr, byte> inp = new Image<Bgr, byte>(bm);//input image bm given to object inp.By Ashutosh 22-08-2017
+
+                inp.Copy(returnImg, maskImg);//returnImg is the destination.mask is applied on the input image to provide desired result.By Ashutosh 22-08-2017
+                bm = returnImg.ToBitmap();//masked image given to bm.By Ashutosh 22-08-2017
+
+                PostProcessing.GetInstance().ApplyLogo(ref bm, names[i], maskBgColor, names[i].Contains("OS")? LeftRightPosition.Left : LeftRightPosition.Right);//passing arguments to ApplyLogo for application of logo suitable to mask colour. By Ashutosh 29-08-2017.
+
+                info.ImageData = getBase64String(bm);
+                bm.Dispose();
+                tempBm.Dispose();
+                maskbm.Dispose();
+                if (names[i].Contains("OS"))
+                    info.Metadata = "left image, png";
+                else
+                    info.Metadata = "right image, png";
+                Payload.Add(info);
             }
+            var patientData = getPatientInfo();
+            patientData.Add("Payload", Payload);
+            return JsonConvert.SerializeObject(patientData, Newtonsoft.Json.Formatting.Indented);
+        }
         public List<ImageInfo> Payload = new List<ImageInfo>();
 
         private Dictionary<string, object> getPatientInfo()
@@ -3761,15 +3808,15 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
 
             return jDict;
         }
-        private string getBase64String(string imageFile)
+        private string getBase64String(Bitmap bmp)
         {
-            Bitmap bmp = new Bitmap(imageFile);
+            
             MemoryStream ms = new MemoryStream();
             bmp.Save(ms, ImageFormat.Jpeg);
             byte[] byteImage = ms.ToArray();
             var base64Str = Convert.ToBase64String(byteImage);
             ms.Dispose();
-            bmp.Dispose();
+           
             return base64Str;
         }
     }

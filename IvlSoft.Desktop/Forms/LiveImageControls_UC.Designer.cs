@@ -581,3 +581,4 @@
         private System.Windows.Forms.GroupBox ImagingMode_gbx;
     }
 }
+ 

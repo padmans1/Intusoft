@@ -992,7 +992,7 @@ Image redFilterSelected, greenFilterSelected, blueFilterSelected;
             leftSide_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._RightLeftVisble.val);
             changeEyeSide_lbl.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._RightLeftVisble.val);
             save_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._SaveFunctionVisble.val);
-            Upload_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._UploadFunctionVisble.val);
+            Upload_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._SaveAsFunctionVisble.val);
             exportImages_btn.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._ExportFunctionVisble.val);
             brightness_lbl.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._BrightnessFunctionVisble.val);
             brightness_rb.Visible = Convert.ToBoolean(IVLVariables.CurrentSettings.UISettings.ViewImaging._BrightnessFunctionVisble.val);

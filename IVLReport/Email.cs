@@ -28,6 +28,13 @@ using System.Drawing;
 using RestSharp;
 using INTUSOFT.Data.Repository;
 using INTUSOFT.Data.NewDbModel;
+using Emgu.CV.Structure;
+using Emgu.CV;
+using INTUSOFT.Imaging;
+using Microsoft.Office.Interop.Word;
+using System.Xml.Serialization;
+using System.Xml;
+using MailMessage = System.Net.Mail.MailMessage;
 
 namespace IVLReport
 {
@@ -940,7 +947,7 @@ namespace IVLReport
                     indx++;
                 }
             string logoDestPath = dirInf.FullName + Path.DirectorySeparatorChar + "hospitalLogo.png";
-            string logoPath = Path.GetDirectoryName(Application.ExecutablePath) + Path.DirectorySeparatorChar + "ImageResources" + Path.DirectorySeparatorChar + "LogoImageResources" + Path.DirectorySeparatorChar + "hospitalLogo.png";
+            string logoPath = Path.GetDirectoryName(System.Windows.Forms.Application.ExecutablePath) + Path.DirectorySeparatorChar + "ImageResources" + Path.DirectorySeparatorChar + "LogoImageResources" + Path.DirectorySeparatorChar + "hospitalLogo.png";
             if (File.Exists(logoPath))
                 File.Copy(logoPath, logoDestPath);
         }
@@ -1531,7 +1538,7 @@ namespace IVLReport
                 ImageInfo info = new ImageInfo();
                 info.Id = "image" + (i + 1);
                 FileInfo finf = new FileInfo(_dataModel.CurrentImgFiles[i]);
-                info.ImageData = getBase64String(finf.FullName);
+                info.ImageData = ApplyWhiteMaskToImage(finf.FullName, _dataModel.MaskSettingsArr[i], _dataModel.CurrentImageNames[i]);
 
                 if (_dataModel.CurrentImageNames[i].Contains("OS"))
                     info.Metadata = "left image, png";
@@ -1544,13 +1551,44 @@ namespace IVLReport
             var patientData = getPatientInfo();
             patientData.Add("Payload", Payload);
 
-            return JsonConvert.SerializeObject(patientData, Formatting.Indented);
+            return JsonConvert.SerializeObject(patientData, Newtonsoft.Json.Formatting.Indented);
 
         }
-
-        private string getBase64String(string imageFile)
+        private string ApplyWhiteMaskToImage(string fileName, string maskSettings, string imageName)
         {
-            Bitmap bmp = new Bitmap(imageFile);
+            Bitmap bm = null;
+            LoadSaveImage.LoadImage(fileName, ref bm);
+
+            Bitmap tempBm = new Bitmap(bm.Width, bm.Height, bm.PixelFormat);
+            MaskSettings data = new MaskSettings();
+            try
+            {
+                data = (MaskSettings)Newtonsoft.Json.JsonConvert.DeserializeObject(maskSettings, typeof(MaskSettings));
+
+            }
+            catch (Exception)
+            {
+
+                using (StringReader sr = new StringReader(maskSettings))//StringReader-Initializes a new instance of the System.IO.StringReader class that reads from the specified string(maskSettings).
+                {
+                    XmlReaderSettings settings = new XmlReaderSettings();
+                    using (XmlReader xmlReader = XmlReader.Create(sr, settings))//sr-from which XML data is read.settings- object used to configure.
+                    {
+                        XmlSerializer xmlSer = new XmlSerializer(typeof(INTUSOFT.Imaging.MaskSettings));
+                        var data1 = (INTUSOFT.Imaging.MaskSettings)xmlSer.Deserialize(xmlReader);
+                        data = new MaskSettings { maskCentreX = data1.maskCentreX, maskCentreY = data1.maskCentreY, maskHeight = data1.maskHeight, maskWidth = data1.maskWidth };
+                    }
+                }
+            }
+
+            Color maskBgColor = Color.FromKnownColor((KnownColor)Enum.Parse(typeof(KnownColor), _dataModel.ReportData["$ChangeMaskColour"] as string));//colour chosen by user in string form converted to enum object and given to maskBgColor.By Ashutosh 22-08-2017
+            PostProcessing.GetInstance().ApplyColorMask(ref bm, data, maskBgColor);
+            PostProcessing.GetInstance().ApplyLogo(ref bm,imageName, maskBgColor, imageName.Contains("OS") ? LeftRightPosition.Left : LeftRightPosition.Right);//passing arguments to ApplyLogo for application of logo suitable to mask colour. By Ashutosh 29-08-2017.
+            return getBase64String(bm);
+        }
+
+        private string getBase64String(Bitmap bmp)
+        {
             MemoryStream ms = new MemoryStream();
             bmp.Save(ms, ImageFormat.Jpeg);
             byte[] byteImage = ms.ToArray();

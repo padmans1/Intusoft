@@ -91,12 +91,12 @@ namespace INTUSOFT.Configuration.AdvanceSettings
            get { return SaveFunctionVisble; }
            set { SaveFunctionVisble = value; }
        }
-       private static  IVLControlProperties UploadFunctionVisble = null;
+       private static  IVLControlProperties SaveAsFunctionVisble = null;
 
-       public IVLControlProperties _UploadFunctionVisble
+       public IVLControlProperties _SaveAsFunctionVisble
        {
-           get { return UploadFunctionVisble; }
-           set { UploadFunctionVisble = value; }
+           get { return SaveAsFunctionVisble; }
+           set { SaveAsFunctionVisble = value; }
        }
        private static  IVLControlProperties ExportFunctionVisble = null;
 
@@ -195,12 +195,12 @@ namespace INTUSOFT.Configuration.AdvanceSettings
            _SaveFunctionVisble.control = "System.Windows.Forms.RadioButton";
            _SaveFunctionVisble.text = "Save Function Visible";
 
-           _UploadFunctionVisble = new IVLControlProperties();
-           _UploadFunctionVisble.name = "UploadFunctionVisble";
-           _UploadFunctionVisble.val = true.ToString();
-           _UploadFunctionVisble.type = "bool";
-           _UploadFunctionVisble.control = "System.Windows.Forms.RadioButton";
-           _UploadFunctionVisble.text = "Upload Function Visible";
+           _SaveAsFunctionVisble = new IVLControlProperties();
+           _SaveAsFunctionVisble.name = "UploadFunctionVisble";
+           _SaveAsFunctionVisble.val = true.ToString();
+           _SaveAsFunctionVisble.type = "bool";
+           _SaveAsFunctionVisble.control = "System.Windows.Forms.RadioButton";
+           _SaveAsFunctionVisble.text = "Upload Function Visible";
 
            _ExportFunctionVisble = new IVLControlProperties();
            _ExportFunctionVisble.name = "ExportFunctionVisble";

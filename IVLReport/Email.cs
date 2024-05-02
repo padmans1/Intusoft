@@ -1539,11 +1539,15 @@ namespace IVLReport
                 info.Id = "image" + (i + 1);
                 FileInfo finf = new FileInfo(_dataModel.CurrentImgFiles[i]);
                 info.ImageData = ApplyWhiteMaskToImage(finf.FullName, _dataModel.MaskSettingsArr[i], _dataModel.CurrentImageNames[i]);
-
-                if (_dataModel.CurrentImageNames[i].Contains("OS"))
-                    info.Metadata = "left image, png";
+                var imageMode = string.Empty;
+                if (_dataModel.CurrentImageCameraSettings[i].ToLower().Contains("posterior"))
+                    imageMode = "posterior";
+                else if (_dataModel.CurrentImageCameraSettings[i].ToLower().Contains("anterior"))
+                    imageMode = "anterior";
+                    if (_dataModel.CurrentImageNames[i].Contains("OS"))
+                    info.Metadata = $"left image, {imageMode}";
                 else
-                    info.Metadata = "right image, png";
+                    info.Metadata = $"right image, {imageMode}";
                 Payload.Add(info);
 
             }

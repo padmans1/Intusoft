@@ -78,7 +78,6 @@
 /IVLTemplateCreator/obj/
 /library/x64/
 /PdfFileWriter_src/PdfFileWriter/bin/
-/libs/x64
 /CopyAppData/bin/
 /CopyAppData/obj/
 /ClassLibrary1/obj/Debug/netstandard2.0/ClassLibrary1.AssemblyInfo.cs
@@ -114,3 +113,7 @@
 /EventHandlerTest/obj/EventHandlerTest.csproj.nuget.g.props
 /EventHandlerTest/obj/project.assets.json
 /EventHandlerTest/obj/project.nuget.cache
+/ClassLibrary1/bin/
+/ClassLibrary1/obj/
+/EventHandlerTest/obj/
+/EventHandlerTest/bin/

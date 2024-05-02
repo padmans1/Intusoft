@@ -622,8 +622,57 @@ namespace INTUSOFT.Imaging
             }
         }
 
+        public void GenerateMask(ref Bitmap mask, MaskSettings settings)
+        {
+            try
+            {
+                        maskCentreX = settings.maskCentreX;
+                        maskCentreY = settings.maskCentreY;
+                        Graphics g = Graphics.FromImage(mask);
+                        g.FillEllipse(Brushes.White, new Rectangle(settings.maskCentreX - settings.LiveMaskWidth / 2, settings.maskCentreY - settings.LiveMaskHeight / 2, settings.LiveMaskWidth, settings.LiveMaskHeight));
+                        g.Dispose();
+
+            }
+            catch (Exception ex)
+            {
+                CameraLogger.WriteException(ex, Exception_Log);
+            }
+        }
+
         Image<Bgr, byte> inp;
 
+        public void ApplyColorMask(ref Bitmap bm, MaskSettings settings, Color color)
+        {
+            try
+            {
+                Bitmap maskbm = new Bitmap(bm.Width, bm.Height, bm.PixelFormat);
+                Bitmap tempBm = new Bitmap(bm.Width, bm.Height, bm.PixelFormat);
+              
+                Graphics g = Graphics.FromImage(tempBm);//Creates a new System.Drawing.Graphics(g) from the specified System.Drawing.Image(tempBm).By Ashutosh 22-08-2017.
+                SolidBrush s = new SolidBrush(color);//s object of type Solidbrush , color of the brush is users choice.By Ashutosh 22-08-2017
+
+                g.FillRectangle(s, new Rectangle(0, 0, bm.Width, bm.Height));// Fill the output image with the color chosen in the report settings for background.By Ashutosh 22-08-2017
+
+                GenerateMask(ref maskbm, settings);
+                Image<Gray, byte> maskImg = new Image<Gray, byte>(maskbm);
+                Image<Bgr, byte> inpImg = new Image<Bgr, byte>(bm);
+                Image<Bgr, byte> tempImg = new Image<Bgr, byte>(tempBm);
+                inpImg.Copy(tempImg, maskImg);
+                bm = tempImg.ToBitmap();
+                inpImg.Dispose();
+                tempImg.Dispose();
+                maskImg.Dispose();
+                maskbm.Dispose();
+                tempBm.Dispose();
+            }
+            catch (Exception ex)
+            {
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log); 
+            }
+
+
+        }
         public void ApplyMask(ref Bitmap bm, MaskSettings settings,bool isColor)
         {
             try

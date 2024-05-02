@@ -629,7 +629,7 @@ namespace INTUSOFT.Imaging
                         maskCentreX = settings.maskCentreX;
                         maskCentreY = settings.maskCentreY;
                         Graphics g = Graphics.FromImage(mask);
-                        g.FillEllipse(Brushes.White, new Rectangle(settings.maskCentreX - settings.LiveMaskWidth / 2, settings.maskCentreY - settings.LiveMaskHeight / 2, settings.LiveMaskWidth, settings.LiveMaskHeight));
+                        g.FillEllipse(Brushes.White, new Rectangle(settings.maskCentreX - settings.maskWidth / 2, settings.maskCentreY - settings.maskHeight / 2, settings.maskWidth, settings.maskHeight));
                         g.Dispose();
 
             }

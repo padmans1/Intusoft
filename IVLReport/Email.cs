@@ -1540,9 +1540,12 @@ namespace IVLReport
                 FileInfo finf = new FileInfo(_dataModel.CurrentImgFiles[i]);
                 info.ImageData = ApplyWhiteMaskToImage(finf.FullName, _dataModel.MaskSettingsArr[i], _dataModel.CurrentImageNames[i]);
                 var imageMode = string.Empty;
-                if (_dataModel.CurrentImageCameraSettings[i].ToLower().Contains("posterior"))
+                var camSettings = JsonConvert.DeserializeObject<CaptureLog>(_dataModel.CurrentImageCameraSettings[i]);
+                if (camSettings.currentCameraType != INTUSOFT.Imaging.ImagingMode.Anterior_FFA &&
+                    camSettings.currentCameraType != INTUSOFT.Imaging.ImagingMode.Anterior_45 &&
+                     camSettings.currentCameraType != INTUSOFT.Imaging.ImagingMode.Anterior_Prime   )
                     imageMode = "posterior";
-                else if (_dataModel.CurrentImageCameraSettings[i].ToLower().Contains("anterior"))
+                else 
                     imageMode = "anterior";
                     if (_dataModel.CurrentImageNames[i].Contains("OS"))
                     info.Metadata = $"left image, {imageMode}";

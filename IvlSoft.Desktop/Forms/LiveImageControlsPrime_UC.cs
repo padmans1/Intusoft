@@ -38,36 +38,41 @@ namespace INTUSOFT.Desktop.Forms
             string highIntLogoFilePath = IVLVariables.appDirPathName + @"ImageResources\IntensityImageResources\High_Light.png";
             string LowIntLogoFilePath = IVLVariables.appDirPathName + @"ImageResources\IntensityImageResources\Low_Light.png";
             string MedIntLogoFilePath = IVLVariables.appDirPathName + @"ImageResources\IntensityImageResources\Med_Light.png";
+            
        
             if (File.Exists(highIntLogoFilePath))
             {
                 Bitmap bm = new Bitmap(highIntLogoFilePath);// Bitmap bm has been added so as to reduce the time of new bitmapping everytime
                 highFlashGain_btn.Image =bm;//, 256, 256);
                 highLiveGain_btn.Image = bm;//, 256, 256);
+                flashBoostHigh_btn.Image = bm;//, 256, 256);
+
             }
             if (File.Exists(MedIntLogoFilePath))
             {
                 Bitmap bm = new Bitmap(MedIntLogoFilePath);// Bitmap bm has been added so as to reduce the time of new bitmapping everytime
                 mediumFlashGain_btn.Image = bm;//, 256, 256);
                 mediumLiveGain_btn.Image = bm;//, 256, 256);
+                flashBoostMedium_btn.Image = bm;
             }
             if (File.Exists(LowIntLogoFilePath))
             {
                 Bitmap bm = new Bitmap(LowIntLogoFilePath);// Bitmap bm has been added so as to reduce the time of new bitmapping everytime
                 LowFlashGain_btn.Image =bm;///, 256, 256);
                 lowLiveGain_btn.Image = bm;//, 256, 256);
+                flashBoostLow_btn.Image = bm;
             }
             if (Screen.PrimaryScreen.Bounds.Width == 1920)
             {
                 lowLiveGain_btn.Size = mediumLiveGain_btn.Size = highLiveGain_btn.Size = LowFlashGain_btn.Size =
-                    mediumFlashGain_btn.Size = highFlashGain_btn.Size = new Size(80, 80);
+                    mediumFlashGain_btn.Size = highFlashGain_btn.Size = flashBoostLow_btn.Size = flashBoostMedium_btn.Size = flashBoostHigh_btn.Size = new Size(80, 80);
                 lowLiveGain_btn.Margin = mediumLiveGain_btn.Margin = highLiveGain_btn.Margin = LowFlashGain_btn.Margin =
-                    mediumFlashGain_btn.Margin = highFlashGain_btn.Margin = new Padding(10, 1, 0, 2);
+                    mediumFlashGain_btn.Margin = highFlashGain_btn.Margin = flashBoostLow_btn.Margin = flashBoostMedium_btn.Margin = flashBoostHigh_btn.Margin = new Padding(10, 1, 0, 2);
             }
             else if (Screen.PrimaryScreen.Bounds.Width == 1366)
             {
                 lowLiveGain_btn.Size = mediumLiveGain_btn.Size = highLiveGain_btn.Size = LowFlashGain_btn.Size =
-                mediumFlashGain_btn.Size = highFlashGain_btn.Size = new Size(60, 60);// The size has been changed to 60, 60 from 150,80 by sriram
+                mediumFlashGain_btn.Size = highFlashGain_btn.Size = flashBoostLow_btn.Size = flashBoostMedium_btn.Size = flashBoostHigh_btn.Size = new Size(60, 60);// The size has been changed to 60, 60 from 150,80 by sriram
                 //lowLiveGain_btn.Margin = mediumLiveGain_btn.Margin = highLiveGain_btn.Margin = LowFlashGain_btn.Margin =
                 //    mediumFlashGain_btn.Margin = highFlashGain_btn.Margin = new Padding(10, 1, 0, 2);
                 //increaseCaptureGainExposure_btn.Size = decreaseCaptureGainExposure_btn.Size = increaseLiveGainExposure_btn.Size = decreaseLiveGainExposure_btn.Size =
@@ -79,7 +84,7 @@ namespace INTUSOFT.Desktop.Forms
             {
 
                 lowLiveGain_btn.Size = mediumLiveGain_btn.Size = highLiveGain_btn.Size = LowFlashGain_btn.Size =
-                   mediumFlashGain_btn.Size = highFlashGain_btn.Size = new Size(60, 60);
+                   mediumFlashGain_btn.Size = highFlashGain_btn.Size = flashBoostLow_btn.Size = flashBoostMedium_btn.Size = flashBoostHigh_btn.Size = new Size(60, 60);
                 //increaseCaptureGainExposure_btn.Size = decreaseCaptureGainExposure_btn.Size = increaseLiveGainExposure_btn.Size = decreaseLiveGainExposure_btn.Size =
                 //   liveEG_lbl.Size = captureEG_lbl.Size = new Size(60, 60);
             }
@@ -146,6 +151,42 @@ namespace INTUSOFT.Desktop.Forms
                         ButtonHighlight(highFlashGain_btn, mediumFlashGain_btn, LowFlashGain_btn);
 
                         IVLVariables.ivl_Camera.camPropsHelper.CaptureGainLevel = Imaging.GainLevels.High;
+
+                        //_liveGainExp.SetFlashGain(Convert.ToInt32(IVLVariables.CurrentSettings.CameraSettings._DigitalGainHigh.val));
+                    }
+                    break;
+                default:
+                    {
+                        RefreshFlashGainButtons(GainLevels.Low);
+                    }
+                    break;
+            }
+        }
+        public void RefreshFlashboostButtons(GainLevels ch)
+        {
+
+            switch (ch)
+            {
+                case GainLevels.Low:
+                    {
+                        ButtonHighlight(flashBoostLow_btn, flashBoostMedium_btn, flashBoostHigh_btn);
+                        IVLVariables.ivl_Camera.camPropsHelper.CaptureFlashboostLevel = Imaging.GainLevels.Low;
+                        // _liveGainExp.SetFlashGain(Convert.ToInt32(IVLVariables.CurrentSettings.CameraSettings._DigitalGainLow.val));
+                    }
+                    break;
+                case GainLevels.Medium:
+                    {
+                        ButtonHighlight(flashBoostMedium_btn, flashBoostLow_btn, flashBoostHigh_btn);
+                        IVLVariables.ivl_Camera.camPropsHelper.CaptureFlashboostLevel = Imaging.GainLevels.Medium;
+
+                        // _liveGainExp.SetFlashGain(Convert.ToInt32(IVLVariables.CurrentSettings.CameraSettings._DigitalGainMedium.val));
+                    }
+                    break;
+                case GainLevels.High:
+                    {
+                        ButtonHighlight(flashBoostHigh_btn, flashBoostMedium_btn, flashBoostLow_btn);
+
+                        IVLVariables.ivl_Camera.camPropsHelper.CaptureFlashboostLevel = Imaging.GainLevels.High;
 
                         //_liveGainExp.SetFlashGain(Convert.ToInt32(IVLVariables.CurrentSettings.CameraSettings._DigitalGainHigh.val));
                     }
@@ -225,17 +266,21 @@ namespace INTUSOFT.Desktop.Forms
         private void InitializeResourceString()
         {
             liveGain_lbl.Text = IVLVariables.LangResourceManager.GetString("LiveGain_Label_Text", IVLVariables.LangResourceCultureInfo);
+            flashBoost_lbl.Text = IVLVariables.LangResourceManager.GetString("FlashBoost_Label_Text", IVLVariables.LangResourceCultureInfo);
             lowLiveGain_btn.Text = IVLVariables.LangResourceManager.GetString("LowLiveGain_Text", IVLVariables.LangResourceCultureInfo);
             LowFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("LowLiveGain_Text", IVLVariables.LangResourceCultureInfo);
+            flashBoostLow_btn.Text = IVLVariables.LangResourceManager.GetString("lowFlashBoost_Text", IVLVariables.LangResourceCultureInfo);
             mediumLiveGain_btn.Text = IVLVariables.LangResourceManager.GetString("MediumLiveGain_Text", IVLVariables.LangResourceCultureInfo);
             mediumFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("MediumLiveGain_Text", IVLVariables.LangResourceCultureInfo);
+            flashBoostMedium_btn.Text = IVLVariables.LangResourceManager.GetString("mediumFlashBoost_Text", IVLVariables.LangResourceCultureInfo);
             highLiveGain_btn.Text = IVLVariables.LangResourceManager.GetString("HighLiveGain_Text", IVLVariables.LangResourceCultureInfo);
             highFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("HighLiveGain_Text", IVLVariables.LangResourceCultureInfo);
+            flashBoostHigh_btn.Text = IVLVariables.LangResourceManager.GetString("highFlashBoost_Text", IVLVariables.LangResourceCultureInfo);
             flashGain_lbl.Text = IVLVariables.LangResourceManager.GetString("FlashGain_Label_Text", IVLVariables.LangResourceCultureInfo);
+
         }
 
         #region private events
-
         /// <summary>
         /// This event is used to assign the high gain value to the current gain and invokes the RefreshLiveGainButtons method.
         /// </summary>
@@ -302,6 +347,7 @@ namespace INTUSOFT.Desktop.Forms
 
             if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)
             {
+
                 RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain = GainLevels.High);
                 
                 //capture current gain value from variable to config by sriram
@@ -338,12 +384,67 @@ namespace INTUSOFT.Desktop.Forms
 
             if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)
             {
+
                  RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain = GainLevels.Low);;
                 //capture current gain value from variable to config by sriram
                 IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentGainLevel.val = IVLVariables.CurrentCaptureGain.ToString();
                
             }
         }
+
+        /// <summary>
+        /// This event is used to assign the low flash value to the CurrentCaptureGain and invokes the RefreshFlashGainButtons method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        private void lowFlashBoost_btn_Click(object sender, EventArgs e)
+        {
+            if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.IsMotorMovementDone)
+                {
+
+                    RefreshFlashboostButtons(IVLVariables.CurrentCaptureFlashBoost = GainLevels.Low); ;
+                    //capture current gain value from variable to config by sriram
+                    IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentGainLevel.val = IVLVariables.CurrentCaptureFlashBoost.ToString();
+
+                }
+        }
+
+        /// <summary>
+        /// This event is used to assign the low flash value to the CurrentCaptureGain and invokes the RefreshFlashGainButtons method.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// 
+        private void mediumFlashBoost_btn_Click(object sender, EventArgs e)
+        {
+            if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.IsMotorMovementDone)
+
+                if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)
+                {
+
+                    RefreshFlashboostButtons(IVLVariables.CurrentCaptureFlashBoost = GainLevels.Medium); ;
+                    //capture current gain value from variable to config by sriram
+                    IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentFlashBoost.val = IVLVariables.CurrentCaptureFlashBoost.ToString();
+
+                }
+        }
+
+        private void highFlashBoost_btn_Click(object sender, EventArgs e)
+        { 
+            if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.IsMotorMovementDone)
+
+                if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)
+                {
+
+                    RefreshFlashboostButtons(IVLVariables.CurrentCaptureFlashBoost = GainLevels.High); ;
+                    //capture current gain value from variable to config by sriram
+                    IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentFlashBoost.val = IVLVariables.CurrentCaptureFlashBoost.ToString();
+                   
+                }
+        }
+
+
         #endregion
     }
 }

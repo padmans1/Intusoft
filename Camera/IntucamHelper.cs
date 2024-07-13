@@ -1391,7 +1391,7 @@ namespace INTUSOFT.Imaging
 
                     if (ivl_Camera.isOpenCamera && camPropsHelper.IsCameraConnected == Devices.CameraConnected)//if camera is connected and camera is open
                     {
-                        if (CameraName.Contains("E3CMOS06300"))
+                        if (CameraName.Contains("E3CMOS06300")|| CameraName.StartsWith("E3ISP"))
                         {
                             ivl_Camera.SetExposure(IVLCamVariables._Settings.CameraSettings.CaptureExposure);
                         }
@@ -1716,7 +1716,10 @@ namespace INTUSOFT.Imaging
 
                     InitCameraBoard();// Call init camera board if the camera or board is not opened for the first time of live mode
                     if (!IsResuming)
-                        camPropsHelper.SetLiveCameraSettings();
+                    { camPropsHelper.SetLiveCameraSettings();
+                        //if (IVLCamVariables._Settings.CameraSettings.CameraModel == CameraModel.D)
+                        //    ivl_Camera.SetExposure(Convert.ToUInt16(IVLCamVariables._Settings.CameraSettings.CaptureExposure));
+                    }
                     if(ivl_Camera.maskOverlayPbx != null)
                         if (!ivl_Camera.maskOverlayPbx.Visible && Convert.ToBoolean( ConfigVariables.CurrentSettings.PostProcessingSettings.MaskSettings._ApplyLiveMask.val))
                         {

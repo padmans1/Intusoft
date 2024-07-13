@@ -85,12 +85,14 @@
             this.reportCanvas_pnl.Controls.Add(this.statusStrip1);
             this.reportCanvas_pnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.reportCanvas_pnl.Location = new System.Drawing.Point(0, 0);
+            this.reportCanvas_pnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.reportCanvas_pnl.Name = "reportCanvas_pnl";
-            this.reportCanvas_pnl.Size = new System.Drawing.Size(941, 742);
+            this.reportCanvas_pnl.Size = new System.Drawing.Size(1255, 913);
             this.reportCanvas_pnl.TabIndex = 1;
             // 
             // statusStrip1
             // 
+            this.statusStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.orientationStrip_lbl,
             this.orientationValue_lbl,
@@ -98,9 +100,10 @@
             this.sizeValue_lbl,
             this.ReportStatus_lbl,
             this.ReportStatusVal_lbl});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 720);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 887);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(941, 22);
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(1255, 26);
             this.statusStrip1.TabIndex = 1010;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -108,39 +111,39 @@
             // 
             this.orientationStrip_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.orientationStrip_lbl.Name = "orientationStrip_lbl";
-            this.orientationStrip_lbl.Size = new System.Drawing.Size(82, 17);
+            this.orientationStrip_lbl.Size = new System.Drawing.Size(96, 20);
             this.orientationStrip_lbl.Text = "Orientation:";
             // 
             // orientationValue_lbl
             // 
             this.orientationValue_lbl.Name = "orientationValue_lbl";
-            this.orientationValue_lbl.Size = new System.Drawing.Size(13, 17);
+            this.orientationValue_lbl.Size = new System.Drawing.Size(17, 20);
             this.orientationValue_lbl.Text = "  ";
             // 
             // sizeStrip_lbl
             // 
             this.sizeStrip_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sizeStrip_lbl.Name = "sizeStrip_lbl";
-            this.sizeStrip_lbl.Size = new System.Drawing.Size(35, 17);
+            this.sizeStrip_lbl.Size = new System.Drawing.Size(41, 20);
             this.sizeStrip_lbl.Text = "Size";
             // 
             // sizeValue_lbl
             // 
             this.sizeValue_lbl.Name = "sizeValue_lbl";
-            this.sizeValue_lbl.Size = new System.Drawing.Size(10, 17);
+            this.sizeValue_lbl.Size = new System.Drawing.Size(13, 20);
             this.sizeValue_lbl.Text = " ";
             // 
             // ReportStatus_lbl
             // 
             this.ReportStatus_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReportStatus_lbl.Name = "ReportStatus_lbl";
-            this.ReportStatus_lbl.Size = new System.Drawing.Size(98, 17);
+            this.ReportStatus_lbl.Size = new System.Drawing.Size(117, 20);
             this.ReportStatus_lbl.Text = "Report Status:";
             // 
             // ReportStatusVal_lbl
             // 
             this.ReportStatusVal_lbl.Name = "ReportStatusVal_lbl";
-            this.ReportStatusVal_lbl.Size = new System.Drawing.Size(10, 17);
+            this.ReportStatusVal_lbl.Size = new System.Drawing.Size(13, 20);
             this.ReportStatusVal_lbl.Text = " ";
             // 
             // toolBox_pnl
@@ -149,9 +152,10 @@
             this.toolBox_pnl.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.toolBox_pnl.Controls.Add(this.panel1);
             this.toolBox_pnl.Dock = System.Windows.Forms.DockStyle.Right;
-            this.toolBox_pnl.Location = new System.Drawing.Point(944, 0);
+            this.toolBox_pnl.Location = new System.Drawing.Point(1259, 0);
+            this.toolBox_pnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.toolBox_pnl.Name = "toolBox_pnl";
-            this.toolBox_pnl.Size = new System.Drawing.Size(200, 742);
+            this.toolBox_pnl.Size = new System.Drawing.Size(266, 913);
             this.toolBox_pnl.TabIndex = 6;
             // 
             // panel1
@@ -159,9 +163,10 @@
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
-            this.panel1.Location = new System.Drawing.Point(-1, 6);
+            this.panel1.Location = new System.Drawing.Point(-1, 7);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(199, 728);
+            this.panel1.Size = new System.Drawing.Size(265, 896);
             this.panel1.TabIndex = 6;
             // 
             // tableLayoutPanel1
@@ -177,6 +182,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ReportSize_lbl, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.061198F));
@@ -185,16 +191,18 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.846154F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 42.04893F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.1315F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(199, 728);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(265, 896);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // autoAnalysis_gbx
             // 
             this.autoAnalysis_gbx.Controls.Add(this.toolStrip3);
-            this.autoAnalysis_gbx.Location = new System.Drawing.Point(3, 661);
+            this.autoAnalysis_gbx.Location = new System.Drawing.Point(4, 813);
+            this.autoAnalysis_gbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.autoAnalysis_gbx.Name = "autoAnalysis_gbx";
-            this.autoAnalysis_gbx.Size = new System.Drawing.Size(193, 64);
+            this.autoAnalysis_gbx.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.autoAnalysis_gbx.Size = new System.Drawing.Size(257, 79);
             this.autoAnalysis_gbx.TabIndex = 1011;
             this.autoAnalysis_gbx.TabStop = false;
             this.autoAnalysis_gbx.Text = "Auto Analysis";
@@ -208,9 +216,9 @@
             this.toolStrip3.ImageScalingSize = new System.Drawing.Size(48, 48);
             this.toolStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.autoAnalysis_btn});
-            this.toolStrip3.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip3.Location = new System.Drawing.Point(4, 19);
             this.toolStrip3.Name = "toolStrip3";
-            this.toolStrip3.Size = new System.Drawing.Size(187, 45);
+            this.toolStrip3.Size = new System.Drawing.Size(249, 56);
             this.toolStrip3.TabIndex = 701;
             this.toolStrip3.Text = "toolStrip3";
             // 
@@ -219,7 +227,7 @@
             this.autoAnalysis_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.autoAnalysis_btn.Margin = new System.Windows.Forms.Padding(62, 1, 0, 2);
             this.autoAnalysis_btn.Name = "autoAnalysis_btn";
-            this.autoAnalysis_btn.Size = new System.Drawing.Size(60, 42);
+            this.autoAnalysis_btn.Size = new System.Drawing.Size(76, 53);
             this.autoAnalysis_btn.Text = "AI Report";
             this.autoAnalysis_btn.ToolTipText = "Auto Analyse";
             this.autoAnalysis_btn.Click += new System.EventHandler(this.autoAnalysis_btn_Click);
@@ -229,9 +237,11 @@
             this.email_Gbx.Controls.Add(this.toolStrip2);
             this.email_Gbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.email_Gbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.email_Gbx.Location = new System.Drawing.Point(3, 390);
+            this.email_Gbx.Location = new System.Drawing.Point(4, 480);
+            this.email_Gbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.email_Gbx.Name = "email_Gbx";
-            this.email_Gbx.Size = new System.Drawing.Size(193, 265);
+            this.email_Gbx.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_Gbx.Size = new System.Drawing.Size(257, 325);
             this.email_Gbx.TabIndex = 10;
             this.email_Gbx.TabStop = false;
             this.email_Gbx.Text = "Email";
@@ -248,9 +258,9 @@
             this.EmailReport_btn,
             this.uploadImagesTelemed_btn});
             this.toolStrip2.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStrip2.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip2.Location = new System.Drawing.Point(4, 20);
             this.toolStrip2.Name = "toolStrip2";
-            this.toolStrip2.Size = new System.Drawing.Size(187, 246);
+            this.toolStrip2.Size = new System.Drawing.Size(249, 301);
             this.toolStrip2.TabIndex = 10;
             this.toolStrip2.TabStop = true;
             this.toolStrip2.Text = "toolStrip2";
@@ -283,7 +293,7 @@
             this.uploadImagesTelemed_btn.Image = ((System.Drawing.Image)(resources.GetObject("uploadImagesTelemed_btn.Image")));
             this.uploadImagesTelemed_btn.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.uploadImagesTelemed_btn.Name = "uploadImagesTelemed_btn";
-            this.uploadImagesTelemed_btn.Size = new System.Drawing.Size(96, 67);
+            this.uploadImagesTelemed_btn.Size = new System.Drawing.Size(247, 72);
             this.uploadImagesTelemed_btn.Text = "Telemed Upload";
             this.uploadImagesTelemed_btn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.uploadImagesTelemed_btn.ToolTipText = "Telemed Upload";
@@ -295,9 +305,10 @@
             this.Orientation_lbl.BackColor = System.Drawing.Color.Transparent;
             this.Orientation_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Orientation_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Orientation_lbl.Location = new System.Drawing.Point(3, 0);
+            this.Orientation_lbl.Location = new System.Drawing.Point(4, 0);
+            this.Orientation_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Orientation_lbl.Name = "Orientation_lbl";
-            this.Orientation_lbl.Size = new System.Drawing.Size(193, 26);
+            this.Orientation_lbl.Size = new System.Drawing.Size(257, 32);
             this.Orientation_lbl.TabIndex = 600;
             this.Orientation_lbl.Text = "Orientation";
             // 
@@ -306,9 +317,11 @@
             this.file_Gbx.Controls.Add(this.toolStrip1);
             this.file_Gbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.file_Gbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.file_Gbx.Location = new System.Drawing.Point(3, 113);
+            this.file_Gbx.Location = new System.Drawing.Point(4, 140);
+            this.file_Gbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.file_Gbx.Name = "file_Gbx";
-            this.file_Gbx.Size = new System.Drawing.Size(193, 271);
+            this.file_Gbx.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.file_Gbx.Size = new System.Drawing.Size(257, 332);
             this.file_Gbx.TabIndex = 9;
             this.file_Gbx.TabStop = false;
             this.file_Gbx.Text = "File";
@@ -325,9 +338,9 @@
             this.save_btn,
             this.export_btn});
             this.toolStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.VerticalStackWithOverflow;
-            this.toolStrip1.Location = new System.Drawing.Point(3, 16);
+            this.toolStrip1.Location = new System.Drawing.Point(4, 20);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(187, 252);
+            this.toolStrip1.Size = new System.Drawing.Size(249, 308);
             this.toolStrip1.TabIndex = 9;
             this.toolStrip1.TabStop = true;
             this.toolStrip1.Text = "File";
@@ -373,11 +386,12 @@
             this.tableLayoutPanel2.Controls.Add(this.landscape_rb, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.portrait_rb, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 29);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 36);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(193, 29);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(257, 35);
             this.tableLayoutPanel2.TabIndex = 6;
             // 
             // landscape_rb
@@ -385,9 +399,10 @@
             this.landscape_rb.AutoSize = true;
             this.landscape_rb.Checked = true;
             this.landscape_rb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.landscape_rb.Location = new System.Drawing.Point(3, 3);
+            this.landscape_rb.Location = new System.Drawing.Point(4, 4);
+            this.landscape_rb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.landscape_rb.Name = "landscape_rb";
-            this.landscape_rb.Size = new System.Drawing.Size(90, 23);
+            this.landscape_rb.Size = new System.Drawing.Size(120, 27);
             this.landscape_rb.TabIndex = 6;
             this.landscape_rb.TabStop = true;
             this.landscape_rb.Text = "Landscape";
@@ -397,9 +412,10 @@
             // 
             this.portrait_rb.AutoSize = true;
             this.portrait_rb.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.portrait_rb.Location = new System.Drawing.Point(99, 3);
+            this.portrait_rb.Location = new System.Drawing.Point(132, 4);
+            this.portrait_rb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.portrait_rb.Name = "portrait_rb";
-            this.portrait_rb.Size = new System.Drawing.Size(91, 23);
+            this.portrait_rb.Size = new System.Drawing.Size(121, 27);
             this.portrait_rb.TabIndex = 7;
             this.portrait_rb.Text = "Portrait";
             this.portrait_rb.UseVisualStyleBackColor = true;
@@ -410,9 +426,10 @@
             this.reportSize_cbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.reportSize_cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.reportSize_cbx.FormattingEnabled = true;
-            this.reportSize_cbx.Location = new System.Drawing.Point(3, 88);
+            this.reportSize_cbx.Location = new System.Drawing.Point(4, 109);
+            this.reportSize_cbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.reportSize_cbx.Name = "reportSize_cbx";
-            this.reportSize_cbx.Size = new System.Drawing.Size(193, 21);
+            this.reportSize_cbx.Size = new System.Drawing.Size(257, 24);
             this.reportSize_cbx.TabIndex = 8;
             this.reportSize_cbx.SelectedIndexChanged += new System.EventHandler(this.reportSize_cbx_SelectedIndexChanged);
             // 
@@ -421,9 +438,10 @@
             this.ReportSize_lbl.AutoSize = true;
             this.ReportSize_lbl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ReportSize_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReportSize_lbl.Location = new System.Drawing.Point(3, 61);
+            this.ReportSize_lbl.Location = new System.Drawing.Point(4, 75);
+            this.ReportSize_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.ReportSize_lbl.Name = "ReportSize_lbl";
-            this.ReportSize_lbl.Size = new System.Drawing.Size(193, 24);
+            this.ReportSize_lbl.Size = new System.Drawing.Size(257, 30);
             this.ReportSize_lbl.TabIndex = 700;
             this.ReportSize_lbl.Text = "Size";
             // 
@@ -465,13 +483,14 @@
             // 
             // Report
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1144, 742);
+            this.ClientSize = new System.Drawing.Size(1525, 913);
             this.Controls.Add(this.reportCanvas_pnl);
             this.Controls.Add(this.toolBox_pnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Report";

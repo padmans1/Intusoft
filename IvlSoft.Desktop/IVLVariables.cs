@@ -84,6 +84,7 @@ namespace INTUSOFT.Desktop
         public static PostProcessing postprocessingHelper;
         public static GainLevels CurrentLiveGain = GainLevels.Low;
         public static GainLevels CurrentCaptureGain = GainLevels.Low;
+        public static GainLevels CurrentCaptureFlashBoost = GainLevels.Low;
         public static bool isDefaultAnteriorGain = true; // State to take the value from defualt gain value in case of anterior if true the default value is set else current value is set for both live and capture
         public static bool isDefaultPrimeGain = true;// State to take the value from defualt gain value in case of prime if true the default value is set else current value is set for both live and capture
         public static bool isDefaultPrimeLedSource = true;// State to take the value from defualt gain value in case of prime if true the default value is set else current value is set for both live and capture

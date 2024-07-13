@@ -64,6 +64,7 @@ namespace INTUSOFT.Imaging
         public bool isFFA_mode = false;//To indicate FFA mode
         public ushort LiveGain = 100;
         public ushort CaptureGain = 200;
+        public ushort  Flashboost= 40;
         public uint LiveExposure = 100000;
         public uint CaptureExposure = 100000;
         public int IRTemperature = 6500;

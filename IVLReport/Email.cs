@@ -542,6 +542,7 @@ namespace IVLReport
                         values.Add("patientID", (string)_dataModel.ReportData["$MRN"]);
                         values.Add("patientName", (string)_dataModel.ReportData["$Name"]);
                         values.Add("doctorName", (string)_dataModel.ReportData["$Doctor"]);
+                        values.Add("diabetestype", (string)_dataModel.ReportData["$Diabetestype"]);
                         for (int i = 0; i < _dataModel.CurrentImgFiles.Length; i++)
                         {
                             FileInfo finf = new FileInfo(_dataModel.CurrentImgFiles[i]);
@@ -1611,7 +1612,7 @@ namespace IVLReport
         public string doc_name { get; set; }
         public string clinic_name { get; set; }
 
-        public string patient_fname { get; set; }
+        public string patient_fname { get; set;   }
         public string patient_mname { get; set; }
         public string patient_lname { get; set; }
         public string patient_id { get; set; }

@@ -479,10 +479,13 @@ namespace INTUSOFT.Imaging
                    EnableWhiteBalance(Convert.ToBoolean(ConfigVariables.CurrentSettings.CameraSettings._EnableWB.val));
                    //IVLVariables.ivl_Camera.EnableCameraColorMatrix(formCheckBox2.Checked);
                    // Set value of flash boost from config to the settings of camera
+                   if(IVLCamVariables.ImagingMode != ImagingMode.Posterior_Prime)
                    IVLCamVariables._Settings.BoardSettings.FlashBoostValue = (Convert.ToByte(ConfigVariables.CurrentSettings.FirmwareSettings._FlashBoostValue.val));
-                   // Enable flash boost depending on the state of the isFlash boost from config this uses the flash boost value from board settings of the camera
+                   else
+                        IVLCamVariables._Settings.BoardSettings.FlashBoostValue = (Convert.ToByte(IVLCamVariables._Settings.CameraSettings.Flashboost));
+                    // Enable flash boost depending on the state of the isFlash boost from config this uses the flash boost value from board settings of the camera
 
-                   if (IVLCamVariables._Settings.BoardSettings.FlashBoostValue > 0)
+                    if (IVLCamVariables._Settings.BoardSettings.FlashBoostValue > 0)
                        EnableFlashBoost(Convert.ToBoolean(ConfigVariables.CurrentSettings.FirmwareSettings._isFlashBoost.val));
                    if (Convert.ToBoolean(ConfigVariables.CurrentSettings.FirmwareSettings._EnablePCUKnob.val))
                        EnableFlashControlUsingKnob();
@@ -528,7 +531,7 @@ namespace INTUSOFT.Imaging
                     IVLCamVariables.MaxNegativeDiaptor = Convert.ToInt32(ConfigVariables.CurrentSettings.FirmwareSettings.NegativeDiaptorMaxValue.val);
                     IVLCamVariables.MaxPositiveDiaptor = Convert.ToInt32(ConfigVariables.CurrentSettings.FirmwareSettings.PositiveDiaptorMaxValue.val);
                     #endregion
-
+                    
 
                     byte strobeValue = 156;
                     if (IVLCamVariables.ImagingMode == Imaging.ImagingMode.Anterior_Prime || IVLCamVariables.ImagingMode == Imaging.ImagingMode.Posterior_Prime || cameraPropsHelper.cameraModel == CameraModel.D)
@@ -1001,7 +1004,19 @@ namespace INTUSOFT.Imaging
                SetGainValueFromLevel(value, false);
            }
        }
-       internal void SetGainValueFromLevel(GainLevels level, bool isLive)// made the method public to be accessed by the intucamhelper
+        private GainLevels captureFlashboostLevel;
+
+        public GainLevels CaptureFlashboostLevel
+        {
+            get { return captureFlashboostLevel; }
+
+            set
+            {
+                captureFlashboostLevel = value;
+                SetFlashboostFromLevel(value, false);
+            }
+        }
+        internal void SetGainValueFromLevel(GainLevels level, bool isLive)// made the method public to be accessed by the intucamhelper
        {
            try
            {
@@ -1057,7 +1072,57 @@ namespace INTUSOFT.Imaging
            
           
        }
-       private bool settingsFromConfig = true;
+        internal void SetFlashboostFromLevel(GainLevels level, bool isLive)// made the method public to be accessed by the intucamhelper
+        {
+            try
+            {
+                switch (level)
+                {
+                    case GainLevels.Low:
+                        {
+
+
+                            IVLCamVariables._Settings.BoardSettings.FlashBoostValue = Convert.ToByte(ConfigVariables.CurrentSettings.FirmwareSettings._FlashboostLow.val);
+                            if (IVLCamVariables._Settings.BoardSettings.FlashBoostValue > 0)
+                                EnableFlashBoost(Convert.ToBoolean(ConfigVariables.CurrentSettings.FirmwareSettings._isFlashBoost.val));
+                            break;
+
+                        }
+                    case GainLevels.Medium:
+                        {
+                            IVLCamVariables._Settings.BoardSettings.FlashBoostValue = Convert.ToByte(ConfigVariables.CurrentSettings.FirmwareSettings._FlashboostMedium.val);
+                            if (IVLCamVariables._Settings.BoardSettings.FlashBoostValue > 0)
+                                EnableFlashBoost(Convert.ToBoolean(ConfigVariables.CurrentSettings.FirmwareSettings._isFlashBoost.val));
+                            break;
+                        }
+                    case GainLevels.High:
+                        {
+                            IVLCamVariables._Settings.BoardSettings.FlashBoostValue = Convert.ToByte(ConfigVariables.CurrentSettings.FirmwareSettings._FlashboostHigh.val);
+                            if (IVLCamVariables._Settings.BoardSettings.FlashBoostValue > 0)
+                                EnableFlashBoost(Convert.ToBoolean(ConfigVariables.CurrentSettings.FirmwareSettings._isFlashBoost.val));
+                            break;
+                        }
+
+                }
+                //if (isLive)
+                //{
+                //    if (ivl_Camera.isOpenCamera)
+                //    {
+                //        ivl_Camera.SetGain(IVLCamVariables._Settings.CameraSettings.LiveGain);
+
+
+                //    }
+                //}
+            }
+            catch (Exception ex)
+            {
+                CameraLogger.WriteException(ex, Exception_Log);
+                // CameraLogger.WriteException(ex, Exception_Log); 
+            }
+
+
+        }
+        private bool settingsFromConfig = true;
 
        public bool SettingsFromConfig
        {

@@ -192,7 +192,15 @@ namespace INTUSOFT.Configuration.AdvanceSettings
             set { captureCurrentGainLevel = value; }
         }
 
-        private  IVLControlProperties LiveGainLow = null;
+        private IVLControlProperties captureCurrentFlashBoost = null;
+
+        public IVLControlProperties CaptureCurrentFlashBoost
+        {
+            get { return captureCurrentFlashBoost; }
+            set { captureCurrentFlashBoost = value; }
+        }
+
+        private IVLControlProperties LiveGainLow = null;
 
         public IVLControlProperties _LiveGainLow
         {
@@ -741,6 +749,15 @@ namespace INTUSOFT.Configuration.AdvanceSettings
             CaptureCurrentGainLevel.control = "System.Windows.Forms.ComboBox";
             CaptureCurrentGainLevel.text = " Capture Current Gain Level";
             CaptureCurrentGainLevel.range = "Low,Medium,High";
+
+            CaptureCurrentFlashBoost = new IVLControlProperties();
+            CaptureCurrentFlashBoost.name = "CaptureCurrentFlashBoost";
+            CaptureCurrentFlashBoost.val = "Low";
+            CaptureCurrentFlashBoost.type = "int";
+            CaptureCurrentFlashBoost.control = "System.Windows.Forms.ComboBox";
+            CaptureCurrentFlashBoost.text = " Capture Current Flash Boost";
+            CaptureCurrentFlashBoost.range = "Low,Medium,High";
+
 
             _DigitalGainLow = new IVLControlProperties();
             _DigitalGainLow.name = "DigitalGainLow";

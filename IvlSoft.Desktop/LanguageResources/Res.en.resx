@@ -1511,7 +1511,7 @@
     <value>Export Image/s</value>
   </data>
   <data name="ViewImageUpload_Button_ToolTipText" xml:space="preserve">
-    <value>Upload</value>
+    <value>Upload to telemed</value>
   </data>
   <data name="ViewImageSave_Button_ToolTipText" xml:space="preserve">
     <value>Save Image</value>
@@ -2026,10 +2026,16 @@
   <data name="Add_Medical_History_Text" xml:space="preserve">
     <value>Add Consultation History</value>
   </data>
-  <data name="ImageViewer_Upload_Button_Text" xml:space="preserve">
-    <value>Upload</value>
+  <data name="FlashBoost_Label_Text" xml:space="preserve">
+    <value>Flash Boost :</value>
   </data>
-	<data name="ViewImageUpload_Button_ToolTipText" xml:space="preserve">
-    <value>Upload to telemed</value>
+  <data name="highFlashBoost_Text" xml:space="preserve">
+    <value>Flash Boost High</value>
+  </data>
+  <data name="lowFlashBoost_Text" xml:space="preserve">
+    <value>Flash Boost Low</value>
+  </data>
+  <data name="mediumFlashBoost_Text" xml:space="preserve">
+    <value>Flash Boost Medium</value>
   </data>
 </root>

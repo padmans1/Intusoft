@@ -245,9 +245,61 @@ namespace INTUSOFT.Configuration.AdvanceSettings
 
         public IVLControlProperties PositiveDiaptorMaxValue { get => positiveDiaptorMaxValue; set => positiveDiaptorMaxValue = value; }
 
+        private IVLControlProperties FlashboostHigh = null;
+
+        public IVLControlProperties _FlashboostHigh
+        {
+            get { return FlashboostHigh; }
+            set { FlashboostHigh = value; }
+        }
+
+        private IVLControlProperties FlashboostMedium = null;
+
+        public IVLControlProperties _FlashboostMedium
+        {
+            get { return FlashboostMedium; }
+            set { FlashboostMedium = value; }
+        }
+
+        private IVLControlProperties FlashboostLow = null;
+
+        public IVLControlProperties _FlashboostLow
+        {
+            get { return FlashboostLow; }
+            set { FlashboostLow = value; }
+        }
+
+
 
         public FirmwareSettings()
         {
+            _FlashboostLow = new IVLControlProperties();
+            _FlashboostLow.name = "FlashboostLow";
+            _FlashboostLow.val = "30";
+            _FlashboostLow.type = "int";
+            _FlashboostLow.control = "System.Windows.Forms.NumericUpDown";
+            _FlashboostLow.text = "Flash Boost Low";
+            _FlashboostLow.min = 30;
+            _FlashboostLow.max = 100;
+
+            _FlashboostMedium = new IVLControlProperties();
+            _FlashboostMedium.name = "FlashboostMedium";
+            _FlashboostMedium.val = "40";
+            _FlashboostMedium.type = "int";
+            _FlashboostMedium.control = "System.Windows.Forms.NumericUpDown";
+            _FlashboostMedium.text = "Flash Boost Medium";
+            _FlashboostMedium.min = 30;
+            _FlashboostMedium.max = 100;
+
+            _FlashboostHigh = new IVLControlProperties();
+            _FlashboostHigh.name = "FlashboostHigh";
+            _FlashboostHigh.val = "50";
+            _FlashboostHigh.type = "int";
+            _FlashboostHigh.control = "System.Windows.Forms.NumericUpDown";
+            _FlashboostHigh.text = "Flash Boost High";
+            _FlashboostHigh.min = 30;
+            _FlashboostHigh.max = 100;
+
             _IsApplyPly = new IVLControlProperties();
             _IsApplyPly.name = "isApplyPly";
             _IsApplyPly.val = false.ToString();

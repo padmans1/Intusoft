@@ -1043,9 +1043,11 @@ namespace INTUSOFT.Desktop.Forms
                 #endregion
 
                 IVLVariables.ivl_Camera.camPropsHelper.CaptureGainLevel = (Imaging.GainLevels)Enum.Parse(typeof(Imaging.GainLevels), IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentGainLevel.val);
+                IVLVariables.ivl_Camera.camPropsHelper.CaptureFlashboostLevel = (Imaging.GainLevels)Enum.Parse(typeof(Imaging.GainLevels), IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentFlashBoost.val);
                 IVLVariables.ivl_Camera.camPropsHelper.LiveGainLevel = (Imaging.GainLevels)Enum.Parse(typeof(Imaging.GainLevels), IVLVariables.CurrentSettings.CameraSettings.LiveCurrentGainLevel.val);
                 _livePrimeControls.RefreshLiveGainButtons(IVLVariables.CurrentLiveGain);
                 _livePrimeControls.RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain);
+                _livePrimeControls.RefreshFlashboostButtons(IVLVariables.CurrentCaptureFlashBoost);
                 IVLVariables.ivl_Camera.camPropsHelper._Settings.CameraSettings.LiveExposure = Convert.ToUInt32(IVLVariables.CurrentSettings.CameraSettings._Exposure.val);
                     
             }

@@ -85,7 +85,7 @@
             this.reportCanvas_pnl.Controls.Add(this.statusStrip1);
             this.reportCanvas_pnl.Dock = System.Windows.Forms.DockStyle.Left;
             this.reportCanvas_pnl.Location = new System.Drawing.Point(0, 0);
-            this.reportCanvas_pnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reportCanvas_pnl.Margin = new System.Windows.Forms.Padding(4);
             this.reportCanvas_pnl.Name = "reportCanvas_pnl";
             this.reportCanvas_pnl.Size = new System.Drawing.Size(1255, 913);
             this.reportCanvas_pnl.TabIndex = 1;
@@ -153,7 +153,7 @@
             this.toolBox_pnl.Controls.Add(this.panel1);
             this.toolBox_pnl.Dock = System.Windows.Forms.DockStyle.Right;
             this.toolBox_pnl.Location = new System.Drawing.Point(1259, 0);
-            this.toolBox_pnl.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.toolBox_pnl.Margin = new System.Windows.Forms.Padding(4);
             this.toolBox_pnl.Name = "toolBox_pnl";
             this.toolBox_pnl.Size = new System.Drawing.Size(266, 913);
             this.toolBox_pnl.TabIndex = 6;
@@ -164,7 +164,7 @@
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Location = new System.Drawing.Point(-1, 7);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(265, 896);
             this.panel1.TabIndex = 6;
@@ -182,7 +182,7 @@
             this.tableLayoutPanel1.Controls.Add(this.ReportSize_lbl, 0, 2);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.061198F));
@@ -199,9 +199,9 @@
             // 
             this.autoAnalysis_gbx.Controls.Add(this.toolStrip3);
             this.autoAnalysis_gbx.Location = new System.Drawing.Point(4, 813);
-            this.autoAnalysis_gbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.autoAnalysis_gbx.Margin = new System.Windows.Forms.Padding(4);
             this.autoAnalysis_gbx.Name = "autoAnalysis_gbx";
-            this.autoAnalysis_gbx.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.autoAnalysis_gbx.Padding = new System.Windows.Forms.Padding(4);
             this.autoAnalysis_gbx.Size = new System.Drawing.Size(257, 79);
             this.autoAnalysis_gbx.TabIndex = 1011;
             this.autoAnalysis_gbx.TabStop = false;
@@ -238,9 +238,9 @@
             this.email_Gbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.email_Gbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.email_Gbx.Location = new System.Drawing.Point(4, 480);
-            this.email_Gbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_Gbx.Margin = new System.Windows.Forms.Padding(4);
             this.email_Gbx.Name = "email_Gbx";
-            this.email_Gbx.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.email_Gbx.Padding = new System.Windows.Forms.Padding(4);
             this.email_Gbx.Size = new System.Drawing.Size(257, 325);
             this.email_Gbx.TabIndex = 10;
             this.email_Gbx.TabStop = false;
@@ -318,9 +318,9 @@
             this.file_Gbx.Dock = System.Windows.Forms.DockStyle.Fill;
             this.file_Gbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.file_Gbx.Location = new System.Drawing.Point(4, 140);
-            this.file_Gbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.file_Gbx.Margin = new System.Windows.Forms.Padding(4);
             this.file_Gbx.Name = "file_Gbx";
-            this.file_Gbx.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.file_Gbx.Padding = new System.Windows.Forms.Padding(4);
             this.file_Gbx.Size = new System.Drawing.Size(257, 332);
             this.file_Gbx.TabIndex = 9;
             this.file_Gbx.TabStop = false;
@@ -387,7 +387,7 @@
             this.tableLayoutPanel2.Controls.Add(this.portrait_rb, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 36);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -400,7 +400,7 @@
             this.landscape_rb.Checked = true;
             this.landscape_rb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.landscape_rb.Location = new System.Drawing.Point(4, 4);
-            this.landscape_rb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.landscape_rb.Margin = new System.Windows.Forms.Padding(4);
             this.landscape_rb.Name = "landscape_rb";
             this.landscape_rb.Size = new System.Drawing.Size(120, 27);
             this.landscape_rb.TabIndex = 6;
@@ -413,7 +413,7 @@
             this.portrait_rb.AutoSize = true;
             this.portrait_rb.Dock = System.Windows.Forms.DockStyle.Fill;
             this.portrait_rb.Location = new System.Drawing.Point(132, 4);
-            this.portrait_rb.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.portrait_rb.Margin = new System.Windows.Forms.Padding(4);
             this.portrait_rb.Name = "portrait_rb";
             this.portrait_rb.Size = new System.Drawing.Size(121, 27);
             this.portrait_rb.TabIndex = 7;
@@ -427,7 +427,7 @@
             this.reportSize_cbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.reportSize_cbx.FormattingEnabled = true;
             this.reportSize_cbx.Location = new System.Drawing.Point(4, 109);
-            this.reportSize_cbx.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.reportSize_cbx.Margin = new System.Windows.Forms.Padding(4);
             this.reportSize_cbx.Name = "reportSize_cbx";
             this.reportSize_cbx.Size = new System.Drawing.Size(257, 24);
             this.reportSize_cbx.TabIndex = 8;
@@ -490,7 +490,7 @@
             this.Controls.Add(this.toolBox_pnl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.KeyPreview = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Report";

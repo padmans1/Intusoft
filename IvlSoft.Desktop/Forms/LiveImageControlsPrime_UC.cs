@@ -157,7 +157,7 @@ namespace INTUSOFT.Desktop.Forms
                     break;
                 default:
                     {
-                        RefreshFlashGainButtons(GainLevels.Low);
+                        RefreshFlashGainButtons(GainLevels.Medium);
                     }
                     break;
             }
@@ -193,7 +193,7 @@ namespace INTUSOFT.Desktop.Forms
                     break;
                 default:
                     {
-                        RefreshFlashGainButtons(GainLevels.Low);
+                        RefreshFlashboostButtons(GainLevels.Medium);
                     }
                     break;
             }
@@ -268,15 +268,15 @@ namespace INTUSOFT.Desktop.Forms
             liveGain_lbl.Text = IVLVariables.LangResourceManager.GetString("LiveGain_Label_Text", IVLVariables.LangResourceCultureInfo);
             flashBoost_lbl.Text = IVLVariables.LangResourceManager.GetString("FlashBoost_Label_Text", IVLVariables.LangResourceCultureInfo);
             lowLiveGain_btn.Text = IVLVariables.LangResourceManager.GetString("LowLiveGain_Text", IVLVariables.LangResourceCultureInfo);
-            LowFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("LowLiveGain_Text", IVLVariables.LangResourceCultureInfo);
+            //LowFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("LowLiveGain_Text", IVLVariables.LangResourceCultureInfo);
             flashBoostLow_btn.Text = IVLVariables.LangResourceManager.GetString("lowFlashBoost_Text", IVLVariables.LangResourceCultureInfo);
             mediumLiveGain_btn.Text = IVLVariables.LangResourceManager.GetString("MediumLiveGain_Text", IVLVariables.LangResourceCultureInfo);
-            mediumFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("MediumLiveGain_Text", IVLVariables.LangResourceCultureInfo);
+            //mediumFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("MediumLiveGain_Text", IVLVariables.LangResourceCultureInfo);
             flashBoostMedium_btn.Text = IVLVariables.LangResourceManager.GetString("mediumFlashBoost_Text", IVLVariables.LangResourceCultureInfo);
             highLiveGain_btn.Text = IVLVariables.LangResourceManager.GetString("HighLiveGain_Text", IVLVariables.LangResourceCultureInfo);
-            highFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("HighLiveGain_Text", IVLVariables.LangResourceCultureInfo);
+            //highFlashGain_btn.Text = IVLVariables.LangResourceManager.GetString("HighLiveGain_Text", IVLVariables.LangResourceCultureInfo);
             flashBoostHigh_btn.Text = IVLVariables.LangResourceManager.GetString("highFlashBoost_Text", IVLVariables.LangResourceCultureInfo);
-            flashGain_lbl.Text = IVLVariables.LangResourceManager.GetString("FlashGain_Label_Text", IVLVariables.LangResourceCultureInfo);
+            //flashGain_lbl.Text = IVLVariables.LangResourceManager.GetString("FlashGain_Label_Text", IVLVariables.LangResourceCultureInfo);
 
         }
 
@@ -320,7 +320,7 @@ namespace INTUSOFT.Desktop.Forms
 
         /// <summary>
         /// This event is used to assign the low gain to the current gain and invokes the RefreshLiveGainButtons method.
-        /// </summary>
+        /// </summary> 
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void lowLiveGain_btn_Click(object sender, EventArgs e)
@@ -341,7 +341,7 @@ namespace INTUSOFT.Desktop.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void highFlashGain_btn_Click(object sender, EventArgs e)
+       /* private void highFlashGain_btn_Click(object sender, EventArgs e)
         {
             if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.        IsMotorMovementDone)
 
@@ -360,7 +360,7 @@ namespace INTUSOFT.Desktop.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void mediumFlashGain_btn_Click(object sender, EventArgs e)
+        /* private void mediumFlashGain_btn_Click(object sender, EventArgs e)
         {
             if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.        IsMotorMovementDone)
 
@@ -382,7 +382,7 @@ namespace INTUSOFT.Desktop.Forms
         {
             if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.        IsMotorMovementDone)
 
-            if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)
+            if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)  
             {
 
                  RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain = GainLevels.Low);;
@@ -390,7 +390,7 @@ namespace INTUSOFT.Desktop.Forms
                 IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentGainLevel.val = IVLVariables.CurrentCaptureGain.ToString();
                
             }
-        }
+        } */
 
         /// <summary>
         /// This event is used to assign the low flash value to the CurrentCaptureGain and invokes the RefreshFlashGainButtons method.
@@ -398,6 +398,7 @@ namespace INTUSOFT.Desktop.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// 
+        
         private void lowFlashBoost_btn_Click(object sender, EventArgs e)
         {
             if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.IsMotorMovementDone)
@@ -413,7 +414,7 @@ namespace INTUSOFT.Desktop.Forms
         /// <summary>
         /// This event is used to assign the low flash value to the CurrentCaptureGain and invokes the RefreshFlashGainButtons method.
         /// </summary>
-        /// <param name="sender"></param>
+        /// <param name="sender"></param> 
         /// <param name="e"></param>
         /// 
         private void mediumFlashBoost_btn_Click(object sender, EventArgs e)
@@ -446,5 +447,15 @@ namespace INTUSOFT.Desktop.Forms
 
 
         #endregion
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void flashGain_lbl_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

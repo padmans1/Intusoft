@@ -80,17 +80,17 @@
             this.toolStripSeparator7,
             this.highLiveGain_btn,
             this.toolStripSeparator8});
-            toolStrip2.Location = new System.Drawing.Point(0, 39);
+            toolStrip2.Location = new System.Drawing.Point(0, 81);
             toolStrip2.Name = "toolStrip2";
             toolStrip2.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            toolStrip2.Size = new System.Drawing.Size(214, 58);
+            toolStrip2.Size = new System.Drawing.Size(206, 122);
             toolStrip2.TabIndex = 89093;
             toolStrip2.Text = "toolStrip1";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 122);
             // 
             // lowLiveGain_btn
             // 
@@ -106,7 +106,7 @@
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(6, 122);
             // 
             // mediumLiveGain_btn
             // 
@@ -122,7 +122,7 @@
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(6, 122);
             // 
             // highLiveGain_btn
             // 
@@ -139,7 +139,7 @@
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 122);
             // 
             // tableLayoutPanel3
             // 
@@ -162,8 +162,9 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 13.33333F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(214, 293);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(206, 611);
             this.tableLayoutPanel3.TabIndex = 9;
+            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // toolStrip3
             // 
@@ -180,17 +181,17 @@
             this.toolStripSeparator11,
             this.flashBoostHigh_btn,
             this.toolStripSeparator12});
-            this.toolStrip3.Location = new System.Drawing.Point(0, 233);
+            this.toolStrip3.Location = new System.Drawing.Point(0, 487);
             this.toolStrip3.Name = "toolStrip3";
             this.toolStrip3.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip3.Size = new System.Drawing.Size(214, 60);
+            this.toolStrip3.Size = new System.Drawing.Size(206, 124);
             this.toolStrip3.TabIndex = 89095;
             this.toolStrip3.Text = "toolStrip3";
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 60);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 124);
             // 
             // flashBoostLow_btn
             // 
@@ -206,7 +207,7 @@
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 60);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 124);
             // 
             // flashBoostMedium_btn
             // 
@@ -222,7 +223,7 @@
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 60);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 124);
             // 
             // flashBoostHigh_btn
             // 
@@ -239,7 +240,7 @@
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 60);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(6, 124);
             // 
             // flashGain_lbl
             // 
@@ -248,13 +249,14 @@
             this.flashGain_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.flashGain_lbl.ForeColor = System.Drawing.Color.Khaki;
             this.flashGain_lbl.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.flashGain_lbl.Location = new System.Drawing.Point(4, 106);
+            this.flashGain_lbl.Location = new System.Drawing.Point(4, 233);
             this.flashGain_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.flashGain_lbl.Name = "flashGain_lbl";
-            this.flashGain_lbl.Size = new System.Drawing.Size(100, 20);
+            this.flashGain_lbl.Size = new System.Drawing.Size(126, 20);
             this.flashGain_lbl.TabIndex = 89092;
-            this.flashGain_lbl.Text = "Flash Gain:";
+            this.flashGain_lbl.Text = "Capture Gain:";
             this.flashGain_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.flashGain_lbl.Click += new System.EventHandler(this.flashGain_lbl_Click);
             // 
             // liveGain_lbl
             // 
@@ -262,12 +264,12 @@
             this.liveGain_lbl.AutoSize = true;
             this.liveGain_lbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.liveGain_lbl.ForeColor = System.Drawing.Color.Khaki;
-            this.liveGain_lbl.Location = new System.Drawing.Point(4, 9);
+            this.liveGain_lbl.Location = new System.Drawing.Point(4, 30);
             this.liveGain_lbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.liveGain_lbl.Name = "liveGain_lbl";
-            this.liveGain_lbl.Size = new System.Drawing.Size(54, 20);
+            this.liveGain_lbl.Size = new System.Drawing.Size(95, 20);
             this.liveGain_lbl.TabIndex = 89090;
-            this.liveGain_lbl.Text = "Gain:";
+            this.liveGain_lbl.Text = "Live Gain:";
             this.liveGain_lbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // toolStrip1
@@ -285,17 +287,17 @@
             this.toolStripSeparator4,
             this.highFlashGain_btn,
             this.toolStripSeparator3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 136);
+            this.toolStrip1.Location = new System.Drawing.Point(0, 284);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.toolStrip1.Size = new System.Drawing.Size(214, 58);
+            this.toolStrip1.Size = new System.Drawing.Size(206, 122);
             this.toolStrip1.TabIndex = 89093;
             this.toolStrip1.Text = "toolStrip1";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 122);
             // 
             // LowFlashGain_btn
             // 
@@ -311,7 +313,7 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(6, 122);
             // 
             // mediumFlashGain_btn
             // 
@@ -327,7 +329,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 122);
             // 
             // highFlashGain_btn
             // 
@@ -344,7 +346,7 @@
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 58);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 122);
             // 
             // label1
             // 
@@ -353,10 +355,10 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Khaki;
             this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.label1.Location = new System.Drawing.Point(4, 203);
+            this.label1.Location = new System.Drawing.Point(4, 436);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(110, 20);
+            this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 89094;
             this.label1.Text = "Flash Boost:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -376,7 +378,7 @@
             this.Controls.Add(this.tableLayoutPanel3);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "LiveImageControlsPrime_UC";
-            this.Size = new System.Drawing.Size(214, 293);
+            this.Size = new System.Drawing.Size(206, 611);
             toolStrip2.ResumeLayout(false);
             toolStrip2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);

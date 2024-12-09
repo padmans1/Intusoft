@@ -1504,7 +1504,9 @@ namespace INTUSOFT.Desktop.Forms
         private async void Update_btn_Click(object sender, EventArgs e)
         {
             Args arg = new Args();
-            // if (IVLVariables.CurrentSettings.ReportSettings.AI_Vendor.val != "Vendor4")
+            // if (IVLVariables.CurrentSettings.ReportSettings.AI_Vendor.val != "
+            //
+            // ")
             {
                 if (populatePatDetails())//;
                 {
@@ -2711,6 +2713,19 @@ namespace INTUSOFT.Desktop.Forms
         public string contact = string.Empty;
         public string gender;
         public Vendor4()
+        {
+
+        }
+    }
+
+    public class Vendor6
+    {
+        public string patient_id = string.Empty;
+        public string age = string.Empty;
+        public string name = string.Empty;
+        public string gender;
+
+        public Vendor6()
         {
 
         }

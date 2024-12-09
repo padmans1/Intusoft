@@ -493,7 +493,7 @@ namespace INTUSOFT.Configuration.AdvanceSettings
             AI_Vendor.val = "Vendor1";
             AI_Vendor.type = "string";
             AI_Vendor.control = "System.Windows.Forms.ComboBox";
-            AI_Vendor.range = "Vendor1,Vendor2,Vendor3,Vendor4,Vendor5";
+            AI_Vendor.range = "Vendor1,Vendor2,Vendor3,Vendor4,Vendor5,Vendor6";
             AI_Vendor.text = "AI Vendor";
             AI_Vendor.length = 200;
 

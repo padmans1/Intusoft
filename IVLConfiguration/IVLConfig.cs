@@ -137,7 +137,7 @@ namespace INTUSOFT.Configuration
             val = "Vendor1",
             type = "string",
             control = "System.Windows.Forms.ComboBox",
-            range = "Vendor1,Vendor2,Vendor3,Vendor4,Vendor5",
+            range = "Vendor1,Vendor2,Vendor3,Vendor4,Vendor5,Vendor6",
             text = "AI Vendor",
             length = 200, }
         };

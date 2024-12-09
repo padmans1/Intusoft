@@ -559,9 +559,33 @@ namespace IVLReport
 
                         //UploadImages.Upload(values);
                     }
+                    else if (vendorVal == "Vendor6")
+                    {
+                        credentials.Add("email", AIUserName);
+                        credentials.Add("password", AIPassword);
+
+                        Dictionary<string, string> values = new Dictionary<string, string>();
+                        
+                        values.Add("urlToken", "");
+                        values.Add("urlImageUpload", "");
+                        values.Add("patientID", (string)_dataModel.ReportData["MRN"]);
+                        values.Add("patientName", (string)_dataModel.ReportData["$Name"]);
+                        for(int i=0; i < _dataModel.CurrentImgFiles.Length; i++)
+                        {
+                            FileInfo finf = new FileInfo(_dataModel.CurrentImgFiles[i]);
+
+                            if (_dataModel.CurrentImageNames[i].Contains("OS"))
+                                values.Add("leftImage", finf.FullName);
+                            else
+                                values.Add("rightImage", finf.FullName);
+                        }
+                        values.Add("emailID", (string)_dataModel.ReportData["$emailID"]);
+                        values.Add("vendor", "Vendor6");
+                        UploadImages.UploadImagesDetails(values, vendorVal, (string)_dataModel.ReportData["$username"], (string)_dataModel.ReportData["$password"], "DIAB_RETINA");
+                    }
 
                     //var releases = GetReleases(restSharpRequestHandler);
-                    ////List out the retreived releases
+                    ////List out the retreived releases 
 
                     if (vendorVal == "Vendor1")
                     {
@@ -683,6 +707,12 @@ namespace IVLReport
                     {
 
                     }
+
+                    else if (vendorVal == "Vendor6")
+                    {
+
+                    }
+
                     else if(vendorVal == "Vendor5")
                     {
                        // File.WriteAllText(@"test.json", createJsonFile());
@@ -1431,7 +1461,7 @@ namespace IVLReport
                 using (var content = new FormUrlEncodedContent(postData))
                 {
                     content.Headers.Clear();
-                    content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");
+                    content.Headers.Add("Content-Type", "application/x-www-form-urlencoded");   
 
                     HttpResponseMessage response = await httpClient.PostAsync(url, content);
                     string resultResponse = string.Empty;

@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json.Linq;
+﻿using Common;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using ReportUtils;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
 using System.Net;
 using System.Net.Http;
-using System.IO;
-using Common;
-using ReportUtils;
-using System.IO.Compression;
 using System.Net.Http.Headers;
-using Amazon.S3;
-using Amazon.S3.Transfer;
-using Amazon.Runtime;
-using System.Diagnostics.Eventing.Reader;
-using Microsoft.Office.Interop.Word;
-using INTUSOFT.Data.NewDbModel;
-using Amazon.S3.Model;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace IVLReport
 {
-   public static class UploadImages
+    public static class UploadImages
     {
      static  string vendorVal = string.Empty;
      static string AIUserName = string.Empty;
@@ -160,9 +153,9 @@ namespace IVLReport
             ZipFile.CreateFromDirectory(dirInf.FullName, zipFilePath);
             return zipFilePath;
         }
-        public static async Task GetToken()
+        public static async System.Threading.Tasks.Task GetToken()
         {
-            if(vendorVal == "Vendor2")
+            if (vendorVal == "Vendor2")
             {
                 List<KeyValuePair<string, string>> values = new List<KeyValuePair<string, string>>();
                 values.Add(new KeyValuePair<string, string>("username", AIUserName));
@@ -173,27 +166,34 @@ namespace IVLReport
                 var resultStr = await responseMessage.Content.ReadAsStringAsync();
                 result = (JToken)JsonConvert.DeserializeObject(resultStr);
             }
-         
-            else if(vendorVal == "Vendor4")
+            else if (vendorVal == "Vendor4")
             {
                 JioCredentials jioCredentials = new JioCredentials
                 {
                     email = AIUserName,
                     password = AIPassword
                 };
-                var responseMessage =  Post("https://portal.swasteye.in/getToken", jioCredentials);
+                var builder = new StringBuilder("?");
+                string url = "https://portal.swasteye.in/getToken";
+                var separator = "";
+                builder.AppendFormat("{0}{1}={2}", separator, "email", jioCredentials.email);
+
+                separator = "&";
+                builder.AppendFormat("{0}{1}={2}", separator, "password", jioCredentials.password);
+                builder.ToString();
+                var data = url + builder.ToString();
+                var responseMessage = Post(url, data);
 
                 await responseMessage;
 
-                if(responseMessage.Result.StatusCode == HttpStatusCode.OK || responseMessage.Result.StatusCode == HttpStatusCode.Accepted)
+                if (responseMessage.Result.StatusCode == HttpStatusCode.OK || responseMessage.Result.StatusCode == HttpStatusCode.Accepted)
                 {
-                    result = (JToken) JsonConvert.DeserializeObject(await responseMessage.Result.Content.ReadAsStringAsync());
+                    result = (JToken)JsonConvert.DeserializeObject(await responseMessage.Result.Content.ReadAsStringAsync());
 
                 }
                 else
                 {
                     _UploadEvent("The upload failed, Please check the user name or password");
-                    return;
                 }
 
                 int count = 0;
@@ -206,37 +206,7 @@ namespace IVLReport
                     }
                 }
 
-            if (vendorVal == "Vendor6")
-            {
-                    VisionCredentials visionCredentials = new VisionCredentials
-                    {
-                        email = AIUserName,
-                        password = AIPassword,
-                    };
-                    var responseMessage = Post("", visionCredentials);
 
-                    await responseMessage;
-
-                    if(responseMessage.Result.StatusCode == HttpStatusCode.OK || responseMessage.Result.StatusCode == HttpStatusCode.Accepted)
-                    {
-                        result = (JToken)JsonConvert.DeserializeObject(await responseMessage.Result.Content.ReadAsStringAsync());
-                    }
-                    else
-                    {
-                        _UploadEvent("The upload failed, Please check the user name or password");
-                        return;
-                    }
-
-                    int count = 0;
-                    foreach (JProperty release in result)
-                    {
-                        if (release != null)
-                        {
-                            token = release.Value.ToString().Split(' ')[1];
-                            break;
-                        }
-                    }
-            }
 
                 using (var handler = new WebRequestHandler())
                 {
@@ -272,28 +242,76 @@ namespace IVLReport
 
                                },
                            }
-                        };
-                        var request = new HttpRequestMessage(HttpMethod.Post, dic["urlImageUpload"]);
 
-                    using (var handler = new WebRequestHandler())
+
+                        };
+
+
+                    }
+
+                }
+                Console.WriteLine(result);
+            }
+            else if (vendorVal == "Vendor6")
+            {
+                VisionCredentials visionCredentials = new VisionCredentials
+                {
+                    email = AIUserName,
+                    password = AIPassword,
+                };
+
+                var builder = new StringBuilder("?");
+                string url = "";
+                var separator = "";
+                builder.AppendFormat("{0}{1}={2}", separator, "email", visionCredentials.email);
+
+                separator = "&";
+                builder.AppendFormat("{0}{1}={2}", separator, "password", visionCredentials.password);
+                builder.ToString();
+                var data = url + builder.ToString();
+                var responseMessageVendor6 = Post(url, data);
+
+                await responseMessageVendor6;
+
+                if (responseMessageVendor6.Result.StatusCode == HttpStatusCode.OK || responseMessageVendor6.Result.StatusCode == HttpStatusCode.Accepted)
+                {
+                    result = (JToken)JsonConvert.DeserializeObject(await responseMessageVendor6.Result.Content.ReadAsStringAsync());
+                }
+                else
+                {
+                    _UploadEvent("The upload failed, Please check the user name or password");
+                }
+
+                int count = 0;
+                foreach (JProperty release in result)
+                {
+                    if (release != null)
                     {
-                            handler.ClientCertificateOptions = ClientCertificateOption.Manual;
-                            handler.ServerCertificateValidationCallback =
-                                (httpRequestMessage, cert, crlChain, policyErrors) =>
-                                {
-                                    return true;
-                                };
-                            using (var httpClient = new HttpClient(handler))
-                            {
-                                List<image> images = new List<image>();
-                                VisionUploadModel visionUploadModel = new VisionUploadModel
-                                {
-                                    doctorID = "123",
-                                    patientID = dic["patientid"],
-                                    email = AIUserName,
-                                    doctorName = dic["doctorname"],
-                                    patientName = dic["patientname"],
-                                    images = new List<image>
+                        token = release.Value.ToString().Split(' ')[1];
+                        break;
+                    }
+                }
+                var request = new HttpRequestMessage(HttpMethod.Post, dic["urlImageUpload"]);
+
+                using (var handler = new WebRequestHandler())
+                {
+                    handler.ClientCertificateOptions = ClientCertificateOption.Manual;
+                    handler.ServerCertificateValidationCallback =
+                        (httpRequestMessage, cert, crlChain, policyErrors) =>
+                        {
+                            return true;
+                        };
+                    using (var httpClient = new HttpClient(handler))
+                    {
+                        List<image> images = new List<image>();
+                        VisionUploadModel visionUploadModel = new VisionUploadModel
+                        {
+                            doctorID = "123",
+                            patientID = dic["patientid"],
+                            email = AIUserName,
+                            doctorName = dic["doctorname"],
+                            patientName = dic["patientname"],
+                            images = new List<image>
                                     {
                                         new image
                                         {
@@ -306,35 +324,12 @@ namespace IVLReport
                                              imageData = ConvertImageURLToBase64(dic["rightImage"])
                                         },
                                     }
-                                };
-                                var request = new HttpRequestMessage(HttpMethod.Post, dic["urlImageUplad"]);
+                        };
 
-                            }
+
 
 
                         //Headers
-                        request.Headers.Add("Accept", "application/json");
-                        request.Headers.Add("Cache-Control", "no-cache");
-                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                        request.Content = new StringContent(JsonConvert.SerializeObject(jioUploadModel), Encoding.UTF8, "application/json");
-
-                        HttpResponseMessage response = await httpClient.SendAsync(request);
-                        string resultResponse = string.Empty;
-                        resultResponse = await response.Content.ReadAsStringAsync();
-                        if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Accepted)
-                        {
-                            result = (JToken)JsonConvert.DeserializeObject(resultResponse);
-
-                            _UploadEvent();
-                        }
-                        else
-                        {
-                            _UploadEvent("The upload failed, Please check the images sent");
-
-                        }
-
-                    }
-
                         request.Headers.Add("Accept", "application/json");
                         request.Headers.Add("Cache-Control", "no-cache");
                         request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
@@ -352,26 +347,21 @@ namespace IVLReport
                         else
                         {
                             _UploadEvent("The upload failed, Please check the images sent");
+
                         }
 
-                }
 
+                    }
+
+                }
             }
-            Console.WriteLine(result);
         }
-        
         public static  void SendImage(string token, string base64Str ,Dictionary<string,string> Details)
         {
             Details.Add("token", token);
             uploadImage(Details);
-            
         }
 
-        public static void SendImage(string token, string base64Str , Dictionary<string,string> Details)
-        {
-                Details.Add("token", token);
-                uploadImage(Details);
-        }
 
         public static async Task<HttpResponseMessage> PostFormUrlEncoded(string url, IEnumerable<KeyValuePair<string, string>> postData)
         {
@@ -390,7 +380,7 @@ namespace IVLReport
 
             }
         }
-        public static async Task<HttpResponseMessage> Post(string url, JioCredentials jioCredentials)
+        public static async Task<HttpResponseMessage> Post(string url, string data)
         {
             using (var handler = new WebRequestHandler())
             {
@@ -402,16 +392,6 @@ namespace IVLReport
                     };
                 using (var httpClient = new HttpClient(handler))
                 {
-                    var builder = new StringBuilder("?");
-
-                    var separator = "";
-                    builder.AppendFormat("{0}{1}={2}", separator, "email", jioCredentials.email);
-
-                    separator = "&";
-                    builder.AppendFormat("{0}{1}={2}", separator, "password", jioCredentials.password);
-                    builder.ToString();
-                    var data = url + builder.ToString();
-
                     try
                     {
                         HttpResponseMessage response = await httpClient.PostAsync(data, null);
@@ -780,7 +760,24 @@ namespace IVLReport
      }
 	
 
-    } 
+    }
+
+    internal class VisionCredentials
+    {
+        public string email { get; set; }
+        public string password { get; set; }
+    }
+
+    internal class VisionUploadModel
+    {
+        public string doctorID { get; set; }
+        public string patientID { get; set; }
+        public string email { get; set; }
+        public string doctorName { get; set; }
+        public string patientName { get; set; }
+        public List<image> images { get; set; }
+    }
+
     public class JioCredentials
     {
         public string email { get; set; }

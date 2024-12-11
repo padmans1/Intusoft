@@ -341,7 +341,7 @@ namespace INTUSOFT.Desktop.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-       /* private void highFlashGain_btn_Click(object sender, EventArgs e)
+        private void highFlashGain_btn_Click(object sender, EventArgs e)
         {
             if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.        IsMotorMovementDone)
 
@@ -360,13 +360,13 @@ namespace INTUSOFT.Desktop.Forms
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        /* private void mediumFlashGain_btn_Click(object sender, EventArgs e)
+        private void mediumFlashGain_btn_Click(object sender, EventArgs e)
         {
             if (!IVLVariables.ivl_Camera.IsCapturing && !IVLVariables.ivl_Camera.IsResuming && !IVLVariables.ivl_Camera.isResetMode && IVLVariables.ivl_Camera.        IsMotorMovementDone)
 
             if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)
             {
-                RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain = GainLevels.Medium);;
+                RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain = GainLevels.Medium);
                 //capture current gain value from variable to config by sriram
                 IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentGainLevel.val = IVLVariables.CurrentCaptureGain.ToString();
                 
@@ -385,12 +385,12 @@ namespace INTUSOFT.Desktop.Forms
             if (IVLVariables.ivl_Camera.camPropsHelper.IsCameraConnected == Devices.CameraConnected)  
             {
 
-                 RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain = GainLevels.Low);;
+                 RefreshFlashGainButtons(IVLVariables.CurrentCaptureGain = GainLevels.Low);
                 //capture current gain value from variable to config by sriram
                 IVLVariables.CurrentSettings.CameraSettings.CaptureCurrentGainLevel.val = IVLVariables.CurrentCaptureGain.ToString();
                
             }
-        } */
+        } 
 
         /// <summary>
         /// This event is used to assign the low flash value to the CurrentCaptureGain and invokes the RefreshFlashGainButtons method.

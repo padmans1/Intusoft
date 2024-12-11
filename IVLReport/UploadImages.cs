@@ -21,7 +21,7 @@ namespace IVLReport
      static string AIUserName = string.Empty;
      static string AIPassword = string.Empty;
      static string AIApiRequestType = string.Empty;
-     public delegate void UploadDone(string message = "");
+     public delegate void UploadDone(string message = "",bool isError = false);
      public static event UploadDone _UploadEvent;
 
         public static void UploadImagesDetails(Dictionary<string,string> Details, string VendorVal, string userName, string password, string apiRequestType)
@@ -254,43 +254,43 @@ namespace IVLReport
             }
             else if (vendorVal == "Vendor6")
             {
-                VisionCredentials visionCredentials = new VisionCredentials
-                {
-                    email = AIUserName,
-                    password = AIPassword,
-                };
+                //VisionCredentials visionCredentials = new VisionCredentials
+                //{
+                //    email = AIUserName,
+                //    password = AIPassword,
+                //};
 
-                var builder = new StringBuilder("?");
-                string url = "";
-                var separator = "";
-                builder.AppendFormat("{0}{1}={2}", separator, "email", visionCredentials.email);
+                //var builder = new StringBuilder("?");
+                //string url = "";
+                //var separator = "";
+                //builder.AppendFormat("{0}{1}={2}", separator, "email", visionCredentials.email);
 
-                separator = "&";
-                builder.AppendFormat("{0}{1}={2}", separator, "password", visionCredentials.password);
-                builder.ToString();
-                var data = url + builder.ToString();
-                var responseMessageVendor6 = Post(url, data);
+                //separator = "&";
+                //builder.AppendFormat("{0}{1}={2}", separator, "password", visionCredentials.password);
+                //builder.ToString();
+                //var data = url + builder.ToString();
+                //var responseMessageVendor6 = Post(url, data);
 
-                await responseMessageVendor6;
+                //await responseMessageVendor6;
 
-                if (responseMessageVendor6.Result.StatusCode == HttpStatusCode.OK || responseMessageVendor6.Result.StatusCode == HttpStatusCode.Accepted)
-                {
-                    result = (JToken)JsonConvert.DeserializeObject(await responseMessageVendor6.Result.Content.ReadAsStringAsync());
-                }
-                else
-                {
-                    _UploadEvent("The upload failed, Please check the user name or password");
-                }
+                //if (responseMessageVendor6.Result.StatusCode == HttpStatusCode.OK || responseMessageVendor6.Result.StatusCode == HttpStatusCode.Accepted)
+                //{
+                //    result = (JToken)JsonConvert.DeserializeObject(await responseMessageVendor6.Result.Content.ReadAsStringAsync());
+                //}
+                //else
+                //{
+                //    _UploadEvent("The upload failed, Please check the user name or password");
+                //}
 
-                int count = 0;
-                foreach (JProperty release in result)
-                {
-                    if (release != null)
-                    {
-                        token = release.Value.ToString().Split(' ')[1];
-                        break;
-                    }
-                }
+                //int count = 0;
+                //foreach (JProperty release in result)
+                //{
+                //    if (release != null)
+                //    {
+                //        token = release.Value.ToString().Split(' ')[1];
+                //        break;
+                //    }
+                //}
                 var request = new HttpRequestMessage(HttpMethod.Post, dic["urlImageUpload"]);
 
                 using (var handler = new WebRequestHandler())
@@ -306,24 +306,16 @@ namespace IVLReport
                         List<image> images = new List<image>();
                         VisionUploadModel visionUploadModel = new VisionUploadModel
                         {
-                            doctorID = "123",
-                            patientID = dic["patientid"],
+                            doctor_id = "123",
+                            mrn = dic["patientID"],
                             email = AIUserName,
-                            doctorName = dic["doctorname"],
-                            patientName = dic["patientname"],
-                            images = new List<image>
-                                    {
-                                        new image
-                                        {
-                                            type = "Left",
-                                            imageData = ConvertImageURLToBase64(dic["leftImage"])
-                                        },
-                                        new image
-                                        {
-                                            type = "Right",
-                                             imageData = ConvertImageURLToBase64(dic["rightImage"])
-                                        },
-                                    }
+                            //doctorName = dic["doctorname"],
+                            first_name = dic["firstName"],
+                            last_name = dic["lastName"],
+                            gender = dic["gender"],
+                            age = dic["dob"],
+                            left_eye_image = dic["leftImage"],
+                            right_eye_image = dic["rightImage"]
                         };
 
 
@@ -332,7 +324,7 @@ namespace IVLReport
                         //Headers
                         request.Headers.Add("Accept", "application/json");
                         request.Headers.Add("Cache-Control", "no-cache");
-                        request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
+                        //request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
                         request.Content = new StringContent(JsonConvert.SerializeObject(visionUploadModel), Encoding.UTF8, "application/json");
 
                         HttpResponseMessage response = await httpClient.SendAsync(request);
@@ -342,7 +334,7 @@ namespace IVLReport
                         {
                             result = (JToken)JsonConvert.DeserializeObject(resultResponse);
 
-                            _UploadEvent();
+                            _UploadEvent(result["message"].ToString());
                         }
                         else
                         {
@@ -770,12 +762,15 @@ namespace IVLReport
 
     internal class VisionUploadModel
     {
-        public string doctorID { get; set; }
-        public string patientID { get; set; }
+        public string doctor_id { get; set; }
+        public string mrn { get; set; }
         public string email { get; set; }
-        public string doctorName { get; set; }
-        public string patientName { get; set; }
-        public List<image> images { get; set; }
+        public string first_name { get; set; }
+        public string last_name { get; set; }
+        public string gender{ get; set; }
+        public string age { get; set; }
+        public string left_eye_image { get; set; }
+        public string right_eye_image { get; set; }
     }
 
     public class JioCredentials

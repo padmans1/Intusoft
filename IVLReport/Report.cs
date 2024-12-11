@@ -379,13 +379,15 @@ namespace IVLReport
 
         }
 
-        private void UploadImages__UploadEvent(string message = "")
+        private void UploadImages__UploadEvent(string message = "", bool isError = false)
         {
             this.Cursor = Cursors.Default;
             if(string.IsNullOrEmpty(message))
             MessageBox.Show(emailDic["$UploadText"] as string);
+            else if(!isError)
+            MessageBox.Show(message);
             else
-            MessageBox.Show(message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(message,"Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         void emailWindow__WaitCursor(EventArgs e, bool isWait)

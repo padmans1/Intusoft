@@ -1,21 +1,16 @@
-﻿using System;
+﻿using Emgu.CV;
+using Emgu.CV.CvEnum;
+using Emgu.CV.Structure;
+using INTUSOFT.EventHandler;
+using NLog;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 using System.Drawing.Imaging;
-using Emgu.CV.Structure;
-using Emgu.CV;
-using Emgu.Util;
-using System.Windows.Forms;
-using INTUSOFT.EventHandler;
-using Emgu.CV.CvEnum;
+using System.Linq;
 using System.Runtime.InteropServices;
-using System.IO;
-using Emgu.CV.UI;
-using NLog;
-using NLog.Config;
-using NLog.Targets;
+using System.Text;
+using System.Windows.Forms;
 
 
 namespace INTUSOFT.Imaging

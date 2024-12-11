@@ -565,23 +565,30 @@ namespace IVLReport
                         credentials.Add("password", AIPassword);
 
                         Dictionary<string, string> values = new Dictionary<string, string>();
-                        
+                        int dob = DateTime.Now.Year -((DateTime)_dataModel.ReportData["$dob"]).Year;
+
                         values.Add("urlToken", "");
-                        values.Add("urlImageUpload", "");
-                        values.Add("patientID", (string)_dataModel.ReportData["MRN"]);
-                        values.Add("patientName", (string)_dataModel.ReportData["$Name"]);
-                        for(int i=0; i < _dataModel.CurrentImgFiles.Length; i++)
+                        values.Add("urlImageUpload", ConfigVariables.CurrentSettings.ReportSettings.ApiRequestType.val);
+                        values.Add("patientID", (string)_dataModel.ReportData["$MRN"]);
+      
+                        values.Add("firstName", (string)_dataModel.ReportData["$FirstName"]);
+                        values.Add("lastName", (string)_dataModel.ReportData["$LastName"]);
+                        values.Add("dob", dob.ToString());
+                        values.Add("gender", (string)_dataModel.ReportData["$Gender"]);
+                        
+
+                        for (int i=0; i < _dataModel.CurrentImgFiles.Length; i++)
                         {
                             FileInfo finf = new FileInfo(_dataModel.CurrentImgFiles[i]);
 
                             if (_dataModel.CurrentImageNames[i].Contains("OS"))
-                                values.Add("leftImage", finf.FullName);
+                                values.Add("leftImage", ApplyWhiteMaskToImage(finf.FullName, _dataModel.MaskSettingsArr[i], _dataModel.CurrentImageNames[i]));
                             else
-                                values.Add("rightImage", finf.FullName);
+                                values.Add("rightImage", ApplyWhiteMaskToImage(finf.FullName, _dataModel.MaskSettingsArr[i], _dataModel.CurrentImageNames[i]));
                         }
                         values.Add("emailID", (string)_dataModel.ReportData["$emailID"]);
                         values.Add("vendor", "Vendor6");
-                        UploadImages.UploadImagesDetails(values, vendorVal, (string)_dataModel.ReportData["$username"], (string)_dataModel.ReportData["$password"], "DIAB_RETINA");
+                        UploadImages.UploadImagesDetails(values, vendorVal, ConfigVariables.CurrentSettings.ReportSettings.UserName.val, ConfigVariables.CurrentSettings.ReportSettings.Password.val, "DIAB_RETINA");
                     }
 
                     //var releases = GetReleases(restSharpRequestHandler);

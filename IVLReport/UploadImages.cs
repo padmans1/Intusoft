@@ -1,4 +1,5 @@
 ﻿using Common;
+using INTUSOFT.Configuration;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ReportUtils;
@@ -23,7 +24,8 @@ namespace IVLReport
      static string AIApiRequestType = string.Empty;
      public delegate void UploadDone(string message = "",bool isError = false);
      public static event UploadDone _UploadEvent;
-
+        public delegate void AIResultDel(AIResultModel result);
+        public static event AIResultDel aiResultEvent;
         public static void UploadImagesDetails(Dictionary<string,string> Details, string VendorVal, string userName, string password, string apiRequestType)
        {
            vendorVal = VendorVal;
@@ -306,8 +308,10 @@ namespace IVLReport
                         List<image> images = new List<image>();
                         VisionUploadModel visionUploadModel = new VisionUploadModel
                         {
-                            doctor_id = "123",
+                            doctor_id = "1",
                             mrn = dic["patientID"],
+                            device_id = ConfigVariables.CurrentSettings.CameraSettings.DeviceID.val,
+                            guid = Guid.NewGuid().ToString(),
                             email = AIUserName,
                             //doctorName = dic["doctorname"],
                             first_name = dic["firstName"],
@@ -318,23 +322,24 @@ namespace IVLReport
                             right_eye_image = dic["rightImage"]
                         };
 
-
+                        string payload = JsonConvert.SerializeObject(visionUploadModel);
 
 
                         //Headers
                         request.Headers.Add("Accept", "application/json");
                         request.Headers.Add("Cache-Control", "no-cache");
                         //request.Headers.Authorization = new AuthenticationHeaderValue("Bearer", token);
-                        request.Content = new StringContent(JsonConvert.SerializeObject(visionUploadModel), Encoding.UTF8, "application/json");
+                        request.Content = new StringContent(payload, Encoding.UTF8, "application/json");
 
                         HttpResponseMessage response = await httpClient.SendAsync(request);
                         string resultResponse = string.Empty;
                         resultResponse = await response.Content.ReadAsStringAsync();
                         if (response.StatusCode == HttpStatusCode.OK || response.StatusCode == HttpStatusCode.Accepted)
                         {
-                            result = (JToken)JsonConvert.DeserializeObject(resultResponse);
+                           var AIResult = JsonConvert.DeserializeObject<AIResultModel>(resultResponse);
 
-                            _UploadEvent(result["message"].ToString());
+                            
+                            aiResultEvent(AIResult);
                         }
                         else
                         {
@@ -754,12 +759,26 @@ namespace IVLReport
 
     }
 
-    internal class VisionCredentials
+   public class AIResultModel
     {
-        public string email { get; set; }
-        public string password { get; set; }
+        public string status { get; set; }
+        public AIImageResult results { get; set; }
+        public string mrn { get; set; }
+        public string guid { get; set; }
+        public string device_id { get; set; }
+
     }
 
+    public class AIImageResult
+    {
+        public Result left_eye { get; set; }
+        public Result right_eye { get; set; }
+    }
+    public class Result
+    {
+        public string result { get; set; }
+        public string severity { get; set; }
+    }
     internal class VisionUploadModel
     {
         public string doctor_id { get; set; }
@@ -771,6 +790,12 @@ namespace IVLReport
         public string age { get; set; }
         public string left_eye_image { get; set; }
         public string right_eye_image { get; set; }
+        public string guid { get; set; }
+        public string device_id { get; set; }
+
+
+
+       
     }
 
     public class JioCredentials

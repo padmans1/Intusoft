@@ -374,8 +374,20 @@ namespace IVLReport
             this.toolStrip3.Renderer = new FormToolStripRenderer();
 
             UploadImages._UploadEvent += UploadImages__UploadEvent;
+            UploadImages.aiResultEvent += UploadImages_aiResultEvent;
             autoAnalysis_btn.Text = (INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.AI_Vendor_Button_Text.val);
             uploadImagesTelemed_btn.Text = (INTUSOFT.Configuration.ConfigVariables.CurrentSettings.ReportSettings.AI_Vendor_Button_Text.val);
+
+        }
+
+        private void UploadImages_aiResultEvent(AIResultModel result)
+        {
+           _dataModel.ReportData["$LeftEyeObs"]=result.results.left_eye.result;
+           _dataModel.ReportData["$RightEyeObs"]=result.results.right_eye.result;
+            writeValuesToTheBindingType();
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("AI Report Generated Sucessfully");
+
 
         }
 

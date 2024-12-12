@@ -308,7 +308,7 @@ namespace IVLReport
                         List<image> images = new List<image>();
                         VisionUploadModel visionUploadModel = new VisionUploadModel
                         {
-                            doctor_id = "1",
+                            doctor_id = ConfigVariables.CurrentSettings.UserSettings._doctor_id.val,
                             mrn = dic["patientID"],
                             device_id = ConfigVariables.CurrentSettings.CameraSettings.DeviceID.val,
                             guid = Guid.NewGuid().ToString(),
@@ -317,11 +317,13 @@ namespace IVLReport
                             first_name = dic["firstName"],
                             last_name = dic["lastName"],
                             gender = dic["gender"],
-                            age = dic["dob"],
-                            left_eye_image = dic["leftImage"],
-                            right_eye_image = dic["rightImage"]
+                            age = dic["dob"]
+                           
                         };
-
+                        if (dic.ContainsKey("leftImage")) 
+                        visionUploadModel.left_eye_image = dic["leftImage"];
+                        if (dic.ContainsKey("rightImage"))
+                            visionUploadModel.left_eye_image = dic["rightImage"];
                         string payload = JsonConvert.SerializeObject(visionUploadModel);
 
 

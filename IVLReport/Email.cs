@@ -66,6 +66,7 @@ namespace IVLReport
         EmailValidator emailValidiation;
         public delegate void EmailSent(string isSent, EventArgs e);
         public event EmailSent _EmailSent;
+       
         public delegate void WaitCursor(EventArgs e, bool isWait);
         public event WaitCursor _WaitCursor;
         private char semiColonCharacter = ';';
@@ -561,6 +562,24 @@ namespace IVLReport
                     }
                     else if (vendorVal == "Vendor6")
                     {
+                        int leftEyeCnt = 0, rightEyeCnt = 0;
+                            for (int i = 0; i < _dataModel.CurrentImgFiles.Length; i++)
+                            {
+                                FileInfo finf = new FileInfo(_dataModel.CurrentImgFiles[i]);
+
+                            if (_dataModel.CurrentImageNames[i].Contains("OS"))
+                                leftEyeCnt++;
+                            else
+                                rightEyeCnt++;
+                            }
+                        if (leftEyeCnt > 1 || rightEyeCnt > 1)
+                        {
+                            _WaitCursor(new EventArgs(), true);
+                            CustomMessageBox.Show("Select max of 1 right image and max of 1 left image");
+                    
+                            return;
+                        }
+                        
                         credentials.Add("email", AIUserName);
                         credentials.Add("password", AIPassword);
 

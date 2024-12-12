@@ -385,12 +385,12 @@ namespace IVLReport
            _dataModel.ReportData["$LeftEyeObs"]=result.results.left_eye.result;
            _dataModel.ReportData["$RightEyeObs"]=result.results.right_eye.result;
             writeValuesToTheBindingType();
-            this.Cursor = Cursors.Default;
+            emailWindow__WaitCursor(new EventArgs(), true);
             MessageBox.Show("AI Report Generated Sucessfully");
-
+            
 
         }
-
+        
         private void UploadImages__UploadEvent(string message = "", bool isError = false)
         {
             this.Cursor = Cursors.Default;
@@ -408,12 +408,16 @@ namespace IVLReport
             {
                 if (autoAnalysis_btn.Visible == true)
                     autoAnalysis_btn.Enabled = true;
+                if (uploadImagesTelemed_btn.Visible == true)
+                    uploadImagesTelemed_btn.Enabled = true;
                 this.Cursor = Cursors.Default;
             }
             else
             {
                 if (autoAnalysis_btn.Visible == true)
                     autoAnalysis_btn.Enabled = false;
+                if (uploadImagesTelemed_btn.Visible == true)
+                    uploadImagesTelemed_btn.Enabled = false;
                 this.Cursor = Cursors.WaitCursor;
             }
         }

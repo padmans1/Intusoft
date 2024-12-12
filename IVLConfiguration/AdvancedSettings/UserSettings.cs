@@ -146,6 +146,12 @@ namespace INTUSOFT.Configuration.AdvanceSettings
             set { DoctorName = value; }
         }
 
+        private static IVLControlProperties doctor_id = null;
+        public IVLControlProperties _doctor_id
+        {
+            get { return doctor_id; }
+            set { doctor_id = value; }
+        }
 
         private static  IVLControlProperties NoOfPatientsToBeSelected = null;
 
@@ -160,6 +166,9 @@ namespace INTUSOFT.Configuration.AdvanceSettings
             get { return Language; }
             set { Language = value; }
         }
+
+        
+
         public UserSettings()
         {
             _HeaderText = new IVLControlProperties();
@@ -297,7 +306,15 @@ namespace INTUSOFT.Configuration.AdvanceSettings
             _DoctorName.type = "string";
             _DoctorName.control = "System.Windows.Forms.TextBox";
             _DoctorName.text = "Doctor Name";
-            _DoctorName.length = 20;
+            _DoctorName.length = 30;
+
+            _doctor_id = new IVLControlProperties();
+            _doctor_id.name = "DoctorId";
+            _doctor_id.val = "";
+            _doctor_id.type = "string";
+            _doctor_id.control = "System.Windows.Forms.TextBox";
+            _doctor_id.text = "Doctor Id";
+            _doctor_id.length = 10;
 
             _Language = new IVLControlProperties();
             _Language.name = "Language";

@@ -323,7 +323,7 @@ namespace IVLReport
                         if (dic.ContainsKey("leftImage")) 
                         visionUploadModel.left_eye_image = dic["leftImage"];
                         if (dic.ContainsKey("rightImage"))
-                            visionUploadModel.left_eye_image = dic["rightImage"];
+                            visionUploadModel.right_eye_image = dic["rightImage"];
                         string payload = JsonConvert.SerializeObject(visionUploadModel);
 
 

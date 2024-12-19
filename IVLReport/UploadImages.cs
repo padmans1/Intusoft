@@ -322,6 +322,7 @@ namespace IVLReport
                         };
                         if (dic.ContainsKey("leftImage")) 
                         visionUploadModel.left_eye_image = dic["leftImage"];
+                       
                         if (dic.ContainsKey("rightImage"))
                             visionUploadModel.right_eye_image = dic["rightImage"];
                         string payload = JsonConvert.SerializeObject(visionUploadModel);
@@ -778,8 +779,12 @@ namespace IVLReport
     }
     public class Result
     {
-        public string result { get; set; }
-        public string severity { get; set; }
+        
+        public string dr_result { get; set; }
+        public string dr_severity { get; set; }
+        public string other_pathology_result { get; set; }
+        public string other_pathology_severity { get; set; }
+
     }
     internal class VisionUploadModel
     {
@@ -794,9 +799,6 @@ namespace IVLReport
         public string right_eye_image { get; set; }
         public string guid { get; set; }
         public string device_id { get; set; }
-
-
-
        
     }
 

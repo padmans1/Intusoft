@@ -7,6 +7,7 @@ using ReportUtils;
 using ReportUtils.ReportEnums;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -382,13 +383,42 @@ namespace IVLReport
 
         private void UploadImages_aiResultEvent(AIResultModel result)
         {
-           _dataModel.ReportData["$LeftEyeObs"]=result.results.left_eye.result;
-           _dataModel.ReportData["$RightEyeObs"]=result.results.right_eye.result;
+           _dataModel.ReportData["$LeftEyeObs"]=result.results.left_eye.dr_result;
+           _dataModel.ReportData["$RightEyeObs"]=result.results.right_eye.dr_result;
+            _dataModel.ReportData["$LeftOtherPathObs"] = result.results.left_eye.other_pathology_result;
+            _dataModel.ReportData["$RightOtherPathObs"] = result.results.right_eye.other_pathology_result;
+            _dataModel.ReportData["$Referrable"] = string.Empty;
+            _dataModel.ReportData["$NonReferrable"] = string.Empty;
+            if ((result.results.left_eye.dr_severity == "high") || (result.results.right_eye.dr_severity == "high") || (result.results.left_eye.other_pathology_severity == "high") || (result.results.right_eye.other_pathology_severity == "high"))
+            {
+                if ((result.results.left_eye.other_pathology_severity == "high") || (result.results.right_eye.other_pathology_severity == "high"))
+                {
+                    _dataModel.ReportData["$Referrable"] = "Referrable";
+                    _dataModel.ReportData["$Comments"] = "Retinal abnormalities detected, ";
+                    
+                    
+                    
+                }
+                if ((result.results.left_eye.dr_severity == "high") || (result.results.right_eye.dr_severity == "high"))
+                {
+                    _dataModel.ReportData["$Referrable"] = "Referrable";
+                    _dataModel.ReportData["$Comments"] += "Diabetic Retinopathy detected, ";
+                    
+                }
+                _dataModel.ReportData["$Comments"] += "refer to ophthalmologist for further evaluation";
+                
+            }
+            else
+            {
+                _dataModel.ReportData["$NonReferrable"] = "Non Referrable";
+                _dataModel.ReportData["$Comments"] = "Get your eye screened after 6 months";
+               
+            }
             writeValuesToTheBindingType();
             emailWindow__WaitCursor(new EventArgs(), true);
             MessageBox.Show("AI Report Generated Sucessfully");
-            
-
+             
+           
         }
         
         private void UploadImages__UploadEvent(string message = "", bool isError = false)

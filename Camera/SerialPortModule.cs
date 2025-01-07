@@ -18,7 +18,7 @@ using System.Threading;
 using INTUSOFT.Configuration;
 namespace INTUSOFT.Imaging
 {
-    internal class IntucamBoardCommHelper
+    public class IntucamBoardCommHelper
     {
         //private  readonly ILog log = LogManager.GetLogger(typeof(Camera));
         //private readonly Logger log = LogManager.GetLogger("INTUSOFT.Imaging");// overall log for camera and board

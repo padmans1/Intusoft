@@ -153,6 +153,7 @@ namespace INTUSOFT.Data.Repository
 
         public static void CreateOrAlterDB(string runtimePath)
         {
+            if(!string.IsNullOrEmpty(runtimePath))
             IntuSoftRuntimeProperties.filePath = runtimePath;
             EvaluateConnectionString();
             if (!DbExists(dbName))// to check whether the db exists if not create a db using sql from the file

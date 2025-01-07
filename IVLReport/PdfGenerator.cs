@@ -802,7 +802,7 @@ namespace IVLReport
         public string GenaratePdf(List<ReportControlsStructure> reportControlStructList, string ReportFileName )
         {
           string reportFileName = "report_" + DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss") + ".pdf";
-          string ReportName = reportFileName;
+            string ReportName = reportFileName;
             string ReportPath = string.Empty;
             if (!string.IsNullOrEmpty(_dataModel.appDir))
                 ReportPath = Path.Combine(new string[] { _dataModel.appDir, "Reports" });

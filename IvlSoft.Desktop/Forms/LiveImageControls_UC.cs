@@ -23,6 +23,7 @@ using INTUSOFT.Data.NewDbModel;
 using NLog.Config;
 using NLog.Targets;
 using NLog;
+using Newtonsoft.Json;
 namespace INTUSOFT.Desktop.Forms
 {
     public partial class LiveImageControls_UC : UserControl
@@ -563,9 +564,12 @@ namespace INTUSOFT.Desktop.Forms
 
                            if (arg.ContainsKey("cameraSettings"))
                                eyeFundusImage.cameraSetting = arg["cameraSettings"] as string;
-                           if (arg.ContainsKey("maskSettings"))
+                           if (arg.ContainsKey("maskSettings") && !string.IsNullOrEmpty(arg["maskSettings"] as string))
                                eyeFundusImage.maskSetting = arg["maskSettings"] as string;
-                           Patient pat = NewDataVariables.Patients.Where(x => x.personId == NewDataVariables.Active_Patient).ToList()[0];
+                           else
+                               eyeFundusImage.maskSetting = JsonConvert.SerializeObject(IVLCamVariables._Settings.PostProcessingSettings.maskSettings);
+
+                            Patient pat = NewDataVariables.Patients.Where(x => x.personId == NewDataVariables.Active_Patient).ToList()[0];
                            eyeFundusImage.value = imageName;
                            eyeFundusImage.createdBy = creator;
                            eyeFundusImage.concept = concept;

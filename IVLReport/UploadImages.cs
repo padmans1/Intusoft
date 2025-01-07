@@ -24,8 +24,8 @@ namespace IVLReport
      static string AIApiRequestType = string.Empty;
      public delegate void UploadDone(string message = "",bool isError = false);
      public static event UploadDone _UploadEvent;
-        public delegate void AIResultDel(AIResultModel result);
-        public static event AIResultDel aiResultEvent;
+        public  delegate Task AIResultDel(AIResultModel result);
+        public static event  AIResultDel aiResultEvent;
         public static void UploadImagesDetails(Dictionary<string,string> Details, string VendorVal, string userName, string password, string apiRequestType)
        {
            vendorVal = VendorVal;
@@ -342,7 +342,7 @@ namespace IVLReport
                            var AIResult = JsonConvert.DeserializeObject<AIResultModel>(resultResponse);
 
                             
-                            aiResultEvent(AIResult);
+                            await aiResultEvent(AIResult);
                         }
                         else
                         {

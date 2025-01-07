@@ -78,7 +78,9 @@ namespace IVLReport
         private string chironxUsername = "sriram@intuvisionlabs.com";
         private string chironxPassword = "intuvision123";
 
-        private string lebenUsername = "equipagehealth@gmail.com";
+        private string lebenUsername = "equipagehe";
+            
+          
         //private string lebenUsername = "anil@intuvisionlabs.com";
         //private string lebenPassword = "Gt#8$DkMy";
         private string lebenPassword = "equipage123";
@@ -1627,8 +1629,15 @@ namespace IVLReport
             MaskSettings data = new MaskSettings();
             try
             {
-                data = (MaskSettings)Newtonsoft.Json.JsonConvert.DeserializeObject(maskSettings, typeof(MaskSettings));
-
+                if (!string.IsNullOrEmpty(maskSettings))
+                    data = (MaskSettings)Newtonsoft.Json.JsonConvert.DeserializeObject(maskSettings, typeof(MaskSettings));
+                else data = new MaskSettings()
+                {
+                    maskHeight = Convert.ToInt32(INTUSOFT.Configuration.ConfigVariables.CurrentSettings.PostProcessingSettings.MaskSettings.CaptureMaskHeight.val),
+                    maskWidth = Convert.ToInt32(INTUSOFT.Configuration.ConfigVariables.CurrentSettings.PostProcessingSettings.MaskSettings.CaptureMaskWidth.val),
+                    maskCentreX = Convert.ToInt32(INTUSOFT.Configuration.ConfigVariables.CurrentSettings.CameraSettings._ImageOpticalCentreX.val),
+                    maskCentreY = Convert.ToInt32(INTUSOFT.Configuration.ConfigVariables.CurrentSettings.CameraSettings._ImageOpticalCentreY.val),
+                };
             }
             catch (Exception)
             {

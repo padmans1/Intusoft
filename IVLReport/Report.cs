@@ -13,6 +13,7 @@ using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.Windows.Forms;
 using System.Xml;
@@ -381,7 +382,7 @@ namespace IVLReport
 
         }
 
-        private void UploadImages_aiResultEvent(AIResultModel result)
+        private Task UploadImages_aiResultEvent(AIResultModel result)
         {
            _dataModel.ReportData["$LeftEyeObs"]=result.results.left_eye.dr_result;
            _dataModel.ReportData["$RightEyeObs"]=result.results.right_eye.dr_result;
@@ -395,29 +396,26 @@ namespace IVLReport
                 {
                     _dataModel.ReportData["$Referrable"] = "Referrable";
                     _dataModel.ReportData["$Comments"] = "Retinal abnormalities detected, ";
-                    
-                    
-                    
                 }
                 if ((result.results.left_eye.dr_severity == "high") || (result.results.right_eye.dr_severity == "high"))
                 {
                     _dataModel.ReportData["$Referrable"] = "Referrable";
                     _dataModel.ReportData["$Comments"] += "Diabetic Retinopathy detected, ";
-                    
+
                 }
                 _dataModel.ReportData["$Comments"] += "refer to ophthalmologist for further evaluation";
-                
+
             }
             else
             {
                 _dataModel.ReportData["$NonReferrable"] = "Non Referrable";
                 _dataModel.ReportData["$Comments"] = "Get your eye screened after 6 months";
-               
+                
             }
             writeValuesToTheBindingType();
             emailWindow__WaitCursor(new EventArgs(), true);
             MessageBox.Show("AI Report Generated Sucessfully");
-             
+            return new Task(() => { }); 
            
         }
         

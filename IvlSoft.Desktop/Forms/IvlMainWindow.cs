@@ -1073,7 +1073,7 @@ namespace INTUSOFT.Desktop.Forms
                 {
                     if (p == null)
                     {
-                        p = new Process();
+                        Process p = new Process();
                         p.StartInfo = new ProcessStartInfo("ReportTemplateCreator.exe");
                     }
                     p.Start();

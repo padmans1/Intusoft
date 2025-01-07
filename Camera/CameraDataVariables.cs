@@ -18,7 +18,7 @@ namespace INTUSOFT.Imaging
     /// <summary>
     /// IVLCamVariables is the static class to save the data variables of the Camera Module 
     /// </summary>
-    static class IVLCamVariables
+    public static class IVLCamVariables
     {
         //private static readonly Logger captureLog = LogManager.GetLogger("INTUSOFT.Imaging.CaptureLog");
 

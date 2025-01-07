@@ -19,7 +19,7 @@ using System.Threading;
        (1) en.html, English
        (2) hans.html, Simplified Chinese
 */
-internal class Nncam : IDisposable
+public class Nncam : IDisposable
 {
     [Flags]
     public enum eFLAG : ulong

@@ -1393,7 +1393,7 @@ namespace INTUSOFT.Imaging
                     {
                         if (CameraName.Contains("E3CMOS06300")|| CameraName.StartsWith("E3ISP"))
                         {
-                            ivl_Camera.SetExposure(IVLCamVariables._Settings.CameraSettings.CaptureExposure);
+                            ivl_Camera.SetExposure(Convert.ToUInt32( ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val));
                         }
                     }
                     else

@@ -65,7 +65,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="ImageListViewCacheManager.cs" />
-    <Compile Include="ImageListViewColumnHeader.cs" />
+    <Compile Include="ImageListViewColumnHeader.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ImageListViewColumnHeaderCollection.cs">
       <SubType>Component</SubType>
     </Compile>

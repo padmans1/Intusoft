@@ -15,7 +15,7 @@ using System.Windows.Forms;
 
 namespace INTUSOFT.Imaging
 {
-    internal class Camera : CameraAbstract, IDisposable
+    public class Camera : CameraAbstract, IDisposable
     {
 
         //private static readonly ILog log = LogManager.GetLogger(typeof(Camera));

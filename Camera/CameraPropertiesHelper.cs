@@ -536,6 +536,7 @@ namespace INTUSOFT.Imaging
                     byte strobeValue = 156;
                     if (IVLCamVariables.ImagingMode == Imaging.ImagingMode.Anterior_Prime || IVLCamVariables.ImagingMode == Imaging.ImagingMode.Posterior_Prime || cameraPropsHelper.cameraModel == CameraModel.D)
                     {
+                        IVLCamVariables._Settings.CameraSettings.CaptureExposure = Convert.ToUInt32(ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val);
                         double capExposureTempVar = Convert.ToDouble(IVLCamVariables._Settings.CameraSettings.CaptureExposure);
                         capExposureTempVar = capExposureTempVar / 1000;
                         strobeValue = Convert.ToByte(capExposureTempVar);

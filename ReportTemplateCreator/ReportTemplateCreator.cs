@@ -25,6 +25,7 @@ using DesignSurfaceExt;
 using DesignSurfaceManagerExtension;
 using pDesigner;
 using PdfFileWriter;
+using INTUSOFT.Configuration;
 namespace ReportTemplateCreator
 {
     public partial class ReportTemplateCreatorWindow : Form
@@ -224,6 +225,10 @@ namespace ReportTemplateCreator
             }
             else if (btnName == "Preview")
             {
+                IVLConfig.fileName = new FileInfo(Application.ExecutablePath).Directory.FullName + Path.DirectorySeparatorChar + "IVLConfig.xml";
+
+                ConfigVariables.GetCurrentSettings();
+
                 List<string> currentReportImageFiles = new List<string> ();
                 List<string> image = new List<string>();
                 reportData = new Dictionary<string, object>();
@@ -252,6 +257,7 @@ namespace ReportTemplateCreator
 
                 reportData.Add("$CurrentImageFiles", currentReportImageFiles.ToArray());
                 reportData.Add("$ImageNames", image.ToArray());
+                reportData.Add("$appDirPath", new FileInfo(Application.ExecutablePath).Directory.FullName + Path.DirectorySeparatorChar);
                 report = new Report(reportData);
                 report.reportControlStructureList = pDesignerCore.GetControlProperties();
                  ReportFileName ="report_" + DateTime.Now.ToString("dd-MM-yyyy_hh-mm-ss") + ".pdf";//it will save the exisiting directory as the path

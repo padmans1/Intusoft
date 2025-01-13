@@ -43,6 +43,8 @@ namespace INTUSOFT.Desktop.Forms
 
             if (IVLVariables.ivl_Camera.camPropsHelper.ImagingMode == ImagingMode.Posterior_45 || IVLVariables.ivl_Camera.camPropsHelper.ImagingMode == ImagingMode.FFAColor || IVLVariables.ivl_Camera.camPropsHelper.ImagingMode == ImagingMode.FFA_Plus)
             {
+                IVLVariables.ivl_Camera.camPropsHelper._Settings.CameraSettings.CaptureExposure = Convert.ToUInt32(INTUSOFT.Configuration.ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val);
+
                 IVLVariables.ivl_Camera.UpdateExposureGainFromTable(Convert.ToInt32(IVLVariables.CurrentSettings.CameraSettings._LiveDigitalGain.val), false);
                 IVLVariables.ivl_Camera.camPropsHelper._Settings.CameraSettings.LiveGainIndex = GainValue;
                 IVLVariables.ivl_Camera.camPropsHelper._Settings.CameraSettings.LiveGain =(ushort)GainValue;  

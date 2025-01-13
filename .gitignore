@@ -117,3 +117,13 @@
 /EventHandlerTest/obj/
 /EventHandlerTest/bin/
 /packages/
+/library/x64/Release/
+/library/x64/Release/IntuSoftDemosaic.dll
+/library/x64/Release/IntuSoftDemosaic.pdb
+/library/x64/Release/IntuSoftUSBController.dll
+/library/x64/Release/IntuSoftUSBController.pdb
+/library/x64/Release/libusb-1.0.dll
+/library/x64/Release/libusb-1.0.pdb
+/library/x64/Release/LiveModeProcessing.dll
+/library/x64/Release/LiveModeProcessing.pdb
+/library/x64/Release/vc143.pdb

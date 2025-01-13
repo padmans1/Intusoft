@@ -1,6 +1,7 @@
 ﻿using Emgu.CV;
 using Emgu.CV.CvEnum;
 using Emgu.CV.Structure;
+using INTUSOFT.Configuration;
 using INTUSOFT.EventHandler;
 using NLog;
 using System;
@@ -711,8 +712,8 @@ namespace INTUSOFT.Imaging
                     {
                         uint val = 0;
                         GetExposure(ref val);
-                        if(IVLCamVariables._Settings.CameraSettings.CaptureExposure != val)
-                            SetExposure(IVLCamVariables._Settings.CameraSettings.CaptureExposure);
+                        if(Convert.ToUInt32(ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val) != val)
+                            SetExposure(Convert.ToUInt32(ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val));
 
                     }
                     SetGain((ushort)gainLUT[AnalogVal]);

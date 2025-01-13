@@ -1071,12 +1071,12 @@ namespace INTUSOFT.Desktop.Forms
             {
                 if (isEmr)
                 {
-                    if (p == null)
                     {
                         Process p = new Process();
                         p.StartInfo = new ProcessStartInfo("ReportTemplateCreator.exe");
+                        p.Start();
                     }
-                    p.Start();
+                    
                 }
             }
             else if (keyData == Keys.PageUp)

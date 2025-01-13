@@ -37,6 +37,9 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DesignSurfaceExt2">
       <HintPath>$(SolutionDir)DesignSurfaceExt\bin\$(Configuration)\DesignSurfaceExt2.dll</HintPath>
@@ -173,6 +176,10 @@
       <Project>{a4ecaa12-a541-4225-951b-aa7cb286293c}</Project>
       <Name>FormsInheritance</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IVLConfiguration\IVLConfiguration.csproj">
+      <Project>{82B5F435-0C96-4A1C-BE03-3F3BD6FE1617}</Project>
+      <Name>IVLConfiguration</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IVLReport\IVLReport.csproj">
       <Project>{9f2aa37f-cc63-4c5a-a6e1-5a755ff5cdfd}</Project>
       <Name>IVLReport</Name>
@@ -192,8 +199,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>xcopy /s/y "$(SolutionDir)library\$(PlatformTarget)\$(Configuration)\*.dll" "$(TargetDir)"
+xcopy /y "$(SolutionDir)library\$(PlatformTarget)\*.dll" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>xcopy "$(SolutionDir)ReportTemplates\*.*" "$(TargetDir)ReportTemplates" /Y /I /E</PreBuildEvent>

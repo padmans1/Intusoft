@@ -76,7 +76,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;x64</DefineConstants>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <Optimize>true</Optimize>
     <DebugType>pdbonly</DebugType>
     <PlatformTarget>x64</PlatformTarget>
@@ -935,8 +935,9 @@ copy "$(SolutionDir)ImageListView\bin\$(Configuration)\ImageListView.dll" "$(Tar
 
 xcopy "$(SolutionDir)SQLs\*.*" "$(TargetDir)SQLs" /Y /I /E
 xcopy /s/y "$(SolutionDir)CreateOrAlterDB\bin\$(Configuration)\CreateOrAlterDB.exe" "$(TargetDir)"
-xcopy /s/y "$(SolutionDir)ReportTemplateCreator\bin\$(Configuration)\ReportTemplateCreator.exe" "$(TargetDir)"
-xcopy /s/y "$(SolutionDir)CopyAppData\bin\$(Configuration)\CopyAppData.exe" "$(TargetDir)"</PostBuildEvent>
+xcopy /s/y "$(SolutionDir)ReportTemplateCreator\bin\$(Configuration)\ReportTemplateCreator.*" "$(TargetDir)"
+xcopy /s/y "$(SolutionDir)CopyAppData\bin\$(Configuration)\CopyAppData.exe" "$(TargetDir)"
+</PostBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
     <PreBuildEvent>xcopy "$(SolutionDir)ReportTemplates\*.*" "$(TargetDir)ReportTemplates" /Y /I /E</PreBuildEvent>

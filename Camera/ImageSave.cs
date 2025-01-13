@@ -106,8 +106,9 @@ namespace INTUSOFT.Imaging
             try
             {
                 // Create current date's directory in the SavePath
-                LogManager.Configuration.Variables["dir4"] = IVLCamVariables._Settings.ImageSaveSettings.RawImageDirPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd") + Path.DirectorySeparatorChar + "save_" + DateTime.Now.ToString("HHmmss");
-                IVLCamVariables.RawImageSaveDirPath = IVLCamVariables._Settings.ImageSaveSettings.RawImageDirPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd") + Path.DirectorySeparatorChar + "save_" + DateTime.Now.ToString("HHmmss");
+                var savePath = IVLCamVariables._Settings.ImageSaveSettings.RawImageDirPath + Path.DirectorySeparatorChar + DateTime.Now.ToString("yyyy-MM-dd") + Path.DirectorySeparatorChar + "save_" + DateTime.Now.ToString("HHmmss");
+                LogManager.Configuration.Variables["dir4"] = savePath;
+                IVLCamVariables.RawImageSaveDirPath = savePath;
                 if (!Directory.Exists(IVLCamVariables.RawImageSaveDirPath))
                     Directory.CreateDirectory(IVLCamVariables.RawImageSaveDirPath);
                 //captureLog.Debug("Debug image directory created");

@@ -684,16 +684,10 @@ namespace INTUSOFT.Imaging
                 if (!IVLCamVariables.isLive)
                 {
                     // ImageProc_ApplyMask(bdata.Scan0, false, bmWidth, bmHeight);
-                    if (isColor)
-                    {
                         Image<Bgr, byte> inp = new Image<Bgr, byte>(bm);
                         inp._And(CaptureMaskBitmap);
                         bm = inp.ToBitmap();
-                    }
-                    else
-                    {
-                        redChannelImage._And(CaptureMaskBitmap[0]);
-                    }
+                        inp.Dispose();
                 }
                 else if (settings.isApplyLiveMask)
                 {

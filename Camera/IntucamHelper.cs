@@ -516,7 +516,7 @@ namespace INTUSOFT.Imaging
                             IVLCamVariables.BoardHelper.IRLightOff();
                         }
                         IVLCamVariables.BoardHelper.SetRealTime();// to set real time in the microcontroller to get the timing info the microcontroller
-                        motorMotionTimer.Interval = (IVLCamVariables._Settings.BoardSettings.MotorSteps * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
+                        motorMotionTimer.Interval = Math.Abs(IVLCamVariables._Settings.BoardSettings.MotorSteps * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
                         logArg["TimeStamp"] = DateTime.Now;
                         logArg["Msg"] = string.Format(" Motor Steps = {0}  ", motorMotionTimer.Interval);
                         //logArg["callstack"] = Environment.StackTrace;
@@ -1594,7 +1594,7 @@ namespace INTUSOFT.Imaging
                 //IVLCamVariables._eventHandler.Notify(IVLCamVariables._eventHandler.UpdateFFATime, arg);
                 FrameRate_lbl.Text = "Current Camera Status = Resuming";// e["FrameRate"] as string;// +"TrigSt =" + e["TriggerStatus"] as string; ;
 
-                motorMotionTimer.Interval = (IVLCamVariables._Settings.BoardSettings.MotorSteps * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
+                motorMotionTimer.Interval = Math.Abs (IVLCamVariables._Settings.BoardSettings.MotorSteps * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
                 if (IVLCamVariables._Settings.BoardSettings.MotorSteps != 0)
                 {
                     StartMotorMovement(!IVLCamVariables._Settings.BoardSettings.MotorPolarityIsForward, (byte)IVLCamVariables._Settings.BoardSettings.MotorSteps);
@@ -1937,7 +1937,7 @@ namespace INTUSOFT.Imaging
             //IVLCamVariables.BoardHelper.BulkTimerStartStop(true);
             if (!IVLCamVariables._Settings.BoardSettings.isMotorSensorPresent)
 
-                motorMotionTimer.Interval = (IVLCamVariables._Settings.BoardSettings.MotorSensorStepsMax * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
+                motorMotionTimer.Interval = Math.Abs(IVLCamVariables._Settings.BoardSettings.MotorSensorStepsMax * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
 
             else
                 motorMotionTimer.Interval = (Math.Abs(camPropsHelper.MotorResetSteps) * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
@@ -2132,7 +2132,7 @@ namespace INTUSOFT.Imaging
                         #region This code is done to change the offset from posterior to anterior focus after reset of the motor is done
                         if (IVLCamVariables.ImagingMode == Imaging.ImagingMode.Anterior_45 || IVLCamVariables.ImagingMode == Imaging.ImagingMode.Anterior_Prime)
                         {
-                            motorMotionTimer.Interval = (camPropsHelper.Posterior2AnteriorOffsetMotorSteps * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
+                            motorMotionTimer.Interval = Math.Abs(camPropsHelper.Posterior2AnteriorOffsetMotorSteps * IVLCamVariables._Settings.BoardSettings.MotorPerStepTime + IVLCamVariables._Settings.BoardSettings.MotorStepOffsetTime);// time interval for motor timer time out in milliseconds always set at the time of capture
 
                             StartMotorMovement(true, Convert.ToByte(camPropsHelper.Posterior2AnteriorOffsetMotorSteps));// motor move from poterior to anterior steps
                             isResetMode = false;

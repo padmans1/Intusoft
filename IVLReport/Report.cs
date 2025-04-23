@@ -390,7 +390,13 @@ namespace IVLReport
             _dataModel.ReportData["$RightOtherPathObs"] = result.results.right_eye.other_pathology_result;
             _dataModel.ReportData["$Referrable"] = string.Empty;
             _dataModel.ReportData["$NonReferrable"] = string.Empty;
-            if ((result.results.left_eye.dr_severity == "high") || (result.results.right_eye.dr_severity == "high") || (result.results.left_eye.other_pathology_severity == "high") || (result.results.right_eye.other_pathology_severity == "high"))
+            if(result.results.left_eye.dr_severity == "Image Quality Insufficient" || result.results.right_eye.dr_severity == "Image Quality Insufficient")
+            {
+                _dataModel.ReportData["$NonReferrable"] = "Image Quality Insufficient";
+                _dataModel.ReportData["$Comments"] = "Image Quality Insufficient, Retry with different images";
+            }
+
+            else if ((result.results.left_eye.dr_severity == "high") || (result.results.right_eye.dr_severity == "high") || (result.results.left_eye.other_pathology_severity == "high") || (result.results.right_eye.other_pathology_severity == "high"))
             {
                 if ((result.results.left_eye.other_pathology_severity == "high") || (result.results.right_eye.other_pathology_severity == "high"))
                 {

@@ -27,7 +27,7 @@ namespace INTUSOFT.Imaging
         private static readonly Logger Exception_Log = LogManager.GetLogger("ExceptionLog");
         // private static readonly ILog captureLog = LogManager.GetLogger("CaptureLogger");
 
-        public static List<Args> capture_log ;//
+        public static List<Args> capture_log;//
         public static List<Args> frameLogList;// = new List<Args>();
         public int LiveFrameCount = 0;
         /// <summary>
@@ -92,7 +92,7 @@ namespace INTUSOFT.Imaging
             IVLCamVariables.PostProcessing = PostProcessing.GetInstance();
             RawImageList = new List<byte[]>();
             CaptureImageList = new List<Bitmap>();
-           
+
             if (IVLCamVariables.CurrentCameraVendor == CameraVendors.Vendor1)// if the current camera is vendor1
             {
                 arr = Nncam.EnumV2();
@@ -100,33 +100,33 @@ namespace INTUSOFT.Imaging
                 {
                     isDevicePresent = false;
                     Args logArg = new Args();
-                    
+
                     logArg["TimeStamp"] = DateTime.Now;
                     logArg["Msg"] = "Device not present in the device array";
                     //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add("Device not present in the device array");
                     //log.Info();
-                     //IVLCamVariables.CameraLogList.Add(logArg);
+                    //IVLCamVariables.CameraLogList.Add(logArg);
 
                 }
                 else
                 {
-                    
+
                     if (FrameDateTime == null)// create a new list to save the capture frames date time
                         FrameDateTime = new List<DateTime>();
                     if (CaptureFrameDateTime == null)
                         CaptureFrameDateTime = new List<DateTime>();
                     Args logArg = new Args();
-                    
+
                     logArg["TimeStamp"] = DateTime.Now;
                     logArg["Msg"] = string.Format("Device  present in the device array{0}  ", arr[0]);
-                    string str = string.Format("Device  present in the device array{0}  ", arr[0] );
+                    string str = string.Format("Device  present in the device array{0}  ", arr[0]);
                     //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(str);
-                     //IVLCamVariables.CameraLogList.Add(logArg);
+                    //IVLCamVariables.CameraLogList.Add(logArg);
                     isDevicePresent = true;
-                  
+
                 }
             }
-           
+
         }
         public void Dispose()
         {
@@ -141,9 +141,9 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
-            } 
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
+            }
         }
 
         protected virtual void Dispose(bool disposing)
@@ -159,12 +159,12 @@ namespace INTUSOFT.Imaging
                 }
                 disposed = true;
             }
-            catch ( Exception ex)
+            catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
             }
-            
+
         }
 
         public static Camera createCamera()
@@ -175,12 +175,12 @@ namespace INTUSOFT.Imaging
                 {
                     camera = new Camera();
                 }
-                
+
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
             }
             IVLCamVariables.ivl_Camera = camera;
             return camera;
@@ -207,9 +207,9 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
-            } 
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
+            }
         }
 
         #region****************/////// Live Mode ///////****************
@@ -237,7 +237,7 @@ namespace INTUSOFT.Imaging
                 }
                 else
                 {
-             
+
                     return Devices.CameraDisconnected;
                 }
             }
@@ -247,7 +247,7 @@ namespace INTUSOFT.Imaging
                 //                 CameraLogger.WriteException(ex, Exception_Log);
                 return Devices.CameraDisconnected;
             }
-            
+
         }
 
         public bool StartStrobeMode()
@@ -391,10 +391,10 @@ namespace INTUSOFT.Imaging
                 }
                 else
                     if (!isPause && ret)
-                    {
-                        IVLCamVariables.isLive = true;
+                {
+                    IVLCamVariables.isLive = true;
 
-                    }
+                }
             }
             return ret;
         }
@@ -434,8 +434,8 @@ namespace INTUSOFT.Imaging
                     IVLCamVariables.intucamHelper.standByTimer.Enabled = true;
                     IVLCamVariables.intucamHelper.standByTimer.Start();
                 }
-                    //IVLCamVariables.logClass.CaptureLogList.Add(str);
-                 //IVLCamVariables.CameraLogList.Add(logArg);
+                //IVLCamVariables.logClass.CaptureLogList.Add(str);
+                //IVLCamVariables.CameraLogList.Add(logArg);
                 //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(str);
 
                 return ret;
@@ -451,8 +451,8 @@ namespace INTUSOFT.Imaging
 
                     ex = ex.InnerException;
                 }
-               CameraLogger.WriteException(ex, Exception_Log);
-//                Exception_Log.Info(stringBuilder.ToString());
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                Exception_Log.Info(stringBuilder.ToString());
                 //MessageBox.Show(ex.Message);
                 return false;
             }
@@ -529,7 +529,7 @@ namespace INTUSOFT.Imaging
                         }
                     }
                     #endregion
-                    
+
                 }
                 //Args arg = new Args();
                 //arg["rawImage"] = overlayImage;//.Clone();// IVLCamVariables.CaptureBm;
@@ -589,43 +589,43 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
             }
             return ret;
-            
+
         }
 
 
         public bool SetRGBGain(int[] RGB)
         {
-            bool retVal= false;
+            bool retVal = false;
             try
             {
-                 retVal = _vendor1.put_WhiteBalanceGain(RGB);
+                retVal = _vendor1.put_WhiteBalanceGain(RGB);
             }
-                
+
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log); 
-                retVal=false;
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log); 
+                retVal = false;
             }
             return retVal;
-            
+
         }
         public override bool GetRGBGain(int[] RGB)
         {
             bool retVal = false;
             try
             {
-                 retVal = _vendor1.get_WhiteBalanceGain(RGB);
+                retVal = _vendor1.get_WhiteBalanceGain(RGB);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
-            } 
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
+            }
             return retVal;
         }
         // public static void 
@@ -643,12 +643,12 @@ namespace INTUSOFT.Imaging
                     //    _vendor1 = new Vendor1();
                     string str = "";
                     //bool ret = myCamera.Open("@" + arr[0].id);// For RGB mode
-                     _vendor1 =  Nncam.Open(arr[0].id);//Temperature tint mode for white balance
-                  
-                    isOpenCamera = ret = (_vendor1!=null);
+                    _vendor1 = Nncam.Open(arr[0].id);//Temperature tint mode for white balance
+
+                    isOpenCamera = ret = (_vendor1 != null);
                     if (ret)
                     {
-                        str = string.Format("open Camera {0}  ", ret );
+                        str = string.Format("open Camera {0}  ", ret);
                         Args logArg = new Args();
 
                         logArg["TimeStamp"] = DateTime.Now;
@@ -692,12 +692,12 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
-           
+
         }
 
         public void UpdateExposureGainFromTable(int AnalogVal)
@@ -712,7 +712,7 @@ namespace INTUSOFT.Imaging
                     {
                         uint val = 0;
                         GetExposure(ref val);
-                        if(Convert.ToUInt32(ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val) != val)
+                        if (Convert.ToUInt32(ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val) != val)
                             SetExposure(Convert.ToUInt32(ConfigVariables.CurrentSettings.CameraSettings._FlashExposure.val));
 
                     }
@@ -721,10 +721,10 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
             }
-            
+
         }
 
         public int[] GetExposureGainFromTable(int AnalogVal)
@@ -736,15 +736,15 @@ namespace INTUSOFT.Imaging
                 {
                     gainExpArr[0] = exposureLUT[AnalogVal];
                     gainExpArr[1] = gainLUT[AnalogVal];
-                    
+
                 }
                 return gainExpArr;
 
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 return new int[2];
             }
         }
@@ -763,11 +763,11 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 return 0;
             }
-            
+
 
         }
         public byte GetStrobeWidth(int indx)
@@ -775,13 +775,13 @@ namespace INTUSOFT.Imaging
             byte ret = 0;
             try
             {
-                ret=StrobeLut[indx];
+                ret = StrobeLut[indx];
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
-                
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
+
             }
             return ret;
         }
@@ -793,10 +793,10 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);
             }
-           
+
         }
         public bool RotateHorizontal(bool isRotate)
         {
@@ -805,12 +805,12 @@ namespace INTUSOFT.Imaging
             {
                 if (IVLCamVariables.isCameraConnected == Devices.CameraConnected)
 
-                retVal =  _vendor1.put_HFlip(isRotate);
+                    retVal = _vendor1.put_HFlip(isRotate);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log); 
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log); 
             }
             return retVal;
 
@@ -827,7 +827,7 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);   
             }
             return retVal;
@@ -843,7 +843,7 @@ namespace INTUSOFT.Imaging
                         StopLiveMode();
 
                     ServoReset();
-                   bool returnValue = _vendor1.Stop();
+                    bool returnValue = _vendor1.Stop();
 
                     CurrentExposure = 0;//reset of current exposure to 0 when camera is disconnected.
                     CurrentGain = 0;//reset of current gain to 0 when camera is disconnected.
@@ -853,9 +853,9 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log); 
-            } 
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log); 
+            }
         }
 
         #region****************/////// Frame Rate ///////****************
@@ -874,7 +874,7 @@ namespace INTUSOFT.Imaging
         #region****************/////// WND PROC  ///////****************
 
         [System.Security.Permissions.PermissionSet(System.Security.Permissions.SecurityAction.Demand, Name = "FullTrust")]
-        
+
         void WndProc(ref System.Windows.Forms.Message m)
         {
             try
@@ -897,12 +897,12 @@ namespace INTUSOFT.Imaging
                                 if (IVLCamVariables.isCapturing)
                                     //IVLCamVariables.logClass.CaptureLogList.Add(str);
                                     capture_log.Add(logArg);
-                                 //IVLCamVariables.CameraLogList.Add(logArg);
+                                //IVLCamVariables.CameraLogList.Add(logArg);
                                 //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(str);
 
                                 break;
                             }
-                            
+
                         case Nncam.eEVENT.EVENT_DISCONNECTED:// vendor1 windows event to indicate device has been disconnected
                             {
                                 Args arg = new Args();
@@ -917,7 +917,7 @@ namespace INTUSOFT.Imaging
                                 IVLCamVariables.CurrentFrameCnt++;
                                 LiveFrameCount++;
                                 FrameDateTime.Add(DateTime.Now);
-                               
+
 
                                 if (FrameDateTime.Count > 1)
                                 {
@@ -928,7 +928,7 @@ namespace INTUSOFT.Imaging
                                 if (IVLCamVariables.isCapturing)
                                     CaptureFrameDateTime.Add(FrameDateTime[FrameDateTime.Count - 1]);
                                 String frameDetails = string.Format("Frame Recieved, {0}, and Time Diff, {1} ,frame Time = ,{2}", (FrameDateTime.Count - 1), timeDiff, FrameDateTime[FrameDateTime.Count - 1].ToString("HH-mm-ss-ffff"));
-                                
+
                                 //if (IVLCamVariables.IsFlashOnDone)
                                 //{
                                 //    if (!IVLCamVariables.IsFlashOffDone)// if flash off done not recieved
@@ -955,13 +955,13 @@ namespace INTUSOFT.Imaging
                                     capture_log.Add(logArg);
                                     //IVLCamVariables.logClass.CaptureLogList.Add();
                                     //captureLog.Info(string.Format("FrameDetails = {0}, Peak Frame Count ={1}, Capture Index ={2}, flash off done status = {3}", frameDetails, IVLCamVariables.FrameBetweenFlashOnFlashOffDoneCnt, IVLCamVariables.CaptureImageIndx, IVLCamVariables.IsFlashOffDone));
-                                    
+
                                     //IVLCamVariables.logClass.CaptureLogList.Add();
 
                                 }
-                                 //IVLCamVariables.CameraLogList.Add(logArg);
-                                    //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(frameDetails);
-                                    //IVLCamVariables.logClass.FrameLogList.Add(frameDetails);
+                                //IVLCamVariables.CameraLogList.Add(logArg);
+                                //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(frameDetails);
+                                //IVLCamVariables.logClass.FrameLogList.Add(frameDetails);
                                 OnEventImage();// method used to get the image from the sensor once the event is fired
 
 
@@ -971,12 +971,12 @@ namespace INTUSOFT.Imaging
                     #endregion
 
                 }
-        
+
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log); 
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log); 
             }
         }
 
@@ -988,8 +988,8 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-                 CameraLogger.WriteException(ex, Exception_Log);  
-            } 
+                CameraLogger.WriteException(ex, Exception_Log);
+            }
         }
         #endregion
 
@@ -1010,11 +1010,11 @@ namespace INTUSOFT.Imaging
                         {
                             IVLCamVariables.FlashIndx = indx;
                             IVLCamVariables.captureImageType = CapturedImageType.Flash;
-                           // StopLiveMode();
+                            // StopLiveMode();
 
-                             identifier = true;
+                            identifier = true;
                         }
-                        else  identifier = false;
+                        else identifier = false;
                     }
                     else if (IVLCamVariables.imageCatList[indx] == ImageCategory.GR)
                     {
@@ -1024,12 +1024,12 @@ namespace INTUSOFT.Imaging
                             IVLCamVariables.GRIndx = indx;
                             IVLCamVariables.captureImageType = CapturedImageType.GbGr;
                             //StopLiveMode();
-                             identifier = true;
+                            identifier = true;
                         }
-                        else  identifier = false;
+                        else identifier = false;
                     }
                     else
-                         identifier = false;
+                        identifier = false;
                 }
                 else if (IVLCamVariables._Settings.CameraSettings.CameraModel == CameraModel.B)
                 {
@@ -1037,23 +1037,23 @@ namespace INTUSOFT.Imaging
                     {
                         if (IVLCamVariables.liveLedCode == LedCode.Flash && (IVLCamVariables.imageCatList[indx - 1] == ImageCategory.Dark ||
                             IVLCamVariables.imageCatList[indx - 1] == ImageCategory.GB ||
-                            IVLCamVariables.imageCatList[indx - 1] == ImageCategory.GR ||IVLCamVariables.imageCatList[indx -1 ] == ImageCategory.Flash)) 
+                            IVLCamVariables.imageCatList[indx - 1] == ImageCategory.GR || IVLCamVariables.imageCatList[indx - 1] == ImageCategory.Flash))
                         {
                             IVLCamVariables.FlashIndx = indx;
                             IVLCamVariables.captureImageType = CapturedImageType.Flash;
                             identifier = true;
-                              
+
                         }
                         else if (IVLCamVariables.imageCatList[indx - 1] == ImageCategory.Dark ||
                             IVLCamVariables.imageCatList[indx - 1] == ImageCategory.GB ||
                             IVLCamVariables.imageCatList[indx - 1] == ImageCategory.GR)
                         {
-                                IVLCamVariables.FlashIndx = indx;
-                                IVLCamVariables.captureImageType = CapturedImageType.Flash;
-                             identifier = true;//isFlashImage;
+                            IVLCamVariables.FlashIndx = indx;
+                            IVLCamVariables.captureImageType = CapturedImageType.Flash;
+                            identifier = true;//isFlashImage;
                         }
                         else
-                             identifier = false;
+                            identifier = false;
                     }
                     else if (IVLCamVariables.imageCatList[indx] == ImageCategory.GB)
                     {
@@ -1065,20 +1065,20 @@ namespace INTUSOFT.Imaging
                             //if (IVLCamVariables.GRIndx <= 1 && IVLCamVariables.imageCatList[0] != ImageCategory.Dark)
                             //    return false;
                             IVLCamVariables.captureImageType = CapturedImageType.GbGr;
-                             identifier = true;
+                            identifier = true;
                         }
                         else
-                             identifier = false;
+                            identifier = false;
                     }
-                    else  identifier = false;
+                    else identifier = false;
                 }
                 else
                     identifier = false;
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 identifier = false;
             }
             return identifier;
@@ -1093,22 +1093,22 @@ namespace INTUSOFT.Imaging
                 Bitmap bm = new Bitmap(BMwidth, BMheight, PixelFormat.Format24bppRgb);
 
                 bool retVal = false;
-                
+
                 {
 
                     uint bmWidth = 0;
                     uint bmHeight = 0;
 
 
-                    if ( IVLCamVariables._Settings.CameraSettings.isRawMode)
+                    if (IVLCamVariables._Settings.CameraSettings.isRawMode)
                     {
 
-                    //    Array.Clear(bytes, 0, bytes.Length);// this is used to clear the byte array so that previous data is not used as new data in case camera frame event failure
+                        //    Array.Clear(bytes, 0, bytes.Length);// this is used to clear the byte array so that previous data is not used as new data in case camera frame event failure
                         pinnedArray1 = GCHandle.Alloc(bytes, GCHandleType.Pinned);
                         pointer1 = pinnedArray1.AddrOfPinnedObject();
                         retVal = _vendor1.PullImage(pointer1, 8, out bmWidth, out bmHeight);
                         if (!IVLCamVariables.isCapturing)
-                        
+
                         {
                             bdata = bm.LockBits(new Rectangle(0, 0, BMwidth, BMheight), ImageLockMode.WriteOnly, PixelFormat.Format24bppRgb);
 
@@ -1139,7 +1139,7 @@ namespace INTUSOFT.Imaging
 
 
                                     if (IVLCamVariables._Settings.PostProcessingSettings.ccSettings.isApplyLiveColorCorrection)
-                                        IVLCamVariables.PostProcessing.Applycolorcorrection(ref bm, IVLCamVariables._Settings.PostProcessingSettings.ccSettings,IVLCamVariables.isColor);
+                                        IVLCamVariables.PostProcessing.Applycolorcorrection(ref bm, IVLCamVariables._Settings.PostProcessingSettings.ccSettings, IVLCamVariables.isColor);
 
                                     IVLCamVariables.PostProcessing.Denoise(ref bm, IVLCamVariables._Settings.PostProcessingSettings.unsharpMaskSettings);
                                 }
@@ -1171,7 +1171,7 @@ namespace INTUSOFT.Imaging
                     #region Raw To Bitmap conversion
                     if (!IVLCamVariables.isCapturing && !IVLCamVariables.isResuming)// && IVLCamVariables.isCameraConnected == Devices.CameraConnected && IVLCamVariables.isPowerConnected == Devices.PowerConnected)
                     {
-                            ApplyOverlay(bm);
+                        ApplyOverlay(bm);
                     }
                     else if (IVLCamVariables.isCapturing && !IVLCamVariables.isResuming)
                     {
@@ -1195,7 +1195,7 @@ namespace INTUSOFT.Imaging
                                         if (IVLCamVariables.IsFlashOffDone)//if flash off is done
                                         {
 
-                                            if (IVLCamVariables.CaptureImageIndx == -1 )//if capture image index not equals to '-1'.
+                                            if (IVLCamVariables.CaptureImageIndx == -1)//if capture image index not equals to '-1'.
                                             {
                                                 IVLCamVariables.CaptureImageIndx = IVLCamVariables.imageCatList.Count - 1;
                                             }
@@ -1204,8 +1204,8 @@ namespace INTUSOFT.Imaging
                                                 if (IVLCamVariables.imageCatList.Count > (IVLCamVariables.CaptureImageIndx + 1))
                                                 {
                                                     IVLCamVariables.captureImageType = CapturedImageType.Flash;
-                                                    if(IVLCamVariables.isLive)
-                                                    GetCaptureFrame();
+                                                    if (IVLCamVariables.isLive)
+                                                        GetCaptureFrame();
 
                                                 }
                                             }
@@ -1298,7 +1298,7 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-                Common.ExceptionLogWriter.WriteLog(ex,Exception_Log);
+                Common.ExceptionLogWriter.WriteLog(ex, Exception_Log);
 
                 // CameraLogger.WriteException(ex, Exception_Log);  
             }
@@ -1316,15 +1316,15 @@ namespace INTUSOFT.Imaging
             IVLCamVariables.IsFlashOffDone = false;
             IVLCamVariables.captureFailureCode = CaptureFailureCode.FrameNotReceived;
             Args logArg = new Args();
-            
+
             logArg["TimeStamp"] = DateTime.Now;
             logArg["Msg"] = string.Format("Capture Failure = {0}  ", IVLCamVariables.captureFailureCode);
             //logArg["callstack"] = Environment.StackTrace;
             capture_log.Add(logArg);
             //IVLCamVariables.logClass.CaptureLogList.Add();
-             //IVLCamVariables.CameraLogList.Add(logArg);
+            //IVLCamVariables.CameraLogList.Add(logArg);
             //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(string.Format("Time = {0},Capture Failure = {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), IVLCamVariables.captureFailureCode));
-           // IVLCamVariables.intucamHelper.CompleteCaptureSequence();
+            // IVLCamVariables.intucamHelper.CompleteCaptureSequence();
             IVLCamVariables._eventHandler.Notify(IVLCamVariables._eventHandler.SaveFrames2Disk, new Args());
         }
 
@@ -1344,7 +1344,7 @@ namespace INTUSOFT.Imaging
             bg.RunWorkerCompleted += bg_RunWorkerCompleted;
             bg.RunWorkerAsync();
             //if (IVLCamVariables._Settings.CameraSettings.isRawMode)
-           
+
             //System.Threading.ThreadPool.QueueUserWorkItem(LastFrameRecievedCallbackWait);
             //else
             //{
@@ -1362,7 +1362,7 @@ namespace INTUSOFT.Imaging
 
         void bg_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
-           
+
             if (IVLCamVariables._Settings.CameraSettings.isRawMode)
             {
                 if (IVLCamVariables._Settings.CameraSettings.CameraModel == CameraModel.C)
@@ -1390,30 +1390,30 @@ namespace INTUSOFT.Imaging
                     List<double> valList = new List<double>();
                     for (int i = IVLCamVariables.CaptureImageIndx; i < CaptureImageList.Count; i++)
                     {
-                   
-                    Image<Bgr, byte> inp1 = new Image<Bgr, byte>(CaptureImageList[i]);
-                    //Image<Bgr, byte> inp2 = new Image<Bgr, byte>(CaptureImageList[IVLCamVariables.CaptureImageIndx + 1]);
-                    inp1.ROI = new Rectangle((inp1.Width / 2) - 100, 0, 200, inp1.Height);
-                    //inp2.ROI = new Rectangle((inp1.Width / 2) - 100, 0, 200, inp1.Height);
 
-                    double sum1 = inp1[2].GetSum().Intensity;
-                    valList.Add(sum1);
-                    Args logArg = new Args();
+                        Image<Bgr, byte> inp1 = new Image<Bgr, byte>(CaptureImageList[i]);
+                        //Image<Bgr, byte> inp2 = new Image<Bgr, byte>(CaptureImageList[IVLCamVariables.CaptureImageIndx + 1]);
+                        inp1.ROI = new Rectangle((inp1.Width / 2) - 100, 0, 200, inp1.Height);
+                        //inp2.ROI = new Rectangle((inp1.Width / 2) - 100, 0, 200, inp1.Height);
 
-                    logArg["TimeStamp"] = DateTime.Now;
-                    logArg["Msg"] = string.Format("Intensity Value = {0} Index = {1}  ", sum1,i);
-                    //logArg["callstack"] = Environment.StackTrace;
-                    capture_log.Add(logArg);
-                    //double sum2 = inp2[2].GetSum().Intensity;
-                    //if (sum1 < sum2)
-                    //    IVLCamVariables.CaptureImageIndx += 1;
-                    inp1.ROI = new Rectangle();
-                    //inp2.ROI = new Rectangle();
-                    inp1.Dispose();
-                    //inp2.Dispose();
-                   
+                        double sum1 = inp1[2].GetSum().Intensity;
+                        valList.Add(sum1);
+                        Args logArg = new Args();
+
+                        logArg["TimeStamp"] = DateTime.Now;
+                        logArg["Msg"] = string.Format("Intensity Value = {0} Index = {1}  ", sum1, i);
+                        //logArg["callstack"] = Environment.StackTrace;
+                        capture_log.Add(logArg);
+                        //double sum2 = inp2[2].GetSum().Intensity;
+                        //if (sum1 < sum2)
+                        //    IVLCamVariables.CaptureImageIndx += 1;
+                        inp1.ROI = new Rectangle();
+                        //inp2.ROI = new Rectangle();
+                        inp1.Dispose();
+                        //inp2.Dispose();
+
                     }
-                    IVLCamVariables.CaptureImageIndx = valList.IndexOf(valList.Max()) + IVLCamVariables.CaptureImageIndx ;
+                    IVLCamVariables.CaptureImageIndx = valList.IndexOf(valList.Max()) + IVLCamVariables.CaptureImageIndx;
                     //IVLCamVariables.CaptureImageIndx = CaptureImageList.Count - 1;
                 }
                 FrameDetectionForManufacturersDemosaicing();
@@ -1434,17 +1434,17 @@ namespace INTUSOFT.Imaging
             logArg["TimeStamp"] = DateTime.Now;
             logArg["Msg"] = "Added Delay Start  " + " Capture Image Index" + IVLCamVariables.CaptureImageIndx;
             capture_log.Add(logArg);
-               while (isCaptureFrameRecievedDuringSave)
-                {
-                      System.Threading.Thread.Sleep(Convert.ToInt32(Configuration.ConfigVariables.CurrentSettings.CameraSettings.DelayAfterFlashOffDone.val));
-                      isCaptureFrameRecievedDuringSave = false;
-                }
-               logArg = new Args();
-               logArg["TimeStamp"] = DateTime.Now;
-               logArg["Msg"] = "Added Delay Stop  " + " Capture Image Index" + IVLCamVariables.CaptureImageIndx;
+            while (isCaptureFrameRecievedDuringSave)
+            {
+                System.Threading.Thread.Sleep(Convert.ToInt32(Configuration.ConfigVariables.CurrentSettings.CameraSettings.DelayAfterFlashOffDone.val));
+                isCaptureFrameRecievedDuringSave = false;
+            }
+            logArg = new Args();
+            logArg["TimeStamp"] = DateTime.Now;
+            logArg["Msg"] = "Added Delay Stop  " + " Capture Image Index" + IVLCamVariables.CaptureImageIndx;
 
-               capture_log.Add(logArg);
-               
+            capture_log.Add(logArg);
+
         }
         private void checkIR(Bitmap bm)
         {
@@ -1452,13 +1452,13 @@ namespace INTUSOFT.Imaging
             {
                 //captureLog.Info("Check IR started");
                 Args logArg = new Args();
-                
+
                 logArg["TimeStamp"] = DateTime.Now;
                 logArg["Msg"] = "Check IR started ";
                 //logArg["callstack"] = Environment.StackTrace;
                 capture_log.Add(logArg);
                 //IVLCamVariables.logClass.CaptureLogList.Add(string.Format("Time = {0},Check IR started  ", DateTime.Now.ToString("HH-mm-ss-ffff")));
-                 //IVLCamVariables.CameraLogList.Add(logArg);
+                //IVLCamVariables.CameraLogList.Add(logArg);
                 //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(string.Format("Time = {0},Check IR started  ", DateTime.Now.ToString("HH-mm-ss-ffff")));
 
 
@@ -1472,13 +1472,13 @@ namespace INTUSOFT.Imaging
                     IVLCamVariables.CaptureImageIndx += 1;
                     //captureLog.Info(string.Format("Check IR done {0}", threshVal));
                     Args logArg1 = new Args();
-                    
+
                     logArg1["TimeStamp"] = DateTime.Now;
                     logArg1["Msg"] = string.Format("Check IR done {0}  ", threshVal);
                     //logArg["callstack"] = Environment.StackTrace;
                     capture_log.Add(logArg1);
                     //IVLCamVariables.logClass.CaptureLogList.Add();
-                     //IVLCamVariables.CameraLogList.Add(logArg);
+                    //IVLCamVariables.CameraLogList.Add(logArg);
                     //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(string.Format("Time = {0},Check IR done {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), threshVal));
 
 
@@ -1488,8 +1488,8 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);  
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);  
             }
         }
         private void GetCaptureFrameIndex()
@@ -1498,13 +1498,13 @@ namespace INTUSOFT.Imaging
             {
                 //captureLog.Info("Check IR started");
                 Args logArg = new Args();
-                
+
                 logArg["TimeStamp"] = DateTime.Now;
                 logArg["Msg"] = "Check IR started   ";
                 //logArg["callstack"] = Environment.StackTrace;
                 capture_log.Add(logArg);
                 //IVLCamVariables.logClass.CaptureLogList.Add(string.Format("Time = {0},Check IR started  ", DateTime.Now.ToString("HH-mm-ss-ffff")));
-                 //IVLCamVariables.CameraLogList.Add(logArg);
+                //IVLCamVariables.CameraLogList.Add(logArg);
                 //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(string.Format("Time = {0},Check IR started  ", DateTime.Now.ToString("HH-mm-ss-ffff")));
 
                 List<double> avg = new List<double>();
@@ -1513,11 +1513,11 @@ namespace INTUSOFT.Imaging
                 List<int> indexList = new List<int>();
                 int startIndex = CaptureImageList.Count - 2;//to check from the last 3 images from the list.
 
-                for (int i = CaptureImageList.Count-1; i >= startIndex; i--)
+                for (int i = CaptureImageList.Count - 1; i >= startIndex; i--)
                 {
                     indexList.Add(i);
                     Image<Bgr, byte> inp = new Image<Bgr, byte>(CaptureImageList[i]);
-                    inp.ROI = new Rectangle((inp.Width / 2) - 10,0, 20, inp.Height);
+                    inp.ROI = new Rectangle((inp.Width / 2) - 10, 0, 20, inp.Height);
                     Bgr avgVal = inp.GetAverage();//.Blue +inp.GetAverage().Green + inp.
                     double val = avgVal.Green + avgVal.Red + avgVal.Blue;
                     avg.Add(val);
@@ -1526,24 +1526,24 @@ namespace INTUSOFT.Imaging
                 IVLCamVariables.CaptureImageIndx = indexList[avg.IndexOf(avg.Max())];//since we are for looping in decrease order the array will be in increase order, so as get the exact index from the image list start index is added.
                 string str = "";
                 Args logArg1 = new Args();
-                
+
                 logArg1["TimeStamp"] = DateTime.Now;
                 logArg1["Msg"] = "Capture Index By frame Detection = " + IVLCamVariables.CaptureImageIndx;
                 //logArg["callstack"] = Environment.StackTrace;
                 capture_log.Add(logArg1);
-              str = string.Format("Time = {0},Capture Index By frame Detection = {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), IVLCamVariables.CaptureImageIndx );
-               //IVLCamVariables.logClass.CaptureLogList.Add(str);
-               //IVLCamVariables.CameraLogList.Add(logArg);
-              //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(str);
+                str = string.Format("Time = {0},Capture Index By frame Detection = {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), IVLCamVariables.CaptureImageIndx);
+                //IVLCamVariables.logClass.CaptureLogList.Add(str);
+                //IVLCamVariables.CameraLogList.Add(logArg);
+                //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(str);
 
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
             }
         }
 
-        
+
         /// <summary>
         /// Method To set whether the frame is IR/GB/GR/Flash/Dark
         /// </summary>
@@ -1630,14 +1630,14 @@ namespace INTUSOFT.Imaging
                     if (FrameDateTime.Count > 1)
                         t = FrameDateTime[FrameDateTime.Count - 1] - FrameDateTime[FrameDateTime.Count - 2];
                     Args logArg = new Args();
-                    
+
                     logArg["TimeStamp"] = DateTime.Now;
-                    logArg["Msg"] = string.Format("Frame = {0}, Frame Time Diff = {1}, Frame Category = {2}  ",(RawImageList.Count - 1).ToString(), t.Milliseconds.ToString(), str);
+                    logArg["Msg"] = string.Format("Frame = {0}, Frame Time Diff = {1}, Frame Category = {2}  ", (RawImageList.Count - 1).ToString(), t.Milliseconds.ToString(), str);
                     //logArg["callstack"] = Environment.StackTrace;
                     capture_log.Add(logArg);
                     //captureLog.Info("Frame " + (RawImageList.Count - 1).ToString() + " , Frame Time Diff = " + t.Milliseconds.ToString() + "  ," + " Frame Category =  " + str);
                     //IVLCamVariables.logClass.CaptureLogList.Add();
-                     //IVLCamVariables.CameraLogList.Add(logArg);
+                    //IVLCamVariables.CameraLogList.Add(logArg);
                     //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(string.Format("Time = {0}, Frame = {1}, Frame Time Diff = {2}, Frame Category = {3}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), (RawImageList.Count - 1).ToString(), t.Milliseconds.ToString(), str));
 
                     //IVLCamVariables.CaptureLog.Add(IVLCamVariables.FrameCaptureLog[IVLCamVariables.FrameCaptureLog.Count - 1]);
@@ -1645,7 +1645,7 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);    
             }
         }
@@ -1658,35 +1658,35 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
             }
-          
+
         }
         public override void Capture()
         {
             try
             {
                 //  stopLiveMode();
-            //setResolution(1);
-            uint resNum = 0;
-            _vendor1.get_eSize(out resNum);
-            _vendor1.get_Resolution(resNum, out width, out height);
-            CaptureBm = new Bitmap(width, height);
-            BitmapData bData = CaptureBm.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
-            uint cWidth = 0;
-            uint cHeight = 0;
-            _vendor1.PullStillImage(bData.Scan0, 24, out  cWidth, out cHeight);
-            CaptureBm.UnlockBits(bData);
-            // StopLiveMode();
-            // IntuCameraDataVariables.CaptureBm.Save(FileName);
-            CaptureImageList.Add(new Bitmap(CaptureBm as Bitmap));
-            CaptureBm.Dispose();
+                //setResolution(1);
+                uint resNum = 0;
+                _vendor1.get_eSize(out resNum);
+                _vendor1.get_Resolution(resNum, out width, out height);
+                CaptureBm = new Bitmap(width, height);
+                BitmapData bData = CaptureBm.LockBits(new Rectangle(0, 0, width, height), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
+                uint cWidth = 0;
+                uint cHeight = 0;
+                _vendor1.PullStillImage(bData.Scan0, 24, out cWidth, out cHeight);
+                CaptureBm.UnlockBits(bData);
+                // StopLiveMode();
+                // IntuCameraDataVariables.CaptureBm.Save(FileName);
+                CaptureImageList.Add(new Bitmap(CaptureBm as Bitmap));
+                CaptureBm.Dispose();
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);   
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);   
             }
         }
 
@@ -1700,13 +1700,13 @@ namespace INTUSOFT.Imaging
                 //
                 //captureLog.Info("Capture Index = {0}",IVLCamVariables.CaptureImageIndx);
                 Args logArg = new Args();
-                
+
                 logArg["TimeStamp"] = DateTime.Now;
                 logArg["Msg"] = "Capture Index = " + IVLCamVariables.CaptureImageIndx;
                 //logArg["callstack"] = Environment.StackTrace;
                 capture_log.Add(logArg);
                 //IVLCamVariables.logClass.CaptureLogList.Add(string.Format("Time = {0},Capture Index = {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), IVLCamVariables.CaptureImageIndx));
-                 //IVLCamVariables.CameraLogList.Add(logArg);
+                //IVLCamVariables.CameraLogList.Add(logArg);
                 //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(string.Format("Time = {0},Capture Index = {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), IVLCamVariables.CaptureImageIndx));
 
                 #region Raw Mode
@@ -1742,8 +1742,8 @@ namespace INTUSOFT.Imaging
 
                                 ex = ex.InnerException;
                             }
-                           CameraLogger.WriteException(ex, Exception_Log);
-//                            Exception_Log.Info(stringBuilder.ToString());
+                            CameraLogger.WriteException(ex, Exception_Log);
+                            //                            Exception_Log.Info(stringBuilder.ToString());
                             RawImage = new Bitmap(BMwidth, BMheight, PixelFormat.Format24bppRgb);
                             bdata = RawImage.LockBits(new Rectangle(0, 0, BMwidth, BMheight), ImageLockMode.ReadWrite, PixelFormat.Format24bppRgb);
 
@@ -1792,7 +1792,7 @@ namespace INTUSOFT.Imaging
 
                                     pinnedArray1.Free();
                                     RawImage.UnlockBits(bdata);
-                                    
+
 
                                     break;
                                 }
@@ -1819,8 +1819,8 @@ namespace INTUSOFT.Imaging
                             }
 
                             //arg["rawImage"] = IVLCamVariables.CaptureBm.Clone();//Mainly used to avoid resource(IVLCamVariables.CaptureBm) being locked and exception occuring becuse of the same.
-//                            pbx.Image = IVLCamVariables.CaptureBm.Clone() as Bitmap ;
-                            pbx.Image = CaptureBm.Clone() as Bitmap ;
+                            //                            pbx.Image = IVLCamVariables.CaptureBm.Clone() as Bitmap ;
+                            pbx.Image = CaptureBm.Clone() as Bitmap;
                             pbx.Refresh();
                             if (IVLCamVariables.ImagingMode == ImagingMode.FFA_Plus)
                             {
@@ -1831,20 +1831,20 @@ namespace INTUSOFT.Imaging
                             //image_pbx.Refresh();
 
                         }
-                           arg["isCaptureFailed"] = IVLCamVariables.isCaptureFailure;
-                        
-                            IVLCamVariables._eventHandler.Notify(IVLCamVariables._eventHandler.SaveFrames2Disk, arg);
+                        arg["isCaptureFailed"] = IVLCamVariables.isCaptureFailure;
+
+                        IVLCamVariables._eventHandler.Notify(IVLCamVariables._eventHandler.SaveFrames2Disk, arg);
                     }
                 }
                 #endregion
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);   
 
             }
-            
+
         }
 
         private void FrameDetectionForManufacturersDemosaicing()
@@ -1853,48 +1853,44 @@ namespace INTUSOFT.Imaging
             {
                 IVLCamVariables.IsFlashOffDone = false;
                 Args arg = new Args();
-               // GetCaptureFrameIndex();
+                // GetCaptureFrameIndex();
                 #region toupcam colorCorrection
-                    //IVLCamVariables.FrameBetweenFlashOnFlashOffDoneCnt = 0;
-                    Args logArg = new Args();
-                    
-                    logArg["TimeStamp"] = DateTime.Now;
-                    logArg["Msg"] = "Capture Indx current frame = " + IVLCamVariables.CaptureImageIndx;
-                    //logArg["callstack"] = Environment.StackTrace;
-                    string str = "";
-                    str = string.Format("Time = {0},Capture Indx current frame = {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), IVLCamVariables.CaptureImageIndx );
-                    capture_log.Add(logArg);
-                 //IVLCamVariables.logClass.CaptureLogList.Add(str);
-                     //IVLCamVariables.CameraLogList.Add(logArg);
-                    //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(str);
-                  CaptureBm =  CaptureImageList[IVLCamVariables.CaptureImageIndx].Clone() as Bitmap;
-                  ///IVLCamVariables.CaptureBm.Save("capturedFrame.png");
-                  if (IVLCamVariables._Settings.PostProcessingSettings.isApplyPostProcessing)
-                  {
-                      bool isColor = true;
-                      if (IVLCamVariables.ImagingMode == ImagingMode.FFA_Plus)
-                          isColor = false;
-                      IVLCamVariables.PostProcessing.ApplyPostProcessing(ref CaptureBm , isColor);
-                    if(!isColor)
+                //IVLCamVariables.FrameBetweenFlashOnFlashOffDoneCnt = 0;
+                Args logArg = new Args();
+
+                logArg["TimeStamp"] = DateTime.Now;
+                logArg["Msg"] = "Capture Indx current frame = " + IVLCamVariables.CaptureImageIndx;
+                //logArg["callstack"] = Environment.StackTrace;
+                string str = "";
+                str = string.Format("Time = {0},Capture Indx current frame = {1}  ", DateTime.Now.ToString("HH-mm-ss-ffff"), IVLCamVariables.CaptureImageIndx);
+                capture_log.Add(logArg);
+                //IVLCamVariables.logClass.CaptureLogList.Add(str);
+                //IVLCamVariables.CameraLogList.Add(logArg);
+                //IVLCamVariables.logClass. IVLCamVariables.CameraLogList.Add(str);
+                CaptureBm = CaptureImageList[IVLCamVariables.CaptureImageIndx].Clone() as Bitmap;
+                ///IVLCamVariables.CaptureBm.Save("capturedFrame.png");
+                if (IVLCamVariables._Settings.PostProcessingSettings.isApplyPostProcessing)
+                {
+                    IVLCamVariables.PostProcessing.ApplyPostProcessing(ref CaptureBm, false);
+                    if (IVLCamVariables.ImagingMode == ImagingMode.FFA_Plus)
                     {
                         IVLCamVariables.PostProcessing.GetMonoChromeImage(ref CaptureBm);
                         IVLCamVariables.PostProcessing.ApplyTimeStamp(ref CaptureBm, IVLCamVariables.FFATime, Color.LimeGreen);
                     }
                 }
-                   // IVLCamVariables._eventHandler.Notify(IVLCamVariables._eventHandler.DisplayCapturedImage, arg);
-                    pbx.Image = CaptureBm.Clone() as Bitmap;
-                    pbx.Refresh();
+                pbx.Image = CaptureBm.Clone() as Bitmap;
+                pbx.Refresh();
                 CaptureFrameDateTime.Clear();
                 arg["isCaptureFailed"] = IVLCamVariables.isCaptureFailure;
 
-                
-                    IVLCamVariables._eventHandler.Notify(IVLCamVariables._eventHandler.SaveFrames2Disk, arg);
+
+                IVLCamVariables._eventHandler.Notify(IVLCamVariables._eventHandler.SaveFrames2Disk, arg);
                 #endregion
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);   
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);   
             }
 
         }
@@ -1916,10 +1912,10 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);    
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);    
             }
-            
+
         }
         public void FlipHorizontal(bool isRotate)
         {
@@ -1932,10 +1928,10 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);    
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);    
             }
-            
+
         }
         public void FlipVertical(bool isRotate)
         {
@@ -1947,10 +1943,10 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);                   
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);                   
             }
-           
+
         }
         public override bool GetResolution(ref Dictionary<int, int> WidthHeight)
         {
@@ -1962,16 +1958,16 @@ namespace INTUSOFT.Imaging
                     _vendor1.get_Resolution((uint)i, out width, out height);
                     WidthHeight.Add(width, height);
                 }
-                
+
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 return false;
             }
             return true;
-            
+
         }
 
         public override bool setResolution(int mode)//
@@ -1983,8 +1979,8 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 retVal = false;
             }
             return retVal;
@@ -1996,17 +1992,17 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret=_vendor1.put_AutoExpoEnable(enable);
+                ret = _vendor1.put_AutoExpoEnable(enable);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
         }
-       public uint CurrentExposure;
+        public uint CurrentExposure;
         public override bool SetExposure(uint val)
         {
             bool ret = false;
@@ -2042,7 +2038,7 @@ namespace INTUSOFT.Imaging
 
             return ret;
         }
-       public ushort CurrentGain = 0;
+        public ushort CurrentGain = 0;
         public override bool SetGain(ushort val)
         {
             bool ret = false;
@@ -2073,12 +2069,12 @@ namespace INTUSOFT.Imaging
             {
                 if (IVLCamVariables.isCameraConnected == Devices.CameraConnected)
 
-                ret= _vendor1.get_ExpoTime(out expTime);
+                    ret = _vendor1.get_ExpoTime(out expTime);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2086,31 +2082,31 @@ namespace INTUSOFT.Imaging
         public bool GetGain(ref ushort expTime)
         {
             bool ret = false;
-             try
+            try
             {
                 if (IVLCamVariables.isCameraConnected == Devices.CameraConnected)
 
-                   ret = _vendor1.get_ExpoAGain(out expTime);
+                    ret = _vendor1.get_ExpoAGain(out expTime);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
-             return ret;
+            return ret;
         }
         public override bool SetGamma(int gammaVal)
         {
             bool ret = false;
             try
             {
-                ret= _vendor1.put_Gamma(gammaVal);
+                ret = _vendor1.put_Gamma(gammaVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2120,12 +2116,12 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret= _vendor1.get_Gamma(out gammaVal);
+                ret = _vendor1.get_Gamma(out gammaVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2136,13 +2132,13 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                  ret= _vendor1.put_Brightness(brightnessVal);
+                ret = _vendor1.put_Brightness(brightnessVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
-                ret = false;   
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
+                ret = false;
             }
             return ret;
         }
@@ -2151,13 +2147,13 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret= _vendor1.get_Gamma(out brightnessVal);
+                ret = _vendor1.get_Gamma(out brightnessVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);
-               ret = false;   
+                ret = false;
             }
             return ret;
         }
@@ -2167,12 +2163,12 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret= _vendor1.put_Contrast(contrastVal);
+                ret = _vendor1.put_Contrast(contrastVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2182,12 +2178,12 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                 ret= _vendor1.get_Contrast(out contrastVal);
+                ret = _vendor1.get_Contrast(out contrastVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2198,13 +2194,13 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret=_vendor1.put_Hue(hueVal);
+                ret = _vendor1.put_Hue(hueVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);
-              ret = false;  
+                ret = false;
             }
             return ret;
         }
@@ -2213,13 +2209,13 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-              ret=  _vendor1.get_Hue(out hueVal);
+                ret = _vendor1.get_Hue(out hueVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
-                ret = false;  
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
+                ret = false;
             }
             return ret;
         }
@@ -2229,13 +2225,13 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret=_vendor1.put_Saturation(saturationVal);
+                ret = _vendor1.put_Saturation(saturationVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);
-               ret = false;
+                ret = false;
             }
             return ret;
         }
@@ -2244,12 +2240,12 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret= _vendor1.get_Saturation(out saturationVal);
+                ret = _vendor1.get_Saturation(out saturationVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2261,12 +2257,12 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-               ret= _vendor1.get_ExpoAGainRange(out minVal, out maxVal, out defVal);
+                ret = _vendor1.get_ExpoAGainRange(out minVal, out maxVal, out defVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2276,12 +2272,12 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret= _vendor1.get_ExpTimeRange(out minVal, out maxVal, out defVal);
+                ret = _vendor1.get_ExpTimeRange(out minVal, out maxVal, out defVal);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2292,13 +2288,13 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret= _vendor1.put_TempTint(valTemp, valTint);
+                ret = _vendor1.put_TempTint(valTemp, valTint);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);
-               ret = false;
+                ret = false;
             }
             return ret;
         }
@@ -2308,45 +2304,45 @@ namespace INTUSOFT.Imaging
             bool ret = false;
             try
             {
-                ret=  _vendor1.get_TempTint(out valTemp, out valTint);
+                ret = _vendor1.get_TempTint(out valTemp, out valTint);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
-                ret = false; 
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
+                ret = false;
             }
             return ret;
         }
 
         public bool SetMonoMode(bool isMonoMode)
         {
-            bool ret= false;
+            bool ret = false;
             try
             {
-                 ret = _vendor1.put_Chrome(isMonoMode);
-                 return ret;
+                ret = _vendor1.put_Chrome(isMonoMode);
+                return ret;
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 return false;
             }
-            
+
         }
         public bool GetColorMode(ref bool isColorMode)
         {
             bool ret = false;
             try
             {
-                ret =_vendor1.get_Chrome(out isColorMode);
+                ret = _vendor1.get_Chrome(out isColorMode);
                 return ret;
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2361,8 +2357,8 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
-//                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
+                //                 CameraLogger.WriteException(ex, Exception_Log);
                 ret = false;
             }
             return ret;
@@ -2374,15 +2370,15 @@ namespace INTUSOFT.Imaging
             bool retVal = false;
             try
             {
-                 retVal = _vendor1.get_Speed(out val);
+                retVal = _vendor1.get_Speed(out val);
             }
             catch (Exception ex)
             {
-               CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
                 // CameraLogger.WriteException(ex, Exception_Log);
-               retVal = false;
+                retVal = false;
             }
-            
+
             return retVal;
         }
         #endregion
@@ -2437,9 +2433,9 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-                 CameraLogger.WriteException(ex, Exception_Log);  
+                CameraLogger.WriteException(ex, Exception_Log);
             }
-            
+
         }
         public AssistedFocus ComputeFocus(Bitmap src)
         {
@@ -2584,7 +2580,7 @@ namespace INTUSOFT.Imaging
             }
             catch (Exception ex)
             {
-                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
             }
             return af;
         }
@@ -2592,24 +2588,24 @@ namespace INTUSOFT.Imaging
         {
             try
             {
-                  
-            if (isRow)
-            {
-                src.ROI = new Rectangle(0, indx, src.Width, sizeOfRegion);
 
-                CvInvoke.Reduce(src, dst, ReduceDimension.SingleRow, ReduceType.ReduceSum);
+                if (isRow)
+                {
+                    src.ROI = new Rectangle(0, indx, src.Width, sizeOfRegion);
 
-            }
-            else
-            {
-                src.ROI = new Rectangle(indx, 0, sizeOfRegion, src.Height);
-                CvInvoke.Reduce(src, dst, ReduceDimension.SingleCol, ReduceType.ReduceSum);
-            }
-            src.ROI = new Rectangle();
+                    CvInvoke.Reduce(src, dst, ReduceDimension.SingleRow, ReduceType.ReduceSum);
+
+                }
+                else
+                {
+                    src.ROI = new Rectangle(indx, 0, sizeOfRegion, src.Height);
+                    CvInvoke.Reduce(src, dst, ReduceDimension.SingleCol, ReduceType.ReduceSum);
+                }
+                src.ROI = new Rectangle();
             }
             catch (Exception ex)
             {
-                 CameraLogger.WriteException(ex, Exception_Log);
+                CameraLogger.WriteException(ex, Exception_Log);
             }
         }
     }
@@ -2623,4 +2619,4 @@ namespace INTUSOFT.Imaging
         }
     }
 }
-        #endregion
+#endregion
